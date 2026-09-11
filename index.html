@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="light scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexo Sistemas | Painel de Controle de Expedição</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            ink: {
+              0: '#FFFFFF',
+              1: '#F8FAFC',
+              2: '#F1F5F9',
+              3: '#E2E8F0'
+            },
+            hairline: {
+              DEFAULT: '#E2E8F0',
+              strong: '#CBD5E1',
+              glow: '#94A3B8'
+            },
+            paper: {
+              0: '#0F172A',
+              1: '#334155',
+              2: '#64748B',
+              3: '#94A3B8'
+            },
+            accent: {
+              emerald: '#059669',
+              amber: '#D97706',
+              crimson: '#DC2626',
+              cyan: '#0284C7'
+            }
+          },
+          backgroundImage: {
+            'grid-pattern': "radial-gradient(70rem 26rem at 72% 82%, rgba(15,23,42,0.03), transparent 62%), repeating-linear-gradient(90deg, rgba(15,23,42,0.02) 0 1px, transparent 1px 96px), repeating-linear-gradient(0deg, rgba(15,23,42,0.02) 0 1px, transparent 1px 96px)",
+            'chrome-gradient': 'linear-gradient(135deg, #0F172A 0%, #475569 50%, #1E293B 100%)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Scrollbar & Chrome Text */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #FFFFFF;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #CBD5E1;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94A3B8;
+    }
+
+    .chrome-text {
+      background: linear-gradient(135deg, #0F172A 0%, #334155 45%, #1E293B 80%, #475569 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .glow-box {
+      box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.08), 0 4px 6px -2px rgba(15, 23, 42, 0.03);
+    }
+    
+    .glow-box-emerald {
+      box-shadow: 0 10px 30px -5px rgba(5, 150, 105, 0.12), 0 4px 6px -2px rgba(5, 150, 105, 0.04);
+    }
+
+    /* Trace Line Glow Animation */
+    .trace-node-active {
+      background-color: #059669 !important;
+      border-color: #10B981 !important;
+      box-shadow: 0 0 12px rgba(5, 150, 105, 0.6);
+    }
+  </style>
+</head>
+<body class="bg-ink-0 text-paper-1 font-sans antialiased min-h-screen bg-grid-pattern relative selection:bg-paper-0 selection:text-white">
+
+  <!-- BACKGROUND OVERLAY GRADIENT -->
+  <div class="fixed inset-0 pointer-events-none z-0">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(15,23,42,0.02),transparent_70%)]"></div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-50 border-b border-hairline bg-white/90 backdrop-blur-md">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-8 h-8 rounded border border-hairline-strong bg-paper-0 flex items-center justify-center font-mono font-bold text-white text-xs group-hover:bg-slate-800 transition-colors">
+          NX
+        </div>
+        <span class="font-bold text-paper-0 text-sm tracking-tight flex items-center gap-1.5">
+          NEXO SISTEMAS <span class="font-mono text-xs text-paper-2 font-normal">/ EXPEDIÇÃO</span>
+        </span>
+      </a>
+
+      <!-- NAV LINKS -->
+      <nav class="hidden md:flex items-center gap-6 font-mono text-xs text-paper-2">
+        <a href="#veja-na-pratica" class="hover:text-paper-0 transition-colors">01. VEJA NA PRÁTICA</a>
+        <a href="#recursos" class="hover:text-paper-0 transition-colors">02. O QUE RECEBE</a>
+        <a href="#como-funciona" class="hover:text-paper-0 transition-colors">03. COMO FUNCIONA</a>
+        <a href="#depoimentos" class="hover:text-paper-0 transition-colors">04. PROVA</a>
+        <a href="#valores" class="hover:text-paper-0 transition-colors">05. VALORES</a>
+        <a href="#beneficios" class="hover:text-paper-0 transition-colors">06. BENEFÍCIOS</a>
+        <a href="#faq" class="hover:text-paper-0 transition-colors">07. FAQ</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER WITH LEFT TRACE LINE -->
+  <div class="relative max-w-[1440px] mx-auto px-6 md:px-10">
+
+    <!-- VERTICAL TRACE LINE -->
+    <div class="hidden lg:block absolute left-10 top-0 bottom-0 w-px bg-hairline z-10">
+      <div id="scrollTrace" class="w-full bg-gradient-to-b from-paper-0 via-paper-2 to-hairline transition-all duration-150" style="height: 0%"></div>
+    </div>
+
+    <div class="lg:pl-16">
+
+      <!-- ==========================================
+           1. HERO SECTION (COPY FOCUSED)
+           ========================================== -->
+      <section id="hero" class="relative py-16 md:py-24 border-b border-hairline">
+        <!-- Trace Node -->
+        <span class="hidden lg:block absolute -left-[41px] top-24 w-2.5 h-2.5 rounded-full border border-hairline-strong bg-white trace-node transition-all duration-300"></span>
+        
+        <div class="max-w-4xl mx-auto text-center space-y-8">
+
+          <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold text-paper-0 tracking-tight leading-[1.12] max-w-3xl mx-auto">
+            Chega de contar estoque no olho e descobrir que está <span class="chrome-text">faltando dinheiro</span> no fim do mês
+          </h1>
+
+          <p class="text-base sm:text-lg md:text-xl text-paper-1 leading-relaxed max-w-3xl mx-auto font-normal">
+            Criamos um sistema exclusivo e personalizado para a sua própria empresa que mostra exatamente onde está cada produto da sua expedição — da separação até a rua — em tempo real, sem depender da palavra do funcionário.
+          </p>
+
+          <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <button onclick="openModal()" class="w-full sm:w-auto px-10 py-5 rounded-lg bg-paper-0 text-white font-bold text-sm uppercase tracking-wider hover:bg-slate-800 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl flex items-center justify-center gap-3 group">
+              <span>Quero controlar minha expedição</span>
+              <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+            </button>
+          </div>
+
+          <!-- TRUST STATS -->
+          <div class="pt-8 border-t border-hairline grid grid-cols-3 gap-6 font-mono text-xs max-w-xl mx-auto">
+            <div>
+              <div class="text-paper-0 font-bold text-xl md:text-2xl">100%</div>
+              <div class="text-paper-2 mt-0.5">Rastreável</div>
+            </div>
+            <div>
+              <div class="text-paper-0 font-bold text-xl md:text-2xl">0%</div>
+              <div class="text-paper-2 mt-0.5">Contagem Manual</div>
+            </div>
+            <div>
+              <div class="text-paper-0 font-bold text-xl md:text-2xl">Tempo Real</div>
+              <div class="text-paper-2 mt-0.5">Visão Gestão</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ==========================================
+           VEJA NA PRÁTICA (ESPAÇO PARA VSL)
+           ========================================== -->
+      <section id="veja-na-pratica" class="relative py-20 border-b border-hairline bg-ink-1/40">
+        <!-- Trace Node -->
+        <span class="hidden lg:block absolute -left-[41px] top-24 w-2.5 h-2.5 rounded-full border border-hairline-strong bg-white trace-node transition-all duration-300"></span>
+        
+        <div class="max-w-4xl mx-auto space-y-8">
+          
+          <div class="text-center space-y-3">
+            <p class="font-mono text-xs text-paper-2 uppercase tracking-widest">VÍDEO EXPLICATIVO</p>
+            <h2 class="text-2xl sm:text-4xl font-extrabold text-paper-0 tracking-tight">VEJA NA PRÁTICA</h2>
+            <p class="text-sm md:text-base text-paper-2 max-w-xl mx-auto">
+              Assista ao vídeo abaixo e entenda como o painel da Nexo Sistemas elimina desvios e erros de expedição no dia a dia do seu depósito.
+            </p>
+          </div>
+
+          <!-- VSL VIDEO CONTAINER -->
+          <div class="rounded-2xl border border-hairline-strong bg-paper-0 p-2 sm:p-4 shadow-2xl glow-box relative overflow-hidden">
+            
+            <!-- Video Title Bar -->
+            <div class="flex items-center justify-between px-3 py-2 border-b border-slate-800 text-white font-mono text-xs mb-3">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-accent-crimson animate-pulse"></span>
+                <span class="font-bold">NEXO SISTEMAS — VSL EXPEDIÇÃO</span>
+              </div>
+              <span class="text-paper-3 text-[11px]">HD 1080p</span>
+            </div>
+
+            <!-- HTML5 Video Player / VSL Embed Area -->
+            <div class="relative aspect-video w-full rounded-xl overflow-hidden bg-slate-900 flex items-center justify-center group border border-slate-800">
+              
+              <video controls class="w-full h-full object-cover rounded-xl" poster="">
+                <source src="ervgyuf.mp4" type="video/mp4">
+                Seu navegador não suporta a exibição de vídeos HTML5.
+              </video>
+
+            </div>
+
+            <!-- VSL Footer callout -->
+            <div class="mt-4 pt-3 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono text-paper-3">
+              <span class="flex items-center gap-2 text-slate-300">
+                <i data-lucide="play-circle" class="w-4 h-4 text-accent-emerald"></i>
+                Apresentação passo a passo do fluxo (Separação → Expedição → Saída)
+              </span>
+              <button onclick="openModal()" class="text-white hover:text-accent-emerald font-bold underline transition-colors">
+                Quero implementar na minha loja →
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ==========================================
+           2. O QUE VOCÊ VAI RECEBER
+           ========================================== -->
+      <section id="recursos" class="relative py-20 border-b border-hairline">
+        <span class="hidden lg:block absolute -left-[41px] top-24 w-2.5 h-2.5 rounded-full border border-hairline-strong bg-white trace-node transition-all duration-300"></span>
+        
+        <div class="mb-12">
+          <p class="font-mono text-xs text-paper-2 uppercase tracking-widest mb-2">01 / ESTRUTURA DO SISTEMA</p>
+          <h2 class="text-2xl md:text-4xl font-bold text-paper-0 tracking-tight">O QUE VOCÊ VAI RECEBER</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <div class="p-5 rounded border border-hairline bg-white hover:border-hairline-strong transition-all shadow-sm flex items-start gap-4">
+            <div class="p-2.5 rounded bg-ink-1 text-paper-0 border border-hairline shrink-0">
+              <i data-lucide="monitor-smartphone" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-paper-0 text-sm">Painel web completo</h3>
+              <p class="text-xs text-paper-2 mt-1 leading-relaxed">Funciona perfeitamente no celular e no computador sem instalar nada pesado.</p>
+            </div>
+          </div>
+
+          <div class="p-5 rounded border border-hairline bg-white hover:border-hairline-strong transition-all shadow-sm flex items-start gap-4">
+            <div class="p-2.5 rounded bg-ink-1 text-paper-0 border border-hairline shrink-0">
+              <i data-lucide="shield-check" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-paper-0 text-sm">Login separado por função</h3>
+              <p class="text-xs text-paper-2 mt-1 leading-relaxed">Um acesso para a gestão (visão estratégica) e outro simplificado para o funcionário do depósito.</p>
+            </div>
+          </div>
+
+          <div class="p-5 rounded border border-hairline bg-white hover:border-hairline-strong transition-all shadow-sm flex items-start gap-4">
+            <div class="p-2.5 rounded bg-ink-1 text-paper-0 border border-hairline shrink-0">
+              <i data-lucide="clipboard-check" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-paper-0 text-sm">Registro em cada etapa</h3>
+              <p class="text-xs text-paper-2 mt-1 leading-relaxed">Declaração de cada produto na separação, conferência na expedição e saída pra rua.</p>
+            </div>
+          </div>
+
+          <div class="p-5 rounded border border-hairline bg-white hover:border-hairline-strong transition-all shadow-sm flex items-start gap-4">
+            <div class="p-2.5 rounded bg-ink-1 text-paper-0 border border-hairline shrink-0">
+              <i data-lucide="link" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-paper-0 text-sm">Vínculo automático</h3>
+              <p class="text-xs text-paper-2 mt-1 leading-relaxed">Cada movimentação vinculada ao pedido e ao cliente automaticamente.</p>
+            </div>
+          </div>
+
+          <div class="p-5 rounded border border-hairline bg-white hover:border-hairline-strong transition-all shadow-sm flex items-start gap-4">
+            <div class="p-2.5 rounded bg-ink-1 text-paper-0 border border-hairline shrink-0">
+              <i data-lucide="history" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-paper-0 text-sm">Histórico auditável completo</h3>
+              <p class="text-xs text-paper-2 mt-1 leading-relaxed">Registro de quem mexeu em cada produto, quantidade exata e horário exato.</p>
+            </div>
+          </div>
+
+          <div class="p-5 rounded border border-hairline bg-white hover:border-hairline-strong transition-all shadow-sm flex items-start gap-4 border-l-4 border-l-accent-amber">
+            <div class="p-2.5 rounded bg-amber-50 text-accent-amber border border-amber-200 shrink-0">
+              <i data-lucide="alert-triangle" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-paper-0 text-sm">Relatório de divergência instantâneo</h3>
+              <p class="text-xs text-paper-2 mt-1 leading-relaxed">Mostra na hora se o que saiu do depósito bate exatamente com o sistema de vendas.</p>
+            </div>
+          </div>
+
+        </div>
+
+        </div>
+      </section>
+
+      <!-- ==========================================
+           3. COMO FUNCIONA
+           ========================================== -->
+      <section id="como-funciona" class="relative py-20 border-b border-hairline">
+        <span class="hidden lg:block absolute -left-[41px] top-24 w-2.5 h-2.5 rounded-full border border-hairline-strong bg-white trace-node transition-all duration-300"></span>
+        
+        <div class="mb-12">
+          <p class="font-mono text-xs text-paper-2 uppercase tracking-widest mb-2">02 / FLUXO DE TRABALHO</p>
+          <h2 class="text-2xl md:text-4xl font-bold text-paper-0 tracking-tight">COMO FUNCIONA NA PRÁTICA</h2>
+        </div>
+
+        <div class="grid md:grid-cols-5 gap-4">
+          
+          <div class="p-5 rounded border border-hairline bg-white hover:border-hairline-strong transition-all shadow-sm relative group">
+            <div class="font-mono text-2xl font-bold text-paper-2 group-hover:text-paper-0 transition-colors mb-3">01</div>
+            <h3 class="font-bold text-paper-0 text-sm mb-2">Declaração na Separação</h3>
+            <p class="text-xs text-paper-2 leading-relaxed">Funcionário separa o pedido e declara no painel o que separou.</p>
+          </div>
+
+          <div class="p-5 rounded border border-hairline bg-white hover:border-hairline-strong transition-all shadow-sm relative group">
+            <div class="font-mono text-2xl font-bold text-paper-2 group-hover:text-paper-0 transition-colors mb-3">02</div>
+            <h3 class="font-bold text-paper-0 text-sm mb-2">Conferência na Expedição</h3>
+            <p class="text-xs text-paper-2 leading-relaxed">Na expedição, ele confirma de novo: produto, número do pedido e cliente.</p>
+          </div>
+
+          <div class="p-5 rounded border border-hairline bg-white hover:border-hairline-strong transition-all shadow-sm relative group">
+            <div class="font-mono text-2xl font-bold text-paper-2 group-hover:text-paper-0 transition-colors mb-3">03</div>
+            <h3 class="font-bold text-paper-0 text-sm mb-2">Registro de Saída</h3>
+            <p class="text-xs text-paper-2 leading-relaxed">Quando o produto sai pra rua, fica registrado o responsável e o horário.</p>
+          </div>
+
+          <div class="p-5 rounded border border-hairline bg-white hover:border-hairline-strong transition-all shadow-sm relative group">
+            <div class="font-mono text-2xl font-bold text-paper-2 group-hover:text-paper-0 transition-colors mb-3">04</div>
+            <h3 class="font-bold text-paper-0 text-sm mb-2">Acompanhamento em Tempo Real</h3>
+            <p class="text-xs text-paper-2 leading-relaxed">Você acompanha tudo em tempo real, de onde estiver pelo celular ou PC.</p>
+          </div>
+
+          <div class="p-5 rounded border border-amber-300 bg-amber-50/50 hover:border-accent-amber transition-all shadow-sm relative group">
+            <div class="font-mono text-2xl font-bold text-accent-amber mb-3">05</div>
+            <h3 class="font-bold text-paper-0 text-sm mb-2">Alerta de Divergência</h3>
+            <p class="text-xs text-paper-2 leading-relaxed">Se a contagem não bater com o sistema, o painel mostra em qual etapa e com qual funcionário aconteceu a diferença.</p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ==========================================
+           4. QUEM JÁ COMPROU APROVA (DEPOIMENTOS)
+           ========================================== -->
+      <section id="depoimentos" class="relative py-20 border-b border-hairline">
+        <span class="hidden lg:block absolute -left-[41px] top-24 w-2.5 h-2.5 rounded-full border border-hairline-strong bg-white trace-node transition-all duration-300"></span>
+        
+        <div class="mb-8">
+          <p class="font-mono text-xs text-paper-2 uppercase tracking-widest mb-2">03 / PROVA SOCIAL</p>
+          <h2 class="text-2xl md:text-4xl font-bold text-paper-0 tracking-tight">QUEM JÁ COMPROU APROVA</h2>
+        </div>
+
+        <!-- PLACEHOLDER WARNING BADGE REQUIRED BY COPY -->
+        <div class="mb-8 p-3 rounded border border-amber-200 bg-amber-50 text-accent-amber font-mono text-xs flex items-center gap-2 font-medium">
+          <i data-lucide="alert-triangle" class="w-4 h-4 shrink-0"></i>
+          <span>⚠️ Depoimentos abaixo são modelo/placeholder — trocar pelos reais assim que tiver os primeiros clientes usando.</span>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          
+          <div class="p-6 rounded-lg border border-hairline bg-white flex flex-col justify-between space-y-4 shadow-sm">
+            <p class="text-sm text-paper-0 italic leading-relaxed">
+              "Antes eu descobria que faltava sacaria só no fechamento do mês. Agora eu sei na hora em que etapa o produto sumiu."
+            </p>
+            <div class="pt-4 border-t border-hairline font-mono text-xs">
+              <div class="font-bold text-paper-0">[Nome do Lojista]</div>
+              <div class="text-paper-2">[Nome da Loja de Materiais]</div>
+            </div>
+          </div>
+
+          <div class="p-6 rounded-lg border border-hairline bg-white flex flex-col justify-between space-y-4 shadow-sm">
+            <p class="text-sm text-paper-0 italic leading-relaxed">
+              "Meus funcionários sabem que tudo fica registrado. Simplesmente parou de sumir mercadoria."
+            </p>
+            <div class="pt-4 border-t border-hairline font-mono text-xs">
+              <div class="font-bold text-paper-0">[Nome do Lojista]</div>
+              <div class="text-paper-2">[Nome da Loja de Materiais]</div>
+            </div>
+          </div>
+
+          <div class="p-6 rounded-lg border border-hairline bg-white flex flex-col justify-between space-y-4 shadow-sm">
+            <p class="text-sm text-paper-0 italic leading-relaxed">
+              "Eu não confiava na contagem manual. Hoje o painel bate com o sistema todo santo dia."
+            </p>
+            <div class="pt-4 border-t border-hairline font-mono text-xs">
+              <div class="font-bold text-paper-0">[Nome do Lojista]</div>
+              <div class="text-paper-2">[Nome da Loja de Materiais]</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ==========================================
+           5. PRICING CARD
+           ========================================== -->
+      <section id="valores" class="relative py-20 border-b border-hairline">
+        <span class="hidden lg:block absolute -left-[41px] top-24 w-2.5 h-2.5 rounded-full border border-hairline-strong bg-white trace-node transition-all duration-300"></span>
+        
+        <div class="max-w-2xl mx-auto text-center space-y-4 mb-12">
+          <p class="font-mono text-xs text-paper-2 uppercase tracking-widest">04 / INVESTIMENTO</p>
+          <h2 class="text-2xl md:text-4xl font-bold text-paper-0 tracking-tight">PRICING CARD</h2>
+          <p class="text-sm text-paper-2">Controle total da sua expedição por um valor fixo mensal que se paga na primeira sacaria economizada.</p>
+        </div>
+
+        <div class="max-w-md mx-auto rounded-2xl border border-hairline-strong bg-white p-8 glow-box-emerald relative overflow-hidden shadow-xl">
+          <div class="absolute top-0 right-0 bg-accent-emerald text-white font-mono text-[10px] font-bold px-4 py-1 rounded-bl uppercase tracking-wider">
+            PLANO COMPLETO
+          </div>
+
+          <div class="space-y-6">
+            <div>
+              <h3 class="font-mono text-lg font-bold text-paper-0">Plano Expedição</h3>
+              <p class="text-xs text-paper-2 mt-1">Acesso imediato para sua loja de materiais de construção</p>
+            </div>
+
+            <!-- PRICE CONTAINER WITH IMPLEMENTATION & MONTHLY MAINTENANCE -->
+            <div class="py-4 border-y border-hairline space-y-3">
+              <div class="flex items-center justify-between">
+                <div>
+                  <span class="text-xs text-paper-2 font-mono uppercase block">Implementação</span>
+                  <span class="text-2xl md:text-3xl font-extrabold text-paper-0 font-mono">R$ <span id="priceX">47</span></span>
+                  <span class="text-[10px] font-mono text-paper-2 block">(taxa única)</span>
+                </div>
+                <div class="text-right">
+                  <span class="text-xs text-paper-2 font-mono uppercase block">Mensalidade</span>
+                  <span class="text-2xl md:text-3xl font-extrabold text-paper-0 font-mono">R$ <span id="priceY">15</span><span class="text-xs font-semibold text-accent-emerald">/mês</span></span>
+                  <span class="text-[10px] font-mono text-paper-2 block">(mensalmente para manter no ar)</span>
+                </div>
+              </div>
+              <p class="text-[11px] text-accent-emerald font-mono font-bold pt-2 border-t border-hairline">✓ Sem contratos longos ou taxas ocultas</p>
+            </div>
+
+            <!-- FEATURE CHECKLIST FROM COPY -->
+            <ul class="space-y-3 text-xs font-sans">
+              <li class="flex items-center gap-3 text-paper-0">
+                <i data-lucide="check" class="w-4 h-4 text-accent-emerald shrink-0"></i>
+                <span>Acesso ilimitado para gestão</span>
+              </li>
+              <li class="flex items-center gap-3 text-paper-0">
+                <i data-lucide="check" class="w-4 h-4 text-accent-emerald shrink-0"></i>
+                <span>Até <span class="font-mono font-bold text-paper-0" id="staffN">10</span> funcionários cadastrados</span>
+              </li>
+              <li class="flex items-center gap-3 text-paper-0">
+                <i data-lucide="check" class="w-4 h-4 text-accent-emerald shrink-0"></i>
+                <span>Todas as etapas (separação, expedição, rua)</span>
+              </li>
+              <li class="flex items-center gap-3 text-paper-0">
+                <i data-lucide="check" class="w-4 h-4 text-accent-emerald shrink-0"></i>
+                <span>Relatório de divergência em tempo real</span>
+              </li>
+              <li class="flex items-center gap-3 text-paper-0">
+                <i data-lucide="check" class="w-4 h-4 text-accent-emerald shrink-0"></i>
+                <span>Suporte para implementação</span>
+              </li>
+            </ul>
+
+            <button onclick="openModal()" class="w-full py-4 rounded bg-paper-0 text-white font-bold text-sm uppercase tracking-wider hover:bg-slate-800 transition-all shadow-lg flex items-center justify-center gap-2">
+              <span>Quero implementar na minha loja</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
+
+            <!-- EDITABLE VALUE ADJUSTER FOR USER / DEMO -->
+            <div class="pt-4 border-t border-hairline">
+              <details class="text-[11px] font-mono text-paper-2">
+                <summary class="cursor-pointer hover:text-paper-0">⚙️ Personalizar valores de demonstração ([X], [Y], [N])</summary>
+                <div class="grid grid-cols-3 gap-2 mt-3 pt-2 border-t border-hairline">
+                  <div>
+                    <label class="block text-[10px]">Implementação [X]:</label>
+                    <input type="text" value="47" oninput="document.getElementById('priceX').innerText=this.value" class="w-full bg-ink-1 border border-hairline p-1 text-paper-0 rounded">
+                  </div>
+                  <div>
+                    <label class="block text-[10px]">Mensalidade [Y]:</label>
+                    <input type="text" value="15" oninput="document.getElementById('priceY').innerText=this.value" class="w-full bg-ink-1 border border-hairline p-1 text-paper-0 rounded">
+                  </div>
+                  <div>
+                    <label class="block text-[10px]">Limite Func. [N]:</label>
+                    <input type="text" value="10" oninput="document.getElementById('staffN').innerText=this.value" class="w-full bg-ink-1 border border-hairline p-1 text-paper-0 rounded">
+                  </div>
+                </div>
+              </details>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           6. BENEFÍCIOS
+           ========================================== -->
+      <section id="beneficios" class="relative py-20 border-b border-hairline">
+        <span class="hidden lg:block absolute -left-[41px] top-24 w-2.5 h-2.5 rounded-full border border-hairline-strong bg-white trace-node transition-all duration-300"></span>
+        
+        <div class="mb-12">
+          <p class="font-mono text-xs text-paper-2 uppercase tracking-widest mb-2">05 / RETORNO SOBRE INVESTIMENTO</p>
+          <h2 class="text-2xl md:text-4xl font-bold text-paper-0 tracking-tight">BENEFÍCIOS REAIS</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <div class="p-6 rounded-lg border border-hairline bg-white space-y-3 hover:border-hairline-strong transition-all shadow-sm">
+            <div class="w-10 h-10 rounded bg-red-50 border border-red-200 flex items-center justify-center text-accent-crimson">
+              <i data-lucide="trending-down" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-bold text-paper-0 text-base">Pare de perder dinheiro sem saber onde</h3>
+            <p class="text-xs text-paper-2 leading-relaxed">Identifique exatamente em qual etapa o produto está sumindo antes que vire prejuízo acumulado no final do mês.</p>
+          </div>
+
+          <div class="p-6 rounded-lg border border-hairline bg-white space-y-3 hover:border-hairline-strong transition-all shadow-sm">
+            <div class="w-10 h-10 rounded bg-sky-50 border border-sky-200 flex items-center justify-center text-accent-cyan">
+              <i data-lucide="calculator" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-bold text-paper-0 text-base">Fim da contagem manual</h3>
+            <p class="text-xs text-paper-2 leading-relaxed">O sistema bate a conta pra você, sozinho e sem erros humanos de anotação em papel.</p>
+          </div>
+
+          <div class="p-6 rounded-lg border border-hairline bg-white space-y-3 hover:border-hairline-strong transition-all shadow-sm">
+            <div class="w-10 h-10 rounded bg-amber-50 border border-amber-200 flex items-center justify-center text-accent-amber">
+              <i data-lucide="eye" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-bold text-paper-0 text-base">Seus funcionários sabem que estão sendo acompanhados</h3>
+            <p class="text-xs text-paper-2 leading-relaxed">A própria presença do registro auditável já reduz drasticamente o risco de produto saindo por fora.</p>
+          </div>
+
+          <div class="p-6 rounded-lg border border-hairline bg-white space-y-3 hover:border-hairline-strong transition-all shadow-sm">
+            <div class="w-10 h-10 rounded bg-emerald-50 border border-emerald-200 flex items-center justify-center text-accent-emerald">
+              <i data-lucide="zap" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-bold text-paper-0 text-base">Decisão rápida</h3>
+            <p class="text-xs text-paper-2 leading-relaxed">Você vê o problema no mesmo dia em que ele acontece, não semanas depois no fechamento financeiro.</p>
+          </div>
+
+          <div class="p-6 rounded-lg border border-hairline bg-white space-y-3 hover:border-hairline-strong transition-all shadow-sm md:col-span-2 lg:col-span-2">
+            <div class="w-10 h-10 rounded bg-ink-1 border border-hairline flex items-center justify-center text-paper-0">
+              <i data-lucide="refresh-cw" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-bold text-paper-0 text-base">Sem trocar seu sistema atual</h3>
+            <p class="text-xs text-paper-2 leading-relaxed">O painel funciona em paralelo com o seu ERP ou sistema de vendas atual. Você não precisa mudar nada do seu caixa ou emissão de nota.</p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ==========================================
+           7. FAQ
+           ========================================== -->
+      <section id="faq" class="relative py-20">
+        <span class="hidden lg:block absolute -left-[41px] top-24 w-2.5 h-2.5 rounded-full border border-hairline-strong bg-white trace-node transition-all duration-300"></span>
+        
+        <div class="mb-12">
+          <p class="font-mono text-xs text-paper-2 uppercase tracking-widest mb-2">06 / DÚVIDAS FREQUENTES</p>
+          <h2 class="text-2xl md:text-4xl font-bold text-paper-0 tracking-tight">PERGUNTAS FREQUENTES</h2>
+        </div>
+
+        <div class="max-w-3xl space-y-4">
+          
+          <!-- Q1 -->
+          <div class="rounded border border-hairline bg-white overflow-hidden shadow-sm">
+            <button onclick="toggleFaq(this)" class="w-full p-5 text-left font-bold text-paper-0 text-sm md:text-base flex justify-between items-center gap-4 hover:bg-ink-1 transition-colors">
+              <span>Preciso trocar meu sistema de gestão atual?</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 text-paper-2 transition-transform duration-200"></i>
+            </button>
+            <div class="faq-answer hidden p-5 pt-0 text-xs text-paper-2 border-t border-hairline leading-relaxed">
+              Não. O painel funciona junto com o sistema que você já usa, só pra controlar a expedição.
+            </div>
+          </div>
+
+          <!-- Q2 -->
+          <div class="rounded border border-hairline bg-white overflow-hidden shadow-sm">
+            <button onclick="toggleFaq(this)" class="w-full p-5 text-left font-bold text-paper-0 text-sm md:text-base flex justify-between items-center gap-4 hover:bg-ink-1 transition-colors">
+              <span>Meus funcionários vão conseguir usar sem dificuldade?</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 text-paper-2 transition-transform duration-200"></i>
+            </button>
+            <div class="faq-answer hidden p-5 pt-0 text-xs text-paper-2 border-t border-hairline leading-relaxed">
+              Sim. A tela é simples: o funcionário só seleciona o produto e a etapa. Não precisa de treinamento técnico.
+            </div>
+          </div>
+
+          <!-- Q3 -->
+          <div class="rounded border border-hairline bg-white overflow-hidden shadow-sm">
+            <button onclick="toggleFaq(this)" class="w-full p-5 text-left font-bold text-paper-0 text-sm md:text-base flex justify-between items-center gap-4 hover:bg-ink-1 transition-colors">
+              <span>Funciona no celular?</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 text-paper-2 transition-transform duration-200"></i>
+            </button>
+            <div class="faq-answer hidden p-5 pt-0 text-xs text-paper-2 border-t border-hairline leading-relaxed">
+              Sim, funciona tanto no celular quanto no computador.
+            </div>
+          </div>
+
+          <!-- Q4 (WITH EDITABLE PLACEHOLDER FROM COPY) -->
+          <div class="rounded border border-hairline bg-white overflow-hidden shadow-sm">
+            <button onclick="toggleFaq(this)" class="w-full p-5 text-left font-bold text-paper-0 text-sm md:text-base flex justify-between items-center gap-4 hover:bg-ink-1 transition-colors">
+              <span>Quanto tempo leva pra colocar pra funcionar?</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 text-paper-2 transition-transform duration-200"></i>
+            </button>
+            <div class="faq-answer hidden p-5 pt-0 text-xs text-paper-2 border-t border-hairline leading-relaxed">
+              <span id="faqPrazoText">A implementação é rápida e leva menos de 24 horas. Nossa equipe cadastra sua estrutura inicial e coloca a equipe para rodar imediatamente.</span>
+              <div class="mt-2 pt-2 border-t border-hairline font-mono text-[10px]">
+                <details>
+                  <summary class="cursor-pointer text-paper-2">⚙️ Editar resposta de prazo ([Preencher com prazo real])</summary>
+                  <input type="text" value="A implementação é rápida e leva menos de 24 horas. Nossa equipe cadastra sua estrutura inicial e coloca a equipe para rodar imediatamente." oninput="document.getElementById('faqPrazoText').innerText=this.value" class="w-full bg-ink-1 border border-hairline p-1 text-paper-0 rounded mt-1">
+                </details>
+              </div>
+            </div>
+          </div>
+
+          <!-- Q5 -->
+          <div class="rounded border border-hairline bg-white overflow-hidden shadow-sm">
+            <button onclick="toggleFaq(this)" class="w-full p-5 text-left font-bold text-paper-0 text-sm md:text-base flex justify-between items-center gap-4 hover:bg-ink-1 transition-colors">
+              <span>Dá pra usar em loja pequena, com poucos funcionários?</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 text-paper-2 transition-transform duration-200"></i>
+            </button>
+            <div class="faq-answer hidden p-5 pt-0 text-xs text-paper-2 border-t border-hairline leading-relaxed">
+              Sim, o painel se adapta ao tamanho da equipe.
+            </div>
+          </div>
+
+          <!-- Q6 (WITH EDITABLE PLACEHOLDER FROM COPY) -->
+          <div class="rounded border border-hairline bg-white overflow-hidden shadow-sm">
+            <button onclick="toggleFaq(this)" class="w-full p-5 text-left font-bold text-paper-0 text-sm md:text-base flex justify-between items-center gap-4 hover:bg-ink-1 transition-colors">
+              <span>E se eu não tiver internet boa no depósito?</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 text-paper-2 transition-transform duration-200"></i>
+            </button>
+            <div class="faq-answer hidden p-5 pt-0 text-xs text-paper-2 border-t border-hairline leading-relaxed">
+              <span id="faqOfflineText">O painel foi construído para funcionar mesmo com sinal fraco de Wi-Fi ou 4G, sincronizando os dados em segundo plano assim que a conexão oscila.</span>
+              <div class="mt-2 pt-2 border-t border-hairline font-mono text-[10px]">
+                <details>
+                  <summary class="cursor-pointer text-paper-2">⚙️ Editar resposta de internet ([Preencher modo online/offline])</summary>
+                  <input type="text" value="O painel foi construído para funcionar mesmo com sinal fraco de Wi-Fi ou 4G, sincronizando os dados em segundo plano assim que a conexão oscila." oninput="document.getElementById('faqOfflineText').innerText=this.value" class="w-full bg-ink-1 border border-hairline p-1 text-paper-0 rounded mt-1">
+                </details>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="py-12 border-t border-hairline text-xs font-mono text-paper-2 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div>
+          © 2026 NEXO SISTEMAS — PAINEL DE CONTROLE DE EXPEDIÇÃO. TODOS OS DIREITOS RESERVADOS.
+        </div>
+        <div class="flex items-center gap-4">
+          <span>DESIGN BASEADO EM JAMIEMCKAYE.COM</span>
+          <span>•</span>
+          <a href="#hero" class="hover:text-paper-0">VOLTAR AO TOPO ↑</a>
+        </div>
+      </footer>
+
+    </div>
+  </div>
+
+  <!-- LEAD CAPTURE MODAL -->
+  <div id="leadModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-white border border-hairline-strong rounded-xl max-w-md w-full p-6 relative space-y-4 glow-box shadow-2xl">
+      <button onclick="closeModal()" class="absolute top-4 right-4 text-paper-2 hover:text-paper-0 font-mono text-sm">✕</button>
+      
+      <div class="space-y-1">
+        <h3 class="text-xl font-bold text-paper-0">Implementar na Minha Loja</h3>
+        <p class="text-xs text-paper-2">Preencha abaixo para falar conosco e implementar o sistema na sua loja.</p>
+      </div>
+
+      <form onsubmit="handleFormSubmit(event)" class="space-y-3 font-sans text-xs">
+        <div>
+          <label class="block text-paper-2 font-mono text-[10px] mb-1">SEU NOME</label>
+          <input type="text" required placeholder="Ex: Roberto Silva" class="w-full bg-ink-1 border border-hairline rounded p-2.5 text-paper-0 focus:outline-none focus:border-paper-0">
+        </div>
+
+        <div>
+          <label class="block text-paper-2 font-mono text-[10px] mb-1">NOME DA SUA LOJA DE MATERIAIS</label>
+          <input type="text" required placeholder="Ex: Mat. Construção Silva & Cia" class="w-full bg-ink-1 border border-hairline rounded p-2.5 text-paper-0 focus:outline-none focus:border-paper-0">
+        </div>
+
+        <div>
+          <label class="block text-paper-2 font-mono text-[10px] mb-1">WHATSAPP COM DDD</label>
+          <input type="tel" required placeholder="(11) 99999-9999" class="w-full bg-ink-1 border border-hairline rounded p-2.5 text-paper-0 focus:outline-none focus:border-paper-0">
+        </div>
+
+        <button type="submit" class="w-full py-3 rounded bg-paper-0 text-white font-bold text-xs uppercase tracking-wider hover:bg-slate-800 transition-all mt-2 shadow-sm">
+          ENVIAR SOLICITAÇÃO →
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT FOR INTERACTIVITY & SCROLL TRACE -->
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Scroll Progress Line & Trace Node highlight
+    window.addEventListener('scroll', () => {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById("scrollTrace").style.height = scrolled + "%";
+
+      // Highlight active trace node
+      const nodes = document.querySelectorAll('.trace-node');
+      nodes.forEach((node) => {
+        const rect = node.getBoundingClientRect();
+        if (rect.top < window.innerHeight / 2 && rect.bottom > 0) {
+          node.classList.add('trace-node-active');
+        } else {
+          node.classList.remove('trace-node-active');
+        }
+      });
+    });
+
+    // Tab Switcher for Section 2
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.tab-btn').forEach(el => {
+        el.classList.remove('bg-paper-0', 'text-white', 'font-semibold', 'shadow-sm');
+        el.classList.add('bg-ink-1', 'text-paper-2');
+      });
+
+      document.getElementById(tabId).classList.remove('hidden');
+      const activeBtn = document.getElementById('btn-' + tabId);
+      activeBtn.classList.remove('bg-ink-1', 'text-paper-2');
+      activeBtn.classList.add('bg-paper-0', 'text-white', 'font-semibold', 'shadow-sm');
+    }
+
+    // FAQ Accordion
+    function toggleFaq(btn) {
+      const answer = btn.nextElementSibling;
+      const icon = btn.querySelector('i');
+      answer.classList.toggle('hidden');
+      if (!answer.classList.contains('hidden')) {
+        icon.style.transform = 'rotate(180deg)';
+      } else {
+        icon.style.transform = 'rotate(0deg)';
+      }
+    }
+
+    // Interactive Demo Board Action
+    let itemMoved = false;
+    function moveItem(itemId) {
+      if (itemMoved) return;
+      const itemHTML = `
+        <div class="p-2.5 rounded bg-white border border-sky-300 space-y-1.5 shadow-sm animate-fade-in" onclick="moveItemToStreet('item1-moved')">
+          <div class="flex justify-between font-mono text-[10px] text-paper-2">
+            <span>PEDIDO #4092</span>
+            <span>Resp: Carlos M.</span>
+          </div>
+          <div class="font-semibold text-paper-0">50 Sacos Cimento CP-II</div>
+          <div class="text-[10px] text-paper-2">Cliente: Construtora Silva</div>
+          <div class="flex justify-end pt-1">
+            <span class="text-[10px] font-mono text-accent-emerald font-bold hover:underline">Liberar para Rua →</span>
+          </div>
+        </div>
+      `;
+      document.getElementById('expeditionContainer').innerHTML += itemHTML;
+      document.getElementById('expeditionCount').innerText = "2";
+      itemMoved = true;
+    }
+
+    function moveItemToStreet(itemId) {
+      const streetHTML = `
+        <div class="p-2.5 rounded bg-white border border-emerald-300 space-y-1.5 shadow-sm animate-fade-in">
+          <div class="flex justify-between font-mono text-[10px] text-paper-2">
+            <span>PEDIDO MIGRADO</span>
+            <span class="text-accent-emerald font-bold">Agora mesmo</span>
+          </div>
+          <div class="font-semibold text-paper-0">Material Liberado para Entrega</div>
+          <div class="text-[10px] text-paper-2">Motorista: Confirmado na saída</div>
+        </div>
+      `;
+      document.getElementById('streetContainer').innerHTML += streetHTML;
+      document.getElementById('streetCount').innerText = parseInt(document.getElementById('streetCount').innerText) + 1;
+    }
+
+    // Modal Control
+    function openModal() {
+      document.getElementById('leadModal').classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('leadModal').classList.add('hidden');
+    }
+
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      alert('Solicitação enviada com sucesso! Em breve entraremos em contato.');
+      closeModal();
+    }
+  </script>
+</body>
+</html>
