@@ -112,7 +112,7 @@
 
     /* Better tap targets on mobile */
     @media (max-width: 640px) {
-      .faq-answer { font-size: 13px; line-height: 1.6; }
+      .faq-answer { font-size: 15px; line-height: 1.6; }
       button, a { -webkit-tap-highlight-color: transparent; }
 
       /* Full-screen sections on mobile */
@@ -190,13 +190,13 @@
   <!-- MOBILE MENU OVERLAY -->
   <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 w-3/4 max-w-xs h-full bg-white z-[60] shadow-2xl border-l border-hairline p-6 pt-20 flex flex-col gap-6">
     <button onclick="toggleMobileMenu()" class="absolute top-5 right-5 text-paper-0 font-mono text-lg">✕</button>
-    <a href="#veja-na-pratica" onclick="toggleMobileMenu()" class="font-mono text-sm text-paper-1 hover:text-paper-0 py-2 border-b border-hairline">01. VEJA NA PRÁTICA</a>
-    <a href="#recursos" onclick="toggleMobileMenu()" class="font-mono text-sm text-paper-1 hover:text-paper-0 py-2 border-b border-hairline">02. O QUE RECEBE</a>
-    <a href="#depoimentos" onclick="toggleMobileMenu()" class="font-mono text-sm text-paper-1 hover:text-paper-0 py-2 border-b border-hairline">03. PROVA</a>
-    <a href="#valores" onclick="toggleMobileMenu()" class="font-mono text-sm text-paper-1 hover:text-paper-0 py-2 border-b border-hairline">04. VALORES</a>
-    <a href="#beneficios" onclick="toggleMobileMenu()" class="font-mono text-sm text-paper-1 hover:text-paper-0 py-2 border-b border-hairline">05. BENEFÍCIOS</a>
-    <a href="#faq" onclick="toggleMobileMenu()" class="font-mono text-sm text-paper-1 hover:text-paper-0 py-2 border-b border-hairline">06. FAQ</a>
-    <button onclick="openModal(); toggleMobileMenu();" class="mt-4 w-full py-3 rounded bg-paper-0 text-white font-bold text-xs uppercase tracking-wider">Quero controlar minha expedição</button>
+    <a href="#veja-na-pratica" onclick="toggleMobileMenu()" class="font-mono text-base text-paper-1 hover:text-paper-0 py-2.5 border-b border-hairline">01. VEJA NA PRÁTICA</a>
+    <a href="#recursos" onclick="toggleMobileMenu()" class="font-mono text-base text-paper-1 hover:text-paper-0 py-2.5 border-b border-hairline">02. O QUE RECEBE</a>
+    <a href="#depoimentos" onclick="toggleMobileMenu()" class="font-mono text-base text-paper-1 hover:text-paper-0 py-2.5 border-b border-hairline">03. PROVA</a>
+    <a href="#valores" onclick="toggleMobileMenu()" class="font-mono text-base text-paper-1 hover:text-paper-0 py-2.5 border-b border-hairline">04. VALORES</a>
+    <a href="#beneficios" onclick="toggleMobileMenu()" class="font-mono text-base text-paper-1 hover:text-paper-0 py-2.5 border-b border-hairline">05. BENEFÍCIOS</a>
+    <a href="#faq" onclick="toggleMobileMenu()" class="font-mono text-base text-paper-1 hover:text-paper-0 py-2.5 border-b border-hairline">06. FAQ</a>
+    <button onclick="openModal(); toggleMobileMenu();" class="mt-4 w-full py-4 rounded-xl bg-paper-0 text-white font-bold text-sm uppercase tracking-wider">Quero controlar minha expedição</button>
   </div>
   <div id="mobileMenuOverlay" class="fixed inset-0 bg-black/30 z-[55] hidden" onclick="toggleMobileMenu()"></div>
 
@@ -219,30 +219,30 @@
         
         <div class="max-w-4xl mx-auto text-center space-y-6 sm:space-y-8">
 
-          <h1 class="anim text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-paper-0 tracking-tight leading-[1.15] max-w-3xl mx-auto">
+          <h1 class="anim text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-paper-0 tracking-tight leading-[1.15] max-w-3xl mx-auto">
             Sua contagem não bate e você não sabe se está <span class="chrome-text">perdendo dinheiro</span> — ou sendo passado pra trás
           </h1>
 
-          <p class="anim anim-delay-1 text-sm sm:text-base md:text-lg lg:text-xl text-paper-1 leading-relaxed max-w-3xl mx-auto font-normal px-2 sm:px-0">
+          <p class="anim anim-delay-1 text-base sm:text-lg md:text-xl text-paper-1 leading-relaxed max-w-3xl mx-auto font-normal px-1 sm:px-0">
             A Nexo Sistema cria um sistema sob medida pra sua empresa: um controle de expedição que registra cada pedido, com foto obrigatória em cada movimentação — pra você nunca mais depender só da palavra do funcionário.
           </p>
 
           <div class="anim anim-delay-2 pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button onclick="openModal()" class="w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 rounded-lg bg-paper-0 text-white font-bold text-sm uppercase tracking-wider hover:bg-slate-800 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl flex items-center justify-center gap-3 group">
+            <button onclick="openModal()" class="w-full sm:w-auto px-8 sm:px-10 py-5 rounded-lg bg-paper-0 text-white font-bold text-base sm:text-sm uppercase tracking-wider hover:bg-slate-800 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl flex items-center justify-center gap-3 group">
               <span>Quero controlar minha expedição</span>
               <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
             </button>
           </div>
 
           <!-- TRUST STATS -->
-          <div class="anim anim-delay-3 pt-6 sm:pt-8 border-t border-hairline grid grid-cols-2 gap-4 sm:gap-6 font-mono text-xs max-w-sm mx-auto">
+          <div class="anim anim-delay-3 pt-6 sm:pt-8 border-t border-hairline grid grid-cols-2 gap-4 sm:gap-6 font-mono text-sm sm:text-xs max-w-sm mx-auto">
             <div>
-              <div class="text-paper-0 font-bold text-xl md:text-2xl">100%</div>
-              <div class="text-paper-2 mt-0.5">Rastreável</div>
+              <div class="text-paper-0 font-bold text-2xl">100%</div>
+              <div class="text-paper-2 mt-1">Rastreável</div>
             </div>
             <div>
-              <div class="text-paper-0 font-bold text-xl md:text-2xl">Tempo Real</div>
-              <div class="text-paper-2 mt-0.5">Visão Gestão</div>
+              <div class="text-paper-0 font-bold text-2xl">Tempo Real</div>
+              <div class="text-paper-2 mt-1">Visão Gestão</div>
             </div>
           </div>
 
@@ -259,8 +259,8 @@
         <div class="max-w-4xl mx-auto space-y-6 sm:space-y-8">
           
           <div class="anim text-center space-y-3">
-            <h2 class="text-xl sm:text-2xl md:text-4xl font-extrabold text-paper-0 tracking-tight">VEJA NA PRÁTICA</h2>
-            <p class="text-xs sm:text-sm md:text-base text-paper-2 max-w-xl mx-auto px-2 sm:px-0">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-paper-0 tracking-tight">VEJA NA PRÁTICA</h2>
+            <p class="text-sm sm:text-base md:text-base text-paper-2 max-w-xl mx-auto px-1 sm:px-0">
               Assista ao vídeo abaixo e entenda como o painel da Nexo Sistemas elimina desvios e erros de expedição no dia a dia do seu depósito.
             </p>
           </div>
@@ -288,12 +288,12 @@
             </div>
 
             <!-- VSL Footer callout -->
-            <div class="mt-4 pt-3 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono text-paper-3">
+            <div class="mt-4 pt-3 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm sm:text-xs font-mono text-paper-3">
               <span class="flex items-center gap-2 text-slate-300">
                 <i data-lucide="play-circle" class="w-4 h-4 text-accent-emerald"></i>
                 Apresentação passo a passo do fluxo (Separação → Expedição → Saída)
               </span>
-              <button onclick="openModal()" class="text-white hover:text-accent-emerald font-bold underline transition-colors">
+              <button onclick="openModal()" class="text-white hover:text-accent-emerald font-bold underline transition-colors text-base sm:text-xs py-2 sm:py-0">
                 Quero implementar na minha loja →
               </button>
             </div>
@@ -309,69 +309,69 @@
       <section id="recursos" class="mobile-full relative py-12 sm:py-20 border-b border-hairline">
         <span class="hidden lg:block absolute -left-[41px] top-24 w-2.5 h-2.5 rounded-full border border-hairline-strong bg-white trace-node transition-all duration-300"></span>
         
-        <div class="anim mb-8 sm:mb-12">
-          <h2 class="text-xl sm:text-2xl md:text-4xl font-bold text-paper-0 tracking-tight">O QUE VOCÊ VAI RECEBER</h2>
+        <div class="anim mb-6 sm:mb-12">
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-paper-0 tracking-tight">O QUE VOCÊ VAI RECEBER</h2>
         </div>
 
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           
-          <div class="anim anim-delay-1 p-4 sm:p-5 rounded border border-hairline bg-white hover:border-hairline-strong transition-all shadow-sm flex items-start gap-3 sm:gap-4">
-            <div class="p-2 sm:p-2.5 rounded bg-ink-1 text-paper-0 border border-hairline shrink-0">
-              <i data-lucide="smartphone" class="w-5 h-5"></i>
+          <div class="anim anim-delay-1 p-5 sm:p-5 rounded-xl border border-hairline bg-white hover:border-hairline-strong transition-all shadow-sm flex items-start gap-4">
+            <div class="p-3 sm:p-2.5 rounded-lg bg-ink-1 text-paper-0 border border-hairline shrink-0">
+              <i data-lucide="smartphone" class="w-6 h-6 sm:w-5 sm:h-5"></i>
             </div>
             <div>
-              <h3 class="font-bold text-paper-0 text-sm">Painel do funcionário com as etapas Expedição, Separação e Entrega</h3>
-              <p class="text-xs text-paper-2 mt-1 leading-relaxed">Tela do funcionário lançando o pedido na etapa Expedição.</p>
+              <h3 class="font-bold text-paper-0 text-base sm:text-sm">Painel do funcionário com as etapas Expedição, Separação e Entrega</h3>
+              <p class="text-sm sm:text-xs text-paper-2 mt-1.5 leading-relaxed">Tela do funcionário lançando o pedido na etapa Expedição.</p>
             </div>
           </div>
 
-          <div class="anim anim-delay-2 p-4 sm:p-5 rounded border border-hairline bg-white hover:border-hairline-strong transition-all shadow-sm flex items-start gap-3 sm:gap-4">
-            <div class="p-2 sm:p-2.5 rounded bg-ink-1 text-paper-0 border border-hairline shrink-0">
-              <i data-lucide="package-minus" class="w-5 h-5"></i>
+          <div class="anim anim-delay-2 p-5 sm:p-5 rounded-xl border border-hairline bg-white hover:border-hairline-strong transition-all shadow-sm flex items-start gap-4">
+            <div class="p-3 sm:p-2.5 rounded-lg bg-ink-1 text-paper-0 border border-hairline shrink-0">
+              <i data-lucide="package-minus" class="w-6 h-6 sm:w-5 sm:h-5"></i>
             </div>
             <div>
-              <h3 class="font-bold text-paper-0 text-sm">Etapa separada de Retira</h3>
-              <p class="text-xs text-paper-2 mt-1 leading-relaxed">Etapa separada de Retira, pra dar baixa em pedidos retirados no balcão.</p>
+              <h3 class="font-bold text-paper-0 text-base sm:text-sm">Etapa separada de Retira</h3>
+              <p class="text-sm sm:text-xs text-paper-2 mt-1.5 leading-relaxed">Etapa separada de Retira, pra dar baixa em pedidos retirados no balcão.</p>
             </div>
           </div>
 
-          <div class="anim anim-delay-3 p-4 sm:p-5 rounded border border-hairline bg-white hover:border-hairline-strong transition-all shadow-sm flex items-start gap-3 sm:gap-4">
-            <div class="p-2 sm:p-2.5 rounded bg-ink-1 text-paper-0 border border-hairline shrink-0">
-              <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+          <div class="anim anim-delay-3 p-5 sm:p-5 rounded-xl border border-hairline bg-white hover:border-hairline-strong transition-all shadow-sm flex items-start gap-4">
+            <div class="p-3 sm:p-2.5 rounded-lg bg-ink-1 text-paper-0 border border-hairline shrink-0">
+              <i data-lucide="layout-dashboard" class="w-6 h-6 sm:w-5 sm:h-5"></i>
             </div>
             <div>
-              <h3 class="font-bold text-paper-0 text-sm">Painel do administrador completo</h3>
-              <p class="text-xs text-paper-2 mt-1 leading-relaxed">Painel do administrador com Produtos, Estoque, Funcionários, Retira e Visão Geral.</p>
+              <h3 class="font-bold text-paper-0 text-base sm:text-sm">Painel do administrador completo</h3>
+              <p class="text-sm sm:text-xs text-paper-2 mt-1.5 leading-relaxed">Painel do administrador com Produtos, Estoque, Funcionários, Retira e Visão Geral.</p>
             </div>
           </div>
 
-          <div class="anim anim-delay-4 p-4 sm:p-5 rounded border border-hairline bg-white hover:border-hairline-strong transition-all shadow-sm flex items-start gap-3 sm:gap-4">
-            <div class="p-2 sm:p-2.5 rounded bg-ink-1 text-paper-0 border border-hairline shrink-0">
-              <i data-lucide="camera" class="w-5 h-5"></i>
+          <div class="anim anim-delay-4 p-5 sm:p-5 rounded-xl border border-hairline bg-white hover:border-hairline-strong transition-all shadow-sm flex items-start gap-4">
+            <div class="p-3 sm:p-2.5 rounded-lg bg-ink-1 text-paper-0 border border-hairline shrink-0">
+              <i data-lucide="camera" class="w-6 h-6 sm:w-5 sm:h-5"></i>
             </div>
             <div>
-              <h3 class="font-bold text-paper-0 text-sm">Foto obrigatória em toda movimentação</h3>
-              <p class="text-xs text-paper-2 mt-1 leading-relaxed">Tela de registro de movimentação com anexo de foto obrigatório.</p>
+              <h3 class="font-bold text-paper-0 text-base sm:text-sm">Foto obrigatória em toda movimentação</h3>
+              <p class="text-sm sm:text-xs text-paper-2 mt-1.5 leading-relaxed">Tela de registro de movimentação com anexo de foto obrigatório.</p>
             </div>
           </div>
 
-          <div class="anim anim-delay-5 p-4 sm:p-5 rounded border border-hairline bg-white hover:border-hairline-strong transition-all shadow-sm flex items-start gap-3 sm:gap-4">
-            <div class="p-2 sm:p-2.5 rounded bg-ink-1 text-paper-0 border border-hairline shrink-0">
-              <i data-lucide="route" class="w-5 h-5"></i>
+          <div class="anim anim-delay-5 p-5 sm:p-5 rounded-xl border border-hairline bg-white hover:border-hairline-strong transition-all shadow-sm flex items-start gap-4">
+            <div class="p-3 sm:p-2.5 rounded-lg bg-ink-1 text-paper-0 border border-hairline shrink-0">
+              <i data-lucide="route" class="w-6 h-6 sm:w-5 sm:h-5"></i>
             </div>
             <div>
-              <h3 class="font-bold text-paper-0 text-sm">Rastreio completo</h3>
-              <p class="text-xs text-paper-2 mt-1 leading-relaxed">Cada pedido, em cada etapa, com o responsável identificado.</p>
+              <h3 class="font-bold text-paper-0 text-base sm:text-sm">Rastreio completo</h3>
+              <p class="text-sm sm:text-xs text-paper-2 mt-1.5 leading-relaxed">Cada pedido, em cada etapa, com o responsável identificado.</p>
             </div>
           </div>
 
-          <div class="anim anim-delay-6 p-4 sm:p-5 rounded border border-hairline bg-white hover:border-hairline-strong transition-all shadow-sm flex items-start gap-3 sm:gap-4 border-l-4 border-l-accent-amber">
-            <div class="p-2 sm:p-2.5 rounded bg-amber-50 text-accent-amber border border-amber-200 shrink-0">
-              <i data-lucide="calculator" class="w-5 h-5"></i>
+          <div class="anim anim-delay-6 p-5 sm:p-5 rounded-xl border border-hairline bg-white hover:border-hairline-strong transition-all shadow-sm flex items-start gap-4 border-l-4 border-l-accent-amber">
+            <div class="p-3 sm:p-2.5 rounded-lg bg-amber-50 text-accent-amber border border-amber-200 shrink-0">
+              <i data-lucide="calculator" class="w-6 h-6 sm:w-5 sm:h-5"></i>
             </div>
             <div>
-              <h3 class="font-bold text-paper-0 text-sm">Contagem em tempo real</h3>
-              <p class="text-xs text-paper-2 mt-1 leading-relaxed">Contagem de estoque em tempo real, sem depender de conferência manual.</p>
+              <h3 class="font-bold text-paper-0 text-base sm:text-sm">Contagem em tempo real</h3>
+              <p class="text-sm sm:text-xs text-paper-2 mt-1.5 leading-relaxed">Contagem de estoque em tempo real, sem depender de conferência manual.</p>
             </div>
           </div>
 
@@ -387,44 +387,44 @@
         <span class="hidden lg:block absolute -left-[41px] top-24 w-2.5 h-2.5 rounded-full border border-hairline-strong bg-white trace-node transition-all duration-300"></span>
         
         <div class="anim mb-6 sm:mb-8">
-          <h2 class="text-xl sm:text-2xl md:text-4xl font-bold text-paper-0 tracking-tight">QUEM JÁ COMPROU APROVA</h2>
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-paper-0 tracking-tight">QUEM JÁ COMPROU APROVA</h2>
         </div>
 
         <!-- PLACEHOLDER WARNING BADGE REQUIRED BY COPY -->
-        <div class="anim anim-delay-1 mb-6 sm:mb-8 p-3 rounded border border-amber-200 bg-amber-50 text-accent-amber font-mono text-xs flex items-center gap-2 font-medium">
-          <i data-lucide="alert-triangle" class="w-4 h-4 shrink-0"></i>
+        <div class="anim anim-delay-1 mb-6 sm:mb-8 p-3.5 sm:p-3 rounded-lg border border-amber-200 bg-amber-50 text-accent-amber font-mono text-xs sm:text-xs flex items-center gap-2.5 font-medium">
+          <i data-lucide="alert-triangle" class="w-5 h-5 sm:w-4 sm:h-4 shrink-0"></i>
           <span>⚠️ Depoimentos abaixo são modelo/placeholder — trocar pelos reais assim que tiver os primeiros clientes usando.</span>
         </div>
 
         <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
           
-          <div class="anim anim-delay-2 p-5 sm:p-6 rounded-lg border border-hairline bg-white flex flex-col justify-between space-y-4 shadow-sm">
-            <p class="text-sm text-paper-0 italic leading-relaxed">
+          <div class="anim anim-delay-2 p-5 sm:p-6 rounded-xl border border-hairline bg-white flex flex-col justify-between space-y-4 shadow-sm">
+            <p class="text-base sm:text-sm text-paper-0 italic leading-relaxed">
               "Antes eu não tinha como provar se o produto realmente saiu como o funcionário disse. Agora toda movimentação tem foto."
             </p>
-            <div class="pt-4 border-t border-hairline font-mono text-xs">
-              <div class="font-bold text-paper-0">[Nome do Lojista]</div>
-              <div class="text-paper-2">[Nome da Loja de Materiais]</div>
+            <div class="pt-4 border-t border-hairline font-mono text-xs sm:text-xs">
+              <div class="font-bold text-paper-0 text-sm sm:text-xs">[Nome do Lojista]</div>
+              <div class="text-paper-2 mt-0.5">[Nome da Loja de Materiais]</div>
             </div>
           </div>
 
-          <div class="anim anim-delay-3 p-5 sm:p-6 rounded-lg border border-hairline bg-white flex flex-col justify-between space-y-4 shadow-sm">
-            <p class="text-sm text-paper-0 italic leading-relaxed">
+          <div class="anim anim-delay-3 p-5 sm:p-6 rounded-xl border border-hairline bg-white flex flex-col justify-between space-y-4 shadow-sm">
+            <p class="text-base sm:text-sm text-paper-0 italic leading-relaxed">
               "Minha contagem parou de bater diferente com o sistema. Cada etapa fica registrada."
             </p>
-            <div class="pt-4 border-t border-hairline font-mono text-xs">
-              <div class="font-bold text-paper-0">[Nome do Lojista]</div>
-              <div class="text-paper-2">[Nome da Loja de Materiais]</div>
+            <div class="pt-4 border-t border-hairline font-mono text-xs sm:text-xs">
+              <div class="font-bold text-paper-0 text-sm sm:text-xs">[Nome do Lojista]</div>
+              <div class="text-paper-2 mt-0.5">[Nome da Loja de Materiais]</div>
             </div>
           </div>
 
-          <div class="anim anim-delay-4 p-5 sm:p-6 rounded-lg border border-hairline bg-white flex flex-col justify-between space-y-4 shadow-sm">
-            <p class="text-sm text-paper-0 italic leading-relaxed">
+          <div class="anim anim-delay-4 p-5 sm:p-6 rounded-xl border border-hairline bg-white flex flex-col justify-between space-y-4 shadow-sm">
+            <p class="text-base sm:text-sm text-paper-0 italic leading-relaxed">
               "Eu desconfiava que estava perdendo dinheiro na expedição e não sabia onde. Hoje eu vejo exatamente onde."
             </p>
-            <div class="pt-4 border-t border-hairline font-mono text-xs">
-              <div class="font-bold text-paper-0">[Nome do Lojista]</div>
-              <div class="text-paper-2">[Nome da Loja de Materiais]</div>
+            <div class="pt-4 border-t border-hairline font-mono text-xs sm:text-xs">
+              <div class="font-bold text-paper-0 text-sm sm:text-xs">[Nome do Lojista]</div>
+              <div class="text-paper-2 mt-0.5">[Nome da Loja de Materiais]</div>
             </div>
           </div>
 
@@ -437,66 +437,64 @@
       <section id="valores" class="mobile-full relative py-12 sm:py-20 border-b border-hairline">
         <span class="hidden lg:block absolute -left-[41px] top-24 w-2.5 h-2.5 rounded-full border border-hairline-strong bg-white trace-node transition-all duration-300"></span>
         
-        <div class="anim max-w-2xl mx-auto text-center space-y-4 mb-8 sm:mb-12">
-          <p class="text-xs sm:text-sm text-paper-2 px-2 sm:px-0">Controle total da sua expedição por um valor fixo mensal que se paga na primeira sacaria economizada.</p>
+        <div class="anim max-w-2xl mx-auto text-center space-y-4 mb-6 sm:mb-12">
+          <p class="text-sm sm:text-base text-paper-2 px-2 sm:px-0">Controle total da sua expedição por um valor fixo mensal que se paga na primeira sacaria economizada.</p>
         </div>
 
-        <div class="anim-scale anim-delay-2 max-w-md mx-auto rounded-xl sm:rounded-2xl border border-hairline-strong bg-white p-5 sm:p-8 glow-box-emerald relative overflow-hidden shadow-xl">
-          <div class="absolute top-0 right-0 bg-accent-emerald text-white font-mono text-[10px] font-bold px-4 py-1 rounded-bl uppercase tracking-wider">
+        <div class="anim-scale anim-delay-2 max-w-md mx-auto rounded-2xl border border-hairline-strong bg-white p-6 sm:p-8 glow-box-emerald relative overflow-hidden shadow-xl">
+          <div class="absolute top-0 right-0 bg-accent-emerald text-white font-mono text-xs font-bold px-4 py-1.5 rounded-bl uppercase tracking-wider">
             PLANO COMPLETO
           </div>
 
           <div class="space-y-6">
             <div>
-              <h3 class="font-mono text-lg font-bold text-paper-0">Plano Expedição</h3>
-              <p class="text-xs text-paper-2 mt-1">Acesso imediato para sua loja de materiais de construção</p>
+              <h3 class="font-mono text-xl sm:text-2xl font-bold text-paper-0">Plano Expedição</h3>
+              <p class="text-sm text-paper-2 mt-1">Acesso imediato para sua loja de materiais de construção</p>
             </div>
 
             <!-- PRICE CONTAINER WITH IMPLEMENTATION & MONTHLY MAINTENANCE -->
-            <div class="py-4 border-y border-hairline space-y-4">
+            <div class="py-5 border-y border-hairline space-y-4">
               <div>
-                <span class="text-xs text-paper-2 font-mono uppercase block">Implementação</span>
-                <span class="text-2xl md:text-3xl font-extrabold text-paper-0 font-mono">R$ <span id="priceX">47</span></span>
-                <span class="text-[10px] font-mono text-paper-2 block">(taxa única)</span>
+                <span class="text-sm sm:text-xs text-paper-2 font-mono uppercase font-semibold block">Implementação</span>
+                <span class="text-3xl sm:text-4xl font-extrabold text-paper-0 font-mono">R$ <span id="priceX">47</span></span>
+                <span class="text-xs font-mono text-paper-2 block mt-0.5">(taxa única)</span>
               </div>
               <div>
-                <span class="text-xs text-paper-2 font-mono uppercase block">Mensalidade</span>
-                <span class="text-2xl md:text-3xl font-extrabold text-paper-0 font-mono">R$ <span id="priceY">15</span><span class="text-xs font-semibold text-accent-emerald">/mês</span></span>
-                <span class="text-[10px] font-mono text-paper-2 block">(mensalmente para manter no ar)</span>
+                <span class="text-sm sm:text-xs text-paper-2 font-mono uppercase font-semibold block">Mensalidade</span>
+                <span class="text-3xl sm:text-4xl font-extrabold text-paper-0 font-mono">R$ <span id="priceY">15</span><span class="text-sm font-semibold text-accent-emerald">/mês</span></span>
+                <span class="text-xs font-mono text-paper-2 block mt-0.5">(mensalmente para manter no ar)</span>
               </div>
-              <p class="text-[11px] text-accent-emerald font-mono font-bold pt-2 border-t border-hairline">✓ Sem contratos longos ou taxas ocultas</p>
+              <p class="text-xs sm:text-sm text-accent-emerald font-mono font-bold pt-3 border-t border-hairline">✓ Sem contratos longos ou taxas ocultas</p>
             </div>
 
             <!-- FEATURE CHECKLIST FROM COPY -->
-            <ul class="space-y-3 text-xs font-sans">
+            <ul class="space-y-3.5 text-sm font-sans">
               <li class="flex items-center gap-3 text-paper-0">
-                <i data-lucide="check" class="w-4 h-4 text-accent-emerald shrink-0"></i>
+                <i data-lucide="check" class="w-5 h-5 text-accent-emerald shrink-0"></i>
                 <span>Acesso ilimitado para o administrador</span>
               </li>
               <li class="flex items-center gap-3 text-paper-0">
-                <i data-lucide="check" class="w-4 h-4 text-accent-emerald shrink-0"></i>
+                <i data-lucide="check" class="w-5 h-5 text-accent-emerald shrink-0"></i>
                 <span>Até <span class="font-mono font-bold text-paper-0" id="staffN">N</span> funcionários cadastrados</span>
               </li>
               <li class="flex items-center gap-3 text-paper-0">
-                <i data-lucide="check" class="w-4 h-4 text-accent-emerald shrink-0"></i>
+                <i data-lucide="check" class="w-5 h-5 text-accent-emerald shrink-0"></i>
                 <span>Painel completo: Expedição, Separação, Entrega e Retira</span>
               </li>
               <li class="flex items-center gap-3 text-paper-0">
-                <i data-lucide="check" class="w-4 h-4 text-accent-emerald shrink-0"></i>
+                <i data-lucide="check" class="w-5 h-5 text-accent-emerald shrink-0"></i>
                 <span>Foto obrigatória em toda movimentação</span>
               </li>
               <li class="flex items-center gap-3 text-paper-0">
-                <i data-lucide="check" class="w-4 h-4 text-accent-emerald shrink-0"></i>
+                <i data-lucide="check" class="w-5 h-5 text-accent-emerald shrink-0"></i>
                 <span>Suporte incluso na implementação</span>
               </li>
             </ul>
 
-            <button onclick="openModal()" class="w-full py-4 rounded bg-paper-0 text-white font-bold text-sm uppercase tracking-wider hover:bg-slate-800 transition-all shadow-lg flex items-center justify-center gap-2">
+            <button onclick="openModal()" class="w-full py-5 rounded-xl bg-paper-0 text-white font-bold text-base uppercase tracking-wider hover:bg-slate-800 active:scale-[0.98] transition-all shadow-lg flex items-center justify-center gap-3">
               <span>Quero implementar na minha empresa</span>
-              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              <i data-lucide="arrow-right" class="w-5 h-5"></i>
             </button>
-
-
 
           </div>
         </div>
@@ -508,50 +506,50 @@
       <section id="beneficios" class="mobile-full relative py-12 sm:py-20 border-b border-hairline">
         <span class="hidden lg:block absolute -left-[41px] top-24 w-2.5 h-2.5 rounded-full border border-hairline-strong bg-white trace-node transition-all duration-300"></span>
         
-        <div class="anim mb-8 sm:mb-12">
-          <h2 class="text-xl sm:text-2xl md:text-4xl font-bold text-paper-0 tracking-tight">BENEFÍCIOS REAIS</h2>
+        <div class="anim mb-6 sm:mb-12">
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-paper-0 tracking-tight">BENEFÍCIOS REAIS</h2>
         </div>
 
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           
-          <div class="anim anim-delay-1 p-5 sm:p-6 rounded-lg border border-hairline bg-white space-y-3 hover:border-hairline-strong transition-all shadow-sm">
-            <div class="w-10 h-10 rounded bg-red-50 border border-red-200 flex items-center justify-center text-accent-crimson">
-              <i data-lucide="calculator" class="w-5 h-5"></i>
+          <div class="anim anim-delay-1 p-5 sm:p-6 rounded-xl border border-hairline bg-white space-y-3.5 hover:border-hairline-strong transition-all shadow-sm">
+            <div class="w-12 h-12 rounded-lg bg-red-50 border border-red-200 flex items-center justify-center text-accent-crimson shrink-0">
+              <i data-lucide="calculator" class="w-6 h-6"></i>
             </div>
-            <h3 class="font-bold text-paper-0 text-sm sm:text-base">Contagem sempre batendo</h3>
-            <p class="text-xs text-paper-2 leading-relaxed">Cada movimentação é registrada e comprovada com foto, sem depender de conferência manual.</p>
+            <h3 class="font-bold text-paper-0 text-base sm:text-lg">Contagem sempre batendo</h3>
+            <p class="text-sm text-paper-2 leading-relaxed">Cada movimentação é registrada e comprovada com foto, sem depender de conferência manual.</p>
           </div>
 
-          <div class="anim anim-delay-2 p-5 sm:p-6 rounded-lg border border-hairline bg-white space-y-3 hover:border-hairline-strong transition-all shadow-sm">
-            <div class="w-10 h-10 rounded bg-sky-50 border border-sky-200 flex items-center justify-center text-accent-cyan">
-              <i data-lucide="trending-down" class="w-5 h-5"></i>
+          <div class="anim anim-delay-2 p-5 sm:p-6 rounded-xl border border-hairline bg-white space-y-3.5 hover:border-hairline-strong transition-all shadow-sm">
+            <div class="w-12 h-12 rounded-lg bg-sky-50 border border-sky-200 flex items-center justify-center text-accent-cyan shrink-0">
+              <i data-lucide="trending-down" class="w-6 h-6"></i>
             </div>
-            <h3 class="font-bold text-paper-0 text-sm sm:text-base">Saiba se sua empresa está perdendo dinheiro</h3>
-            <p class="text-xs text-paper-2 leading-relaxed">Visão completa do estoque e das movimentações em tempo real.</p>
+            <h3 class="font-bold text-paper-0 text-base sm:text-lg">Saiba se sua empresa está perdendo dinheiro</h3>
+            <p class="text-sm text-paper-2 leading-relaxed">Visão completa do estoque e das movimentações em tempo real.</p>
           </div>
 
-          <div class="anim anim-delay-3 p-5 sm:p-6 rounded-lg border border-hairline bg-white space-y-3 hover:border-hairline-strong transition-all shadow-sm">
-            <div class="w-10 h-10 rounded bg-amber-50 border border-amber-200 flex items-center justify-center text-accent-amber">
-              <i data-lucide="eye" class="w-5 h-5"></i>
+          <div class="anim anim-delay-3 p-5 sm:p-6 rounded-xl border border-hairline bg-white space-y-3.5 hover:border-hairline-strong transition-all shadow-sm">
+            <div class="w-12 h-12 rounded-lg bg-amber-50 border border-amber-200 flex items-center justify-center text-accent-amber shrink-0">
+              <i data-lucide="eye" class="w-6 h-6"></i>
             </div>
-            <h3 class="font-bold text-paper-0 text-sm sm:text-base">Fim da dúvida sobre seus funcionários</h3>
-            <p class="text-xs text-paper-2 leading-relaxed">Toda saída de produto fica registrada e comprovada com foto.</p>
+            <h3 class="font-bold text-paper-0 text-base sm:text-lg">Fim da dúvida sobre seus funcionários</h3>
+            <p class="text-sm text-paper-2 leading-relaxed">Toda saída de produto fica registrada e comprovada com foto.</p>
           </div>
 
-          <div class="anim anim-delay-4 p-5 sm:p-6 rounded-lg border border-hairline bg-white space-y-3 hover:border-hairline-strong transition-all shadow-sm">
-            <div class="w-10 h-10 rounded bg-emerald-50 border border-emerald-200 flex items-center justify-center text-accent-emerald">
-              <i data-lucide="zap" class="w-5 h-5"></i>
+          <div class="anim anim-delay-4 p-5 sm:p-6 rounded-xl border border-hairline bg-white space-y-3.5 hover:border-hairline-strong transition-all shadow-sm">
+            <div class="w-12 h-12 rounded-lg bg-emerald-50 border border-emerald-200 flex items-center justify-center text-accent-emerald shrink-0">
+              <i data-lucide="zap" class="w-6 h-6"></i>
             </div>
-            <h3 class="font-bold text-paper-0 text-sm sm:text-base">Decisão rápida</h3>
-            <p class="text-xs text-paper-2 leading-relaxed">Você vê o problema no mesmo dia, não no fechamento do mês.</p>
+            <h3 class="font-bold text-paper-0 text-base sm:text-lg">Decisão rápida</h3>
+            <p class="text-sm text-paper-2 leading-relaxed">Você vê o problema no mesmo dia, não no fechamento do mês.</p>
           </div>
 
-          <div class="anim anim-delay-5 p-5 sm:p-6 rounded-lg border border-hairline bg-white space-y-3 hover:border-hairline-strong transition-all shadow-sm sm:col-span-2 lg:col-span-2">
-            <div class="w-10 h-10 rounded bg-ink-1 border border-hairline flex items-center justify-center text-paper-0">
-              <i data-lucide="refresh-cw" class="w-5 h-5"></i>
+          <div class="anim anim-delay-5 p-5 sm:p-6 rounded-xl border border-hairline bg-white space-y-3.5 hover:border-hairline-strong transition-all shadow-sm sm:col-span-2 lg:col-span-2">
+            <div class="w-12 h-12 rounded-lg bg-ink-1 border border-hairline flex items-center justify-center text-paper-0 shrink-0">
+              <i data-lucide="refresh-cw" class="w-6 h-6"></i>
             </div>
-            <h3 class="font-bold text-paper-0 text-sm sm:text-base">Sem trocar seu sistema atual</h3>
-            <p class="text-xs text-paper-2 leading-relaxed">O Nexo Sistema funciona em paralelo, só pra controlar a expedição.</p>
+            <h3 class="font-bold text-paper-0 text-base sm:text-lg">Sem trocar seu sistema atual</h3>
+            <p class="text-sm text-paper-2 leading-relaxed">O Nexo Sistema funciona em paralelo, só pra controlar a expedição.</p>
           </div>
 
         </div>
@@ -563,85 +561,85 @@
       <section id="faq" class="mobile-full relative py-12 sm:py-20">
         <span class="hidden lg:block absolute -left-[41px] top-24 w-2.5 h-2.5 rounded-full border border-hairline-strong bg-white trace-node transition-all duration-300"></span>
         
-        <div class="anim mb-8 sm:mb-12">
-          <h2 class="text-xl sm:text-2xl md:text-4xl font-bold text-paper-0 tracking-tight">PERGUNTAS FREQUENTES</h2>
+        <div class="anim mb-6 sm:mb-12">
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-paper-0 tracking-tight">PERGUNTAS FREQUENTES</h2>
         </div>
 
-        <div class="max-w-3xl space-y-3 sm:space-y-4">
+        <div class="max-w-3xl space-y-3.5 sm:space-y-4">
           
           <!-- Q1 -->
-          <div class="anim anim-delay-1 rounded border border-hairline bg-white overflow-hidden shadow-sm">
-            <button onclick="toggleFaq(this)" class="w-full p-4 sm:p-5 text-left font-bold text-paper-0 text-sm md:text-base flex justify-between items-center gap-4 hover:bg-ink-1 transition-colors">
+          <div class="anim anim-delay-1 rounded-xl border border-hairline bg-white overflow-hidden shadow-sm">
+            <button onclick="toggleFaq(this)" class="w-full p-5 sm:p-5 text-left font-bold text-paper-0 text-base sm:text-base flex justify-between items-center gap-4 hover:bg-ink-1 transition-colors">
               <span>Preciso trocar meu sistema de gestão atual?</span>
-              <i data-lucide="chevron-down" class="w-4 h-4 text-paper-2 transition-transform duration-200"></i>
+              <i data-lucide="chevron-down" class="w-5 h-5 text-paper-2 transition-transform duration-200 shrink-0"></i>
             </button>
-            <div class="faq-answer hidden p-5 pt-0 text-xs text-paper-2 border-t border-hairline leading-relaxed">
+            <div class="faq-answer hidden p-5 pt-0 text-sm sm:text-sm text-paper-1 border-t border-hairline leading-relaxed">
               Não. O Nexo Sistema funciona junto com o sistema que você já usa, só pra controlar a expedição.
             </div>
           </div>
 
           <!-- Q2 -->
-          <div class="anim anim-delay-2 rounded border border-hairline bg-white overflow-hidden shadow-sm">
-            <button onclick="toggleFaq(this)" class="w-full p-4 sm:p-5 text-left font-bold text-paper-0 text-sm md:text-base flex justify-between items-center gap-4 hover:bg-ink-1 transition-colors">
+          <div class="anim anim-delay-2 rounded-xl border border-hairline bg-white overflow-hidden shadow-sm">
+            <button onclick="toggleFaq(this)" class="w-full p-5 sm:p-5 text-left font-bold text-paper-0 text-base sm:text-base flex justify-between items-center gap-4 hover:bg-ink-1 transition-colors">
               <span>Toda movimentação precisa mesmo de foto?</span>
-              <i data-lucide="chevron-down" class="w-4 h-4 text-paper-2 transition-transform duration-200"></i>
+              <i data-lucide="chevron-down" class="w-5 h-5 text-paper-2 transition-transform duration-200 shrink-0"></i>
             </button>
-            <div class="faq-answer hidden p-5 pt-0 text-xs text-paper-2 border-t border-hairline leading-relaxed">
+            <div class="faq-answer hidden p-5 pt-0 text-sm sm:text-sm text-paper-1 border-t border-hairline leading-relaxed">
               Sim, é obrigatório anexar uma foto pra registrar a movimentação — isso garante que o que foi declarado bate com o que realmente saiu.
             </div>
           </div>
 
           <!-- Q3 -->
-          <div class="anim anim-delay-3 rounded border border-hairline bg-white overflow-hidden shadow-sm">
-            <button onclick="toggleFaq(this)" class="w-full p-4 sm:p-5 text-left font-bold text-paper-0 text-sm md:text-base flex justify-between items-center gap-4 hover:bg-ink-1 transition-colors">
+          <div class="anim anim-delay-3 rounded-xl border border-hairline bg-white overflow-hidden shadow-sm">
+            <button onclick="toggleFaq(this)" class="w-full p-5 sm:p-5 text-left font-bold text-paper-0 text-base sm:text-base flex justify-between items-center gap-4 hover:bg-ink-1 transition-colors">
               <span>Como funciona quando o cliente retira o pedido no balcão?</span>
-              <i data-lucide="chevron-down" class="w-4 h-4 text-paper-2 transition-transform duration-200"></i>
+              <i data-lucide="chevron-down" class="w-5 h-5 text-paper-2 transition-transform duration-200 shrink-0"></i>
             </button>
-            <div class="faq-answer hidden p-5 pt-0 text-xs text-paper-2 border-t border-hairline leading-relaxed">
+            <div class="faq-answer hidden p-5 pt-0 text-sm sm:text-sm text-paper-1 border-t border-hairline leading-relaxed">
               Existe uma etapa própria, Retira, separada das etapas de expedição, pra dar baixa nesses pedidos.
             </div>
           </div>
 
           <!-- Q4 -->
-          <div class="anim anim-delay-4 rounded border border-hairline bg-white overflow-hidden shadow-sm">
-            <button onclick="toggleFaq(this)" class="w-full p-4 sm:p-5 text-left font-bold text-paper-0 text-sm md:text-base flex justify-between items-center gap-4 hover:bg-ink-1 transition-colors">
+          <div class="anim anim-delay-4 rounded-xl border border-hairline bg-white overflow-hidden shadow-sm">
+            <button onclick="toggleFaq(this)" class="w-full p-5 sm:p-5 text-left font-bold text-paper-0 text-base sm:text-base flex justify-between items-center gap-4 hover:bg-ink-1 transition-colors">
               <span>Meus funcionários vão conseguir usar sem dificuldade?</span>
-              <i data-lucide="chevron-down" class="w-4 h-4 text-paper-2 transition-transform duration-200"></i>
+              <i data-lucide="chevron-down" class="w-5 h-5 text-paper-2 transition-transform duration-200 shrink-0"></i>
             </button>
-            <div class="faq-answer hidden p-4 sm:p-5 pt-0 text-xs text-paper-2 border-t border-hairline leading-relaxed">
+            <div class="faq-answer hidden p-5 pt-0 text-sm sm:text-sm text-paper-1 border-t border-hairline leading-relaxed">
               Sim. A tela é simples: o funcionário só seleciona o pedido, a etapa e anexa a foto. Não precisa de treinamento técnico.
             </div>
           </div>
 
           <!-- Q5 -->
-          <div class="anim anim-delay-5 rounded border border-hairline bg-white overflow-hidden shadow-sm">
-            <button onclick="toggleFaq(this)" class="w-full p-4 sm:p-5 text-left font-bold text-paper-0 text-sm md:text-base flex justify-between items-center gap-4 hover:bg-ink-1 transition-colors">
+          <div class="anim anim-delay-5 rounded-xl border border-hairline bg-white overflow-hidden shadow-sm">
+            <button onclick="toggleFaq(this)" class="w-full p-5 sm:p-5 text-left font-bold text-paper-0 text-base sm:text-base flex justify-between items-center gap-4 hover:bg-ink-1 transition-colors">
               <span>Funciona no celular?</span>
-              <i data-lucide="chevron-down" class="w-4 h-4 text-paper-2 transition-transform duration-200"></i>
+              <i data-lucide="chevron-down" class="w-5 h-5 text-paper-2 transition-transform duration-200 shrink-0"></i>
             </button>
-            <div class="faq-answer hidden p-4 sm:p-5 pt-0 text-xs text-paper-2 border-t border-hairline leading-relaxed">
+            <div class="faq-answer hidden p-5 pt-0 text-sm sm:text-sm text-paper-1 border-t border-hairline leading-relaxed">
               Sim, tanto no celular quanto no computador.
             </div>
           </div>
 
           <!-- Q6 -->
-          <div class="anim anim-delay-6 rounded border border-hairline bg-white overflow-hidden shadow-sm">
-            <button onclick="toggleFaq(this)" class="w-full p-4 sm:p-5 text-left font-bold text-paper-0 text-sm md:text-base flex justify-between items-center gap-4 hover:bg-ink-1 transition-colors">
+          <div class="anim anim-delay-6 rounded-xl border border-hairline bg-white overflow-hidden shadow-sm">
+            <button onclick="toggleFaq(this)" class="w-full p-5 sm:p-5 text-left font-bold text-paper-0 text-base sm:text-base flex justify-between items-center gap-4 hover:bg-ink-1 transition-colors">
               <span>Quanto tempo leva pra colocar pra funcionar?</span>
-              <i data-lucide="chevron-down" class="w-4 h-4 text-paper-2 transition-transform duration-200"></i>
+              <i data-lucide="chevron-down" class="w-5 h-5 text-paper-2 transition-transform duration-200 shrink-0"></i>
             </button>
-            <div class="faq-answer hidden p-4 sm:p-5 pt-0 text-xs text-paper-2 border-t border-hairline leading-relaxed">
+            <div class="faq-answer hidden p-5 pt-0 text-sm sm:text-sm text-paper-1 border-t border-hairline leading-relaxed">
               <span id="faqPrazoText">[Preencher com prazo real de implementação]</span>
             </div>
           </div>
 
           <!-- Q7 -->
-          <div class="anim rounded border border-hairline bg-white overflow-hidden shadow-sm">
-            <button onclick="toggleFaq(this)" class="w-full p-4 sm:p-5 text-left font-bold text-paper-0 text-sm md:text-base flex justify-between items-center gap-4 hover:bg-ink-1 transition-colors">
+          <div class="anim rounded-xl border border-hairline bg-white overflow-hidden shadow-sm">
+            <button onclick="toggleFaq(this)" class="w-full p-5 sm:p-5 text-left font-bold text-paper-0 text-base sm:text-base flex justify-between items-center gap-4 hover:bg-ink-1 transition-colors">
               <span>E se eu não tiver internet boa no depósito?</span>
-              <i data-lucide="chevron-down" class="w-4 h-4 text-paper-2 transition-transform duration-200"></i>
+              <i data-lucide="chevron-down" class="w-5 h-5 text-paper-2 transition-transform duration-200 shrink-0"></i>
             </button>
-            <div class="faq-answer hidden p-4 sm:p-5 pt-0 text-xs text-paper-2 border-t border-hairline leading-relaxed">
+            <div class="faq-answer hidden p-5 pt-0 text-sm sm:text-sm text-paper-1 border-t border-hairline leading-relaxed">
               <span id="faqOfflineText">[Preencher — depende de como o painel foi construído: online only ou com funcionamento offline]</span>
             </div>
           </div>
@@ -666,31 +664,31 @@
 
   <!-- LEAD CAPTURE MODAL -->
   <div id="leadModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
-    <div class="bg-white border border-hairline-strong rounded-xl max-w-md w-full p-6 relative space-y-4 glow-box shadow-2xl">
-      <button onclick="closeModal()" class="absolute top-4 right-4 text-paper-2 hover:text-paper-0 font-mono text-sm">✕</button>
+    <div class="bg-white border border-hairline-strong rounded-2xl max-w-md w-full p-6 sm:p-8 relative space-y-5 glow-box shadow-2xl">
+      <button onclick="closeModal()" class="absolute top-4 right-4 text-paper-2 hover:text-paper-0 font-mono text-base p-1">✕</button>
       
-      <div class="space-y-1">
-        <h3 class="text-xl font-bold text-paper-0">Implementar na Minha Loja</h3>
-        <p class="text-xs text-paper-2">Preencha abaixo para falar conosco e implementar o sistema na sua loja.</p>
+      <div class="space-y-1.5">
+        <h3 class="text-2xl font-bold text-paper-0">Implementar na Minha Loja</h3>
+        <p class="text-sm text-paper-2">Preencha abaixo para falar conosco e implementar o sistema na sua loja.</p>
       </div>
 
-      <form onsubmit="handleFormSubmit(event)" class="space-y-3 font-sans text-xs">
+      <form onsubmit="handleFormSubmit(event)" class="space-y-4 font-sans text-sm">
         <div>
-          <label class="block text-paper-2 font-mono text-[10px] mb-1">SEU NOME</label>
-          <input type="text" required placeholder="Ex: Roberto Silva" class="w-full bg-ink-1 border border-hairline rounded p-2.5 text-paper-0 focus:outline-none focus:border-paper-0">
+          <label class="block text-paper-2 font-mono text-xs mb-1.5">SEU NOME</label>
+          <input type="text" required placeholder="Ex: Roberto Silva" class="w-full bg-ink-1 border border-hairline rounded-lg p-3.5 text-sm text-paper-0 focus:outline-none focus:border-paper-0">
         </div>
 
         <div>
-          <label class="block text-paper-2 font-mono text-[10px] mb-1">NOME DA SUA LOJA DE MATERIAIS</label>
-          <input type="text" required placeholder="Ex: Mat. Construção Silva & Cia" class="w-full bg-ink-1 border border-hairline rounded p-2.5 text-paper-0 focus:outline-none focus:border-paper-0">
+          <label class="block text-paper-2 font-mono text-xs mb-1.5">NOME DA SUA LOJA DE MATERIAIS</label>
+          <input type="text" required placeholder="Ex: Mat. Construção Silva & Cia" class="w-full bg-ink-1 border border-hairline rounded-lg p-3.5 text-sm text-paper-0 focus:outline-none focus:border-paper-0">
         </div>
 
         <div>
-          <label class="block text-paper-2 font-mono text-[10px] mb-1">WHATSAPP COM DDD</label>
-          <input type="tel" required placeholder="(11) 99999-9999" class="w-full bg-ink-1 border border-hairline rounded p-2.5 text-paper-0 focus:outline-none focus:border-paper-0">
+          <label class="block text-paper-2 font-mono text-xs mb-1.5">WHATSAPP COM DDD</label>
+          <input type="tel" required placeholder="(11) 99999-9999" class="w-full bg-ink-1 border border-hairline rounded-lg p-3.5 text-sm text-paper-0 focus:outline-none focus:border-paper-0">
         </div>
 
-        <button type="submit" class="w-full py-3 rounded bg-paper-0 text-white font-bold text-xs uppercase tracking-wider hover:bg-slate-800 transition-all mt-2 shadow-sm">
+        <button type="submit" class="w-full py-4 rounded-xl bg-paper-0 text-white font-bold text-sm uppercase tracking-wider hover:bg-slate-800 transition-all mt-2 shadow-sm">
           ENVIAR SOLICITAÇÃO →
         </button>
       </form>
