@@ -213,29 +213,29 @@
       <!-- ==========================================
            1. HERO SECTION (COPY FOCUSED)
            ========================================== -->
-      <section id="hero" class="mobile-full relative py-10 sm:py-16 md:py-24 border-b border-hairline">
+      <section id="hero" class="mobile-full relative py-12 sm:py-16 md:py-24 border-b border-hairline">
         <!-- Trace Node -->
         <span class="hidden lg:block absolute -left-[41px] top-24 w-2.5 h-2.5 rounded-full border border-hairline-strong bg-white trace-node transition-all duration-300"></span>
         
         <div class="max-w-4xl mx-auto text-center space-y-6 sm:space-y-8">
 
-          <h1 class="anim text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-paper-0 tracking-tight leading-[1.15] max-w-3xl mx-auto">
+          <h1 class="anim text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-paper-0 tracking-tight leading-[1.08] max-w-4xl mx-auto">
             Sua contagem não bate e você não sabe se está <span class="chrome-text">perdendo dinheiro</span> — ou sendo passado pra trás
           </h1>
 
-          <p class="anim anim-delay-1 text-base sm:text-lg md:text-xl text-paper-1 leading-relaxed max-w-3xl mx-auto font-normal px-1 sm:px-0">
+          <p class="anim anim-delay-1 text-base sm:text-lg md:text-xl text-paper-1 leading-relaxed max-w-2xl mx-auto font-normal px-1 sm:px-0">
             A Nexo Sistema cria um sistema sob medida pra sua empresa: um controle de expedição que registra cada pedido, com foto obrigatória em cada movimentação — pra você nunca mais depender só da palavra do funcionário.
           </p>
 
-          <div class="anim anim-delay-2 pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button onclick="openModal()" class="w-full sm:w-auto px-8 sm:px-10 py-5 rounded-lg bg-paper-0 text-white font-bold text-base sm:text-sm uppercase tracking-wider hover:bg-slate-800 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl flex items-center justify-center gap-3 group">
+          <div class="anim anim-delay-2 pt-8 sm:pt-12 flex items-center justify-center">
+            <button onclick="openModal()" class="w-auto px-6 sm:px-8 py-3 sm:py-3.5 rounded-lg bg-paper-0 text-white font-semibold text-xs sm:text-sm uppercase tracking-wider hover:bg-slate-800 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-md flex items-center justify-center gap-2.5 group">
               <span>Quero controlar minha expedição</span>
-              <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+              <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
             </button>
           </div>
 
           <!-- TRUST STATS -->
-          <div class="anim anim-delay-3 pt-6 sm:pt-8 border-t border-hairline grid grid-cols-2 gap-4 sm:gap-6 font-mono text-sm sm:text-xs max-w-sm mx-auto">
+          <div class="anim anim-delay-3 pt-6 sm:pt-8 border-t border-hairline grid grid-cols-2 gap-6 sm:gap-8 font-mono text-sm sm:text-xs max-w-xs sm:max-w-sm mx-auto">
             <div>
               <div class="text-paper-0 font-bold text-2xl">100%</div>
               <div class="text-paper-2 mt-1">Rastreável</div>
@@ -294,7 +294,7 @@
                 Apresentação passo a passo do fluxo (Separação → Expedição → Saída)
               </span>
               <button onclick="openModal()" class="text-white hover:text-accent-emerald font-bold underline transition-colors text-base sm:text-xs py-2 sm:py-0">
-                Quero implementar na minha loja →
+                Quero implementar na minha empresa →
               </button>
             </div>
 
@@ -331,7 +331,7 @@
             </div>
             <div>
               <h3 class="font-bold text-paper-0 text-base sm:text-sm">Etapa separada de Retira</h3>
-              <p class="text-sm sm:text-xs text-paper-2 mt-1.5 leading-relaxed">Etapa separada de Retira, pra dar baixa em pedidos retirados no balcão.</p>
+              <p class="text-sm sm:text-xs text-paper-2 mt-1.5 leading-relaxed">Etapa separada de Retira, pra dar baixa em pedidos retirados no local.</p>
             </div>
           </div>
 
@@ -403,8 +403,8 @@
               "Antes eu não tinha como provar se o produto realmente saiu como o funcionário disse. Agora toda movimentação tem foto."
             </p>
             <div class="pt-4 border-t border-hairline font-mono text-xs sm:text-xs">
-              <div class="font-bold text-paper-0 text-sm sm:text-xs">[Nome do Lojista]</div>
-              <div class="text-paper-2 mt-0.5">[Nome da Loja de Materiais]</div>
+              <div class="font-bold text-paper-0 text-sm sm:text-xs">[Nome do Cliente]</div>
+              <div class="text-paper-2 mt-0.5">[Nome da Empresa]</div>
             </div>
           </div>
 
@@ -413,8 +413,8 @@
               "Minha contagem parou de bater diferente com o sistema. Cada etapa fica registrada."
             </p>
             <div class="pt-4 border-t border-hairline font-mono text-xs sm:text-xs">
-              <div class="font-bold text-paper-0 text-sm sm:text-xs">[Nome do Lojista]</div>
-              <div class="text-paper-2 mt-0.5">[Nome da Loja de Materiais]</div>
+              <div class="font-bold text-paper-0 text-sm sm:text-xs">[Nome do Cliente]</div>
+              <div class="text-paper-2 mt-0.5">[Nome da Empresa]</div>
             </div>
           </div>
 
@@ -423,8 +423,8 @@
               "Eu desconfiava que estava perdendo dinheiro na expedição e não sabia onde. Hoje eu vejo exatamente onde."
             </p>
             <div class="pt-4 border-t border-hairline font-mono text-xs sm:text-xs">
-              <div class="font-bold text-paper-0 text-sm sm:text-xs">[Nome do Lojista]</div>
-              <div class="text-paper-2 mt-0.5">[Nome da Loja de Materiais]</div>
+              <div class="font-bold text-paper-0 text-sm sm:text-xs">[Nome do Cliente]</div>
+              <div class="text-paper-2 mt-0.5">[Nome da Empresa]</div>
             </div>
           </div>
 
@@ -438,7 +438,7 @@
         <span class="hidden lg:block absolute -left-[41px] top-24 w-2.5 h-2.5 rounded-full border border-hairline-strong bg-white trace-node transition-all duration-300"></span>
         
         <div class="anim max-w-2xl mx-auto text-center space-y-4 mb-6 sm:mb-12">
-          <p class="text-sm sm:text-base text-paper-2 px-2 sm:px-0">Controle total da sua expedição por um valor fixo mensal que se paga na primeira sacaria economizada.</p>
+          <p class="text-sm sm:text-base text-paper-2 px-2 sm:px-0">Controle total da sua expedição por um valor fixo mensal que se paga no primeiro erro evitado.</p>
         </div>
 
         <div class="anim-scale anim-delay-2 max-w-md mx-auto rounded-2xl border border-hairline-strong bg-white p-6 sm:p-8 glow-box-emerald relative overflow-hidden shadow-xl">
@@ -449,7 +449,7 @@
           <div class="space-y-6">
             <div>
               <h3 class="font-mono text-xl sm:text-2xl font-bold text-paper-0">Plano Expedição</h3>
-              <p class="text-sm text-paper-2 mt-1">Acesso imediato para sua loja de materiais de construção</p>
+              <p class="text-sm text-paper-2 mt-1">Acesso imediato para a sua empresa</p>
             </div>
 
             <!-- PRICE CONTAINER WITH IMPLEMENTATION & MONTHLY MAINTENANCE -->
@@ -592,7 +592,7 @@
           <!-- Q3 -->
           <div class="anim anim-delay-3 rounded-xl border border-hairline bg-white overflow-hidden shadow-sm">
             <button onclick="toggleFaq(this)" class="w-full p-5 sm:p-5 text-left font-bold text-paper-0 text-base sm:text-base flex justify-between items-center gap-4 hover:bg-ink-1 transition-colors">
-              <span>Como funciona quando o cliente retira o pedido no balcão?</span>
+              <span>Como funciona quando o cliente retira o pedido no local?</span>
               <i data-lucide="chevron-down" class="w-5 h-5 text-paper-2 transition-transform duration-200 shrink-0"></i>
             </button>
             <div class="faq-answer hidden p-5 pt-0 text-sm sm:text-sm text-paper-1 border-t border-hairline leading-relaxed">
@@ -668,8 +668,8 @@
       <button onclick="closeModal()" class="absolute top-4 right-4 text-paper-2 hover:text-paper-0 font-mono text-base p-1">✕</button>
       
       <div class="space-y-1.5">
-        <h3 class="text-2xl font-bold text-paper-0">Implementar na Minha Loja</h3>
-        <p class="text-sm text-paper-2">Preencha abaixo para falar conosco e implementar o sistema na sua loja.</p>
+        <h3 class="text-2xl font-bold text-paper-0">Implementar na Minha Empresa</h3>
+        <p class="text-sm text-paper-2">Preencha abaixo para falar conosco e implementar o sistema na sua empresa.</p>
       </div>
 
       <form onsubmit="handleFormSubmit(event)" class="space-y-4 font-sans text-sm">
@@ -679,8 +679,8 @@
         </div>
 
         <div>
-          <label class="block text-paper-2 font-mono text-xs mb-1.5">NOME DA SUA LOJA DE MATERIAIS</label>
-          <input type="text" required placeholder="Ex: Mat. Construção Silva & Cia" class="w-full bg-ink-1 border border-hairline rounded-lg p-3.5 text-sm text-paper-0 focus:outline-none focus:border-paper-0">
+          <label class="block text-paper-2 font-mono text-xs mb-1.5">NOME DA SUA EMPRESA</label>
+          <input type="text" required placeholder="Ex: Silva & Cia" class="w-full bg-ink-1 border border-hairline rounded-lg p-3.5 text-sm text-paper-0 focus:outline-none focus:border-paper-0">
         </div>
 
         <div>
@@ -778,8 +778,8 @@
             <span>PEDIDO #4092</span>
             <span>Resp: Carlos M.</span>
           </div>
-          <div class="font-semibold text-paper-0">50 Sacos Cimento CP-II</div>
-          <div class="text-[10px] text-paper-2">Cliente: Construtora Silva</div>
+          <div class="font-semibold text-paper-0">Carga #4092 — 50 Volumes</div>
+          <div class="text-[10px] text-paper-2">Cliente: Comercial Silva</div>
           <div class="flex justify-end pt-1">
             <span class="text-[10px] font-mono text-accent-emerald font-bold hover:underline">Liberar para Rua →</span>
           </div>
@@ -797,7 +797,7 @@
             <span>PEDIDO MIGRADO</span>
             <span class="text-accent-emerald font-bold">Agora mesmo</span>
           </div>
-          <div class="font-semibold text-paper-0">Material Liberado para Entrega</div>
+          <div class="font-semibold text-paper-0">Carga Liberada para Entrega</div>
           <div class="text-[10px] text-paper-2">Motorista: Confirmado na saída</div>
         </div>
       `;
