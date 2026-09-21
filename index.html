@@ -114,6 +114,19 @@
     @media (max-width: 640px) {
       .faq-answer { font-size: 13px; line-height: 1.6; }
       button, a { -webkit-tap-highlight-color: transparent; }
+
+      /* Full-screen sections on mobile */
+      .mobile-full {
+        min-height: 100dvh;
+        min-height: 100vh; /* fallback */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        box-sizing: border-box;
+      }
+      @supports (min-height: 100dvh) {
+        .mobile-full { min-height: 100dvh; }
+      }
     }
 
     /* Entrance Animations */
@@ -200,7 +213,7 @@
       <!-- ==========================================
            1. HERO SECTION (COPY FOCUSED)
            ========================================== -->
-      <section id="hero" class="relative py-10 sm:py-16 md:py-24 border-b border-hairline">
+      <section id="hero" class="mobile-full relative py-10 sm:py-16 md:py-24 border-b border-hairline">
         <!-- Trace Node -->
         <span class="hidden lg:block absolute -left-[41px] top-24 w-2.5 h-2.5 rounded-full border border-hairline-strong bg-white trace-node transition-all duration-300"></span>
         
@@ -239,7 +252,7 @@
       <!-- ==========================================
            VEJA NA PRÁTICA (ESPAÇO PARA VSL)
            ========================================== -->
-      <section id="veja-na-pratica" class="relative py-12 sm:py-20 border-b border-hairline bg-ink-1/40">
+      <section id="veja-na-pratica" class="mobile-full relative py-12 sm:py-20 border-b border-hairline bg-ink-1/40">
         <!-- Trace Node -->
         <span class="hidden lg:block absolute -left-[41px] top-24 w-2.5 h-2.5 rounded-full border border-hairline-strong bg-white trace-node transition-all duration-300"></span>
         
@@ -293,7 +306,7 @@
       <!-- ==========================================
            2. O QUE VOCÊ VAI RECEBER
            ========================================== -->
-      <section id="recursos" class="relative py-12 sm:py-20 border-b border-hairline">
+      <section id="recursos" class="mobile-full relative py-12 sm:py-20 border-b border-hairline">
         <span class="hidden lg:block absolute -left-[41px] top-24 w-2.5 h-2.5 rounded-full border border-hairline-strong bg-white trace-node transition-all duration-300"></span>
         
         <div class="anim mb-8 sm:mb-12">
@@ -370,7 +383,7 @@
       <!-- ==========================================
            4. QUEM JÁ COMPROU APROVA (DEPOIMENTOS)
            ========================================== -->
-      <section id="depoimentos" class="relative py-12 sm:py-20 border-b border-hairline">
+      <section id="depoimentos" class="mobile-full relative py-12 sm:py-20 border-b border-hairline">
         <span class="hidden lg:block absolute -left-[41px] top-24 w-2.5 h-2.5 rounded-full border border-hairline-strong bg-white trace-node transition-all duration-300"></span>
         
         <div class="anim mb-6 sm:mb-8">
@@ -421,7 +434,7 @@
       <!-- ==========================================
            5. PRICING CARD
            ========================================== -->
-      <section id="valores" class="relative py-12 sm:py-20 border-b border-hairline">
+      <section id="valores" class="mobile-full relative py-12 sm:py-20 border-b border-hairline">
         <span class="hidden lg:block absolute -left-[41px] top-24 w-2.5 h-2.5 rounded-full border border-hairline-strong bg-white trace-node transition-all duration-300"></span>
         
         <div class="anim max-w-2xl mx-auto text-center space-y-4 mb-8 sm:mb-12">
@@ -492,7 +505,7 @@
       <!-- ==========================================
            6. BENEFÍCIOS
            ========================================== -->
-      <section id="beneficios" class="relative py-12 sm:py-20 border-b border-hairline">
+      <section id="beneficios" class="mobile-full relative py-12 sm:py-20 border-b border-hairline">
         <span class="hidden lg:block absolute -left-[41px] top-24 w-2.5 h-2.5 rounded-full border border-hairline-strong bg-white trace-node transition-all duration-300"></span>
         
         <div class="anim mb-8 sm:mb-12">
@@ -547,7 +560,7 @@
       <!-- ==========================================
            7. FAQ
            ========================================== -->
-      <section id="faq" class="relative py-12 sm:py-20">
+      <section id="faq" class="mobile-full relative py-12 sm:py-20">
         <span class="hidden lg:block absolute -left-[41px] top-24 w-2.5 h-2.5 rounded-full border border-hairline-strong bg-white trace-node transition-all duration-300"></span>
         
         <div class="anim mb-8 sm:mb-12">
