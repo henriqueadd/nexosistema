@@ -96,61 +96,202 @@
       box-shadow: 0 0 12px rgba(5, 150, 105, 0.6);
     }
 
-    /* MOBILE OPTIMIZATIONS */
+    /* SMOOTH MOBILE SCROLLING & HARDWARE ACCELERATION */
+    html {
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
+    }
     html, body {
       overflow-x: hidden;
+      max-width: 100vw;
     }
 
     /* Mobile menu */
     .mobile-menu {
       transform: translateX(100%);
       transition: transform 0.3s cubic-bezier(0.22,1,0.36,1);
+      will-change: transform;
     }
     .mobile-menu.open {
       transform: translateX(0);
     }
 
-    /* Better tap targets on mobile */
+    /* Mobile optimizations - Stable heights without layout thrashing */
     @media (max-width: 640px) {
       .faq-answer { font-size: 15px; line-height: 1.6; }
       button, a { -webkit-tap-highlight-color: transparent; }
 
-      /* Full-screen sections on mobile */
+      /* Stable section sizing without dynamic viewport reflows */
       .mobile-full {
-        min-height: 100dvh;
-        min-height: 100vh; /* fallback */
+        min-height: unset;
         display: flex;
         flex-direction: column;
         justify-content: center;
         box-sizing: border-box;
       }
-      @supports (min-height: 100dvh) {
-        .mobile-full { min-height: 100dvh; }
+      #hero.mobile-full {
+        min-height: calc(100vh - 4rem);
       }
     }
 
-    /* Entrance Animations */
+    @media (min-width: 641px) {
+      .mobile-full {
+        min-height: 85vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        box-sizing: border-box;
+      }
+    }
+
+    /* GPU-Accelerated Entrance Animations */
     @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to   { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; transform: translateY(25px) translateZ(0); }
+      to   { opacity: 1; transform: translateY(0) translateZ(0); }
     }
     @keyframes scaleIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to   { opacity: 1; transform: scale(1); }
+      from { opacity: 0; transform: scale(0.96) translateZ(0); }
+      to   { opacity: 1; transform: scale(1) translateZ(0); }
     }
-    .anim { opacity: 0; }
-    .anim.visible { animation: fadeInUp 0.6s cubic-bezier(0.22,1,0.36,1) forwards; }
-    .anim-scale { opacity: 0; }
-    .anim-scale.visible { animation: scaleIn 0.6s cubic-bezier(0.22,1,0.36,1) forwards; }
+    .anim {
+      opacity: 0;
+      will-change: opacity, transform;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+    }
+    .anim.visible { animation: fadeInUp 0.55s cubic-bezier(0.22,1,0.36,1) forwards; }
+    .anim-scale {
+      opacity: 0;
+      will-change: opacity, transform;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+    }
+    .anim-scale.visible { animation: scaleIn 0.55s cubic-bezier(0.22,1,0.36,1) forwards; }
     .anim-delay-1 { animation-delay: 0.1s !important; }
     .anim-delay-2 { animation-delay: 0.2s !important; }
     .anim-delay-3 { animation-delay: 0.3s !important; }
     .anim-delay-4 { animation-delay: 0.4s !important; }
     .anim-delay-5 { animation-delay: 0.5s !important; }
     .anim-delay-6 { animation-delay: 0.6s !important; }
+
+    /* VISUAL OPENING EFFECTS */
+    /* 1. Header smooth entrance slide-down */
+    header {
+      animation: headerSlideDown 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      will-change: transform, opacity;
+    }
+    @keyframes headerSlideDown {
+      0% {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    /* 2. Top Glowing Laser Scanner on Initial Page Open */
+    .page-open-beam {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, transparent, #10B981, #059669, #34D399, #10B981);
+      box-shadow: 0 0 14px rgba(16, 185, 129, 0.9), 0 0 28px rgba(5, 150, 105, 0.6);
+      z-index: 100;
+      pointer-events: none;
+      animation: sweepBeam 1.1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+    @keyframes sweepBeam {
+      0% {
+        width: 0%;
+        opacity: 1;
+      }
+      70% {
+        width: 100%;
+        opacity: 1;
+      }
+      100% {
+        width: 100%;
+        opacity: 0;
+      }
+    }
+
+    /* 3. Hero Ambient Glow Pulse */
+    .hero-ambient-glow {
+      position: absolute;
+      top: 25%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: min(90vw, 720px);
+      height: 360px;
+      background: radial-gradient(circle, rgba(16, 185, 129, 0.12) 0%, rgba(5, 150, 105, 0.04) 45%, transparent 70%);
+      filter: blur(55px);
+      pointer-events: none;
+      z-index: 0;
+      animation: glowEntrance 1.6s ease-out forwards, glowBreathe 6s ease-in-out infinite alternate 1.6s;
+    }
+    @keyframes glowEntrance {
+      0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.7);
+      }
+      100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+    @keyframes glowBreathe {
+      0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.75;
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(1.1);
+        opacity: 1;
+      }
+    }
+
+    /* 4. Elegant Shimmer on CTA Button */
+    .cta-shimmer {
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-shimmer::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 40%;
+      height: 200%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.22),
+        transparent
+      );
+      transform: rotate(25deg);
+      animation: ctaShimmerEffect 3.5s infinite 1.2s;
+    }
+    @keyframes ctaShimmerEffect {
+      0% {
+        left: -60%;
+      }
+      25% {
+        left: 140%;
+      }
+      100% {
+        left: 140%;
+      }
+    }
   </style>
 </head>
 <body class="bg-ink-0 text-paper-1 font-sans antialiased min-h-screen bg-grid-pattern relative selection:bg-paper-0 selection:text-white">
+
+  <!-- TOP OPENING LASER SCANNER -->
+  <div class="page-open-beam" aria-hidden="true"></div>
 
   <!-- BACKGROUND OVERLAY GRADIENT -->
   <div class="fixed inset-0 pointer-events-none z-0">
@@ -217,11 +358,14 @@
       <!-- ==========================================
            1. HERO SECTION (COPY FOCUSED)
            ========================================== -->
-      <section id="hero" class="mobile-full relative py-12 sm:py-16 md:py-24 border-b border-hairline">
+      <section id="hero" class="mobile-full relative py-12 sm:py-16 md:py-24 border-b border-hairline overflow-hidden">
+        <!-- Hero Ambient Glow Effect -->
+        <div class="hero-ambient-glow" aria-hidden="true"></div>
+
         <!-- Trace Node -->
         <span class="hidden lg:block absolute -left-[41px] top-24 w-2.5 h-2.5 rounded-full border border-hairline-strong bg-white trace-node transition-all duration-300"></span>
         
-        <div class="max-w-4xl mx-auto text-center space-y-6 sm:space-y-8">
+        <div class="relative z-10 max-w-4xl mx-auto text-center space-y-6 sm:space-y-8">
 
           <h1 class="anim text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-paper-0 tracking-tight leading-[1.08] max-w-4xl mx-auto">
             Sua contagem não bate e você não sabe se está <span class="chrome-text">perdendo dinheiro</span> — ou sendo passado pra trás
@@ -232,7 +376,7 @@
           </p>
 
           <div class="anim anim-delay-2 pt-8 sm:pt-12 flex items-center justify-center">
-            <button onclick="openModal()" class="w-auto px-7 sm:px-9 py-4 rounded-xl bg-paper-0 text-white font-bold text-sm sm:text-base uppercase tracking-wider hover:bg-slate-800 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg flex items-center justify-center gap-3 group">
+            <button onclick="openModal()" class="cta-shimmer w-auto px-7 sm:px-9 py-4 rounded-xl bg-paper-0 text-white font-bold text-sm sm:text-base uppercase tracking-wider hover:bg-slate-800 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg flex items-center justify-center gap-3 group">
               <span>Quero controlar minha expedição</span>
               <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
             </button>
@@ -847,24 +991,40 @@
       animObserver.observe(el);
     });
 
-    // Scroll Progress Line & Trace Node highlight
-    window.addEventListener('scroll', () => {
-      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrolled = (winScroll / height) * 100;
-      document.getElementById("scrollTrace").style.height = scrolled + "%";
+    // High-performance Scroll Progress Line & Trace Node highlight
+    const scrollTraceEl = document.getElementById("scrollTrace");
+    const traceNodes = document.querySelectorAll('.trace-node');
+    let scrollTicking = false;
 
-      // Highlight active trace node
-      const nodes = document.querySelectorAll('.trace-node');
-      nodes.forEach((node) => {
-        const rect = node.getBoundingClientRect();
-        if (rect.top < window.innerHeight / 2 && rect.bottom > 0) {
-          node.classList.add('trace-node-active');
-        } else {
-          node.classList.remove('trace-node-active');
-        }
-      });
-    });
+    window.addEventListener('scroll', () => {
+      if (!scrollTicking) {
+        window.requestAnimationFrame(() => {
+          // On mobile screens (<1024px), the trace line is hidden (hidden lg:block).
+          // Bypassing getBoundingClientRect on mobile preserves fluid 60-120fps scrolling.
+          if (window.innerWidth >= 1024 && scrollTraceEl) {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            if (height > 0) {
+              const scrolled = (winScroll / height) * 100;
+              scrollTraceEl.style.height = scrolled + "%";
+            }
+
+            const midScreen = window.innerHeight / 2;
+            for (let i = 0; i < traceNodes.length; i++) {
+              const node = traceNodes[i];
+              const rect = node.getBoundingClientRect();
+              if (rect.top < midScreen && rect.bottom > 0) {
+                node.classList.add('trace-node-active');
+              } else {
+                node.classList.remove('trace-node-active');
+              }
+            }
+          }
+          scrollTicking = false;
+        });
+        scrollTicking = true;
+      }
+    }, { passive: true });
 
     // Tab Switcher for Section 2
     function switchTab(tabId) {
