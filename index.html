@@ -173,8 +173,9 @@
         <a href="#recursos" class="hover:text-paper-0 transition-colors">02. O QUE RECEBE</a>
         <a href="#depoimentos" class="hover:text-paper-0 transition-colors">03. PROVA</a>
         <a href="#valores" class="hover:text-paper-0 transition-colors">04. VALORES</a>
-        <a href="#beneficios" class="hover:text-paper-0 transition-colors">05. BENEFÍCIOS</a>
-        <a href="#faq" class="hover:text-paper-0 transition-colors">06. FAQ</a>
+        <a href="#garantia" class="hover:text-paper-0 transition-colors">05. GARANTIA</a>
+        <a href="#beneficios" class="hover:text-paper-0 transition-colors">06. BENEFÍCIOS</a>
+        <a href="#faq" class="hover:text-paper-0 transition-colors">07. FAQ</a>
       </nav>
 
       <!-- HAMBURGER BUTTON (mobile only) -->
@@ -194,8 +195,9 @@
     <a href="#recursos" onclick="toggleMobileMenu()" class="font-mono text-base text-paper-1 hover:text-paper-0 py-2.5 border-b border-hairline">02. O QUE RECEBE</a>
     <a href="#depoimentos" onclick="toggleMobileMenu()" class="font-mono text-base text-paper-1 hover:text-paper-0 py-2.5 border-b border-hairline">03. PROVA</a>
     <a href="#valores" onclick="toggleMobileMenu()" class="font-mono text-base text-paper-1 hover:text-paper-0 py-2.5 border-b border-hairline">04. VALORES</a>
-    <a href="#beneficios" onclick="toggleMobileMenu()" class="font-mono text-base text-paper-1 hover:text-paper-0 py-2.5 border-b border-hairline">05. BENEFÍCIOS</a>
-    <a href="#faq" onclick="toggleMobileMenu()" class="font-mono text-base text-paper-1 hover:text-paper-0 py-2.5 border-b border-hairline">06. FAQ</a>
+    <a href="#garantia" onclick="toggleMobileMenu()" class="font-mono text-base text-paper-1 hover:text-paper-0 py-2.5 border-b border-hairline">05. GARANTIA</a>
+    <a href="#beneficios" onclick="toggleMobileMenu()" class="font-mono text-base text-paper-1 hover:text-paper-0 py-2.5 border-b border-hairline">06. BENEFÍCIOS</a>
+    <a href="#faq" onclick="toggleMobileMenu()" class="font-mono text-base text-paper-1 hover:text-paper-0 py-2.5 border-b border-hairline">07. FAQ</a>
     <button onclick="openModal(); toggleMobileMenu();" class="mt-4 w-full py-4 rounded-xl bg-paper-0 text-white font-bold text-sm uppercase tracking-wider">Quero controlar minha expedição</button>
   </div>
   <div id="mobileMenuOverlay" class="fixed inset-0 bg-black/30 z-[55] hidden" onclick="toggleMobileMenu()"></div>
@@ -501,12 +503,76 @@
       </section>
 
       <!-- ==========================================
+           5. GARANTIA (30 DIAS RISCO ZERO)
+           ========================================== -->
+      <section id="garantia" class="mobile-full relative py-12 sm:py-20 border-b border-hairline bg-ink-1/40">
+        <span class="hidden lg:block absolute -left-[41px] top-24 w-2.5 h-2.5 rounded-full border border-hairline-strong bg-white trace-node transition-all duration-300"></span>
+        
+        <div class="max-w-4xl mx-auto">
+          <div class="anim-scale rounded-2xl border border-hairline-strong bg-white p-6 sm:p-10 md:p-12 shadow-xl glow-box relative overflow-hidden">
+            
+            <!-- Background Watermark Icon -->
+            <div class="absolute -right-8 -bottom-8 w-48 h-48 sm:w-60 sm:h-60 rounded-full bg-emerald-500/5 pointer-events-none flex items-center justify-center">
+              <i data-lucide="shield-check" class="w-36 h-36 sm:w-48 sm:h-48 text-accent-emerald/15"></i>
+            </div>
+
+            <div class="relative z-10 flex flex-col md:flex-row items-center gap-6 sm:gap-10">
+              
+              <!-- Seal / Icon Badge -->
+              <div class="shrink-0 flex flex-col items-center justify-center text-center">
+                <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-emerald-50 border-2 border-emerald-300 flex flex-col items-center justify-center shadow-inner text-accent-emerald">
+                  <i data-lucide="shield-check" class="w-10 h-10 sm:w-12 sm:h-12 mb-0.5"></i>
+                  <span class="font-mono font-black text-xl sm:text-2xl leading-none">30</span>
+                  <span class="font-mono text-[10px] sm:text-xs font-bold uppercase tracking-wider">DIAS</span>
+                </div>
+                <span class="mt-2.5 font-mono text-xs font-bold text-accent-emerald uppercase tracking-wider bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+                  Risco Zero
+                </span>
+              </div>
+
+              <!-- Guarantee Content -->
+              <div class="space-y-4 text-center md:text-left flex-1">
+                <div>
+                  <p class="font-mono text-xs text-accent-emerald uppercase tracking-widest font-semibold mb-1">05 / COMPROMISSO DE SATISFAÇÃO TOTAL</p>
+                  <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-paper-0 tracking-tight">
+                    30 Dias de Garantia Incondicional
+                  </h2>
+                </div>
+
+                <p class="text-sm sm:text-base text-paper-1 leading-relaxed">
+                  Implemente e utilize o Nexo Sistema no dia a dia da sua expedição por 30 dias completos. Se nesse período você não comprovar maior precisão na contagem, redução imediata de erros e total controle sobre as movimentações, basta nos avisar.
+                </p>
+
+                <p class="text-sm sm:text-base text-paper-0 font-semibold leading-relaxed">
+                  Devolvemos 100% do valor investido na taxa de implementação. Sem burocracia, sem perguntas e sem letras miúdas. Todo o risco é nosso.
+                </p>
+
+                <div class="pt-3 flex flex-col sm:flex-row items-center gap-4">
+                  <button onclick="openModal()" class="w-full sm:w-auto px-7 py-4 rounded-xl bg-paper-0 text-white font-bold text-sm uppercase tracking-wider hover:bg-slate-800 transition-all shadow-md flex items-center justify-center gap-2.5">
+                    <span>Quero testar sem risco por 30 dias</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                  </button>
+                  <span class="font-mono text-xs text-paper-2 flex items-center gap-1.5">
+                    <i data-lucide="check-circle-2" class="w-4 h-4 text-accent-emerald"></i>
+                    Garantia registrada em contrato
+                  </span>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
            6. BENEFÍCIOS
            ========================================== -->
       <section id="beneficios" class="mobile-full relative py-12 sm:py-20 border-b border-hairline">
         <span class="hidden lg:block absolute -left-[41px] top-24 w-2.5 h-2.5 rounded-full border border-hairline-strong bg-white trace-node transition-all duration-300"></span>
         
         <div class="anim mb-6 sm:mb-12">
+          <p class="font-mono text-xs text-paper-2 uppercase tracking-widest mb-1.5">06 / RETORNO SOBRE INVESTIMENTO</p>
           <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-paper-0 tracking-tight">BENEFÍCIOS REAIS</h2>
         </div>
 
@@ -562,6 +628,7 @@
         <span class="hidden lg:block absolute -left-[41px] top-24 w-2.5 h-2.5 rounded-full border border-hairline-strong bg-white trace-node transition-all duration-300"></span>
         
         <div class="anim mb-6 sm:mb-12">
+          <p class="font-mono text-xs text-paper-2 uppercase tracking-widest mb-1.5">07 / DÚVIDAS FREQUENTES</p>
           <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-paper-0 tracking-tight">PERGUNTAS FREQUENTES</h2>
         </div>
 
