@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="light scroll-smooth">
+<html lang="pt-BR" class="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -96,14 +96,14 @@
       box-shadow: 0 0 12px rgba(5, 150, 105, 0.6);
     }
 
-    /* SMOOTH MOBILE SCROLLING & HARDWARE ACCELERATION */
+    /* NATIVE FLUID SCROLLING & PERFORMANCE */
     html {
-      -webkit-overflow-scrolling: touch;
-      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+      -webkit-tap-highlight-color: transparent;
     }
-    html, body {
+    body {
       overflow-x: hidden;
-      max-width: 100vw;
+      max-width: 100%;
     }
 
     /* Mobile menu */
@@ -116,69 +116,62 @@
       transform: translateX(0);
     }
 
-    /* Mobile optimizations - Stable heights without layout thrashing */
-    @media (max-width: 640px) {
+    /* Better tap targets on mobile */
+    @media (max-width: 768px) {
       .faq-answer { font-size: 15px; line-height: 1.6; }
       button, a { -webkit-tap-highlight-color: transparent; }
 
-      /* Stable section sizing without dynamic viewport reflows */
+      /* ABSOLUTE FLUID MOBILE SCROLL: No layout shifts, no dynamic dvh recalculation */
       .mobile-full {
-        min-height: unset;
+        min-height: auto !important;
+        display: block !important;
+        box-sizing: border-box;
+      }
+
+      /* CRITICAL MOBILE PERFORMANCE FIX: 
+         Instantly render all items visible on mobile with ZERO scroll-bound overhead or layer lag */
+      .anim, .anim-scale {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+        will-change: auto !important;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .mobile-full {
+        min-height: 80vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
         box-sizing: border-box;
       }
-      #hero.mobile-full {
-        min-height: calc(100vh - 4rem);
-      }
-    }
 
-    @media (min-width: 641px) {
-      .mobile-full {
-        min-height: 85vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        box-sizing: border-box;
+      /* Desktop Entrance Animations */
+      @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(22px); }
+        to   { opacity: 1; transform: translateY(0); }
       }
+      @keyframes scaleIn {
+        from { opacity: 0; transform: scale(0.96); }
+        to   { opacity: 1; transform: scale(1); }
+      }
+      .anim { opacity: 0; }
+      .anim.visible { animation: fadeInUp 0.5s cubic-bezier(0.22,1,0.36,1) forwards; }
+      .anim-scale { opacity: 0; }
+      .anim-scale.visible { animation: scaleIn 0.5s cubic-bezier(0.22,1,0.36,1) forwards; }
+      .anim-delay-1 { animation-delay: 0.08s !important; }
+      .anim-delay-2 { animation-delay: 0.16s !important; }
+      .anim-delay-3 { animation-delay: 0.24s !important; }
+      .anim-delay-4 { animation-delay: 0.32s !important; }
+      .anim-delay-5 { animation-delay: 0.40s !important; }
+      .anim-delay-6 { animation-delay: 0.48s !important; }
     }
-
-    /* GPU-Accelerated Entrance Animations */
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(25px) translateZ(0); }
-      to   { opacity: 1; transform: translateY(0) translateZ(0); }
-    }
-    @keyframes scaleIn {
-      from { opacity: 0; transform: scale(0.96) translateZ(0); }
-      to   { opacity: 1; transform: scale(1) translateZ(0); }
-    }
-    .anim {
-      opacity: 0;
-      will-change: opacity, transform;
-      transform: translateZ(0);
-      backface-visibility: hidden;
-    }
-    .anim.visible { animation: fadeInUp 0.55s cubic-bezier(0.22,1,0.36,1) forwards; }
-    .anim-scale {
-      opacity: 0;
-      will-change: opacity, transform;
-      transform: translateZ(0);
-      backface-visibility: hidden;
-    }
-    .anim-scale.visible { animation: scaleIn 0.55s cubic-bezier(0.22,1,0.36,1) forwards; }
-    .anim-delay-1 { animation-delay: 0.1s !important; }
-    .anim-delay-2 { animation-delay: 0.2s !important; }
-    .anim-delay-3 { animation-delay: 0.3s !important; }
-    .anim-delay-4 { animation-delay: 0.4s !important; }
-    .anim-delay-5 { animation-delay: 0.5s !important; }
-    .anim-delay-6 { animation-delay: 0.6s !important; }
 
     /* VISUAL OPENING EFFECTS */
     /* 1. Header smooth entrance slide-down */
     header {
       animation: headerSlideDown 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-      will-change: transform, opacity;
     }
     @keyframes headerSlideDown {
       0% {
@@ -219,39 +212,17 @@
       }
     }
 
-    /* 3. Hero Ambient Glow Pulse */
+    /* 3. Hero Ambient Glow (Static gradient = 0 GPU render cost during scroll) */
     .hero-ambient-glow {
       position: absolute;
-      top: 25%;
+      top: 20%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: min(90vw, 720px);
-      height: 360px;
-      background: radial-gradient(circle, rgba(16, 185, 129, 0.12) 0%, rgba(5, 150, 105, 0.04) 45%, transparent 70%);
-      filter: blur(55px);
+      width: min(90vw, 700px);
+      height: 350px;
+      background: radial-gradient(ellipse at center, rgba(16, 185, 129, 0.12) 0%, rgba(5, 150, 105, 0.03) 50%, transparent 75%);
       pointer-events: none;
       z-index: 0;
-      animation: glowEntrance 1.6s ease-out forwards, glowBreathe 6s ease-in-out infinite alternate 1.6s;
-    }
-    @keyframes glowEntrance {
-      0% {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(0.7);
-      }
-      100% {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1);
-      }
-    }
-    @keyframes glowBreathe {
-      0% {
-        transform: translate(-50%, -50%) scale(1);
-        opacity: 0.75;
-      }
-      100% {
-        transform: translate(-50%, -50%) scale(1.1);
-        opacity: 1;
-      }
     }
 
     /* 4. Elegant Shimmer on CTA Button */
@@ -286,9 +257,51 @@
         left: 140%;
       }
     }
+
+    /* 5. Intro Splash Animations */
+    .intro-pulse {
+      animation: introPulseEffect 1.5s ease-in-out infinite;
+    }
+    @keyframes introPulseEffect {
+      0%, 100% { opacity: 0.35; transform: scale(0.96); }
+      50% { opacity: 0.8; transform: scale(1.05); }
+    }
   </style>
 </head>
 <body class="bg-ink-0 text-paper-1 font-sans antialiased min-h-screen bg-grid-pattern relative selection:bg-paper-0 selection:text-white">
+
+  <!-- NEXO SYSTEM INTRO SPLASH OVERLAY (EFEITO VISUAL DE ABERTURA) -->
+  <div id="nexoIntroScreen" class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#070B14] text-white select-none transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer" title="Toque para entrar">
+    <!-- Ambient Radial Glow in Intro -->
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(5,150,105,0.22)_0%,rgba(7,11,20,0.85)_65%,#070B14_100%)] pointer-events-none"></div>
+
+    <div class="relative z-10 flex flex-col items-center text-center px-6 max-w-sm">
+      <!-- Pulsing Brand Box -->
+      <div class="relative mb-6">
+        <div class="absolute -inset-3 rounded-2xl bg-emerald-500/25 blur-xl intro-pulse"></div>
+        <div class="relative w-20 h-20 rounded-2xl bg-slate-900 border border-emerald-500/50 flex items-center justify-center p-3 shadow-[0_0_35px_rgba(5,150,105,0.35)]">
+          <img src="nexo_logo.jpg" alt="Nexo Logo" class="w-full h-full object-cover rounded-xl shadow-sm">
+        </div>
+      </div>
+
+      <!-- Typography -->
+      <div class="space-y-1.5">
+        <div class="font-extrabold text-white text-xl sm:text-2xl tracking-tight flex items-center justify-center gap-2">
+          <span>NEXO SISTEMAS</span>
+        </div>
+        <p class="font-mono text-xs text-accent-emerald tracking-widest uppercase font-semibold flex items-center justify-center gap-2">
+          <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          EXPEDIÇÃO & LOGÍSTICA
+        </p>
+      </div>
+
+      <!-- Fast Futuristic Progress Bar -->
+      <div class="w-56 h-1.5 bg-slate-800/80 rounded-full mt-7 overflow-hidden p-0.5 border border-slate-700/60 shadow-inner">
+        <div id="nexoIntroBar" class="h-full bg-gradient-to-r from-emerald-500 via-teal-300 to-emerald-400 rounded-full w-0 transition-all duration-500 ease-out"></div>
+      </div>
+      <p class="font-mono text-[10px] text-slate-400 mt-3 tracking-wider">INICIALIZANDO PLATAFORMA...</p>
+    </div>
+  </div>
 
   <!-- TOP OPENING LASER SCANNER -->
   <div class="page-open-beam" aria-hidden="true"></div>
@@ -299,7 +312,7 @@
   </div>
 
   <!-- HEADER -->
-  <header class="sticky top-0 z-50 border-b border-hairline bg-white/90 backdrop-blur-md">
+  <header class="sticky top-0 z-50 border-b border-hairline bg-white/95 md:bg-white/90 md:backdrop-blur-md">
     <div class="max-w-[1440px] mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
       <a href="#" class="flex items-center gap-3 group">
         <img src="nexo_logo.jpg" alt="Nexo Sistemas Logo" class="w-8 h-8 rounded object-cover border border-hairline-strong shadow-sm group-hover:opacity-90 transition-opacity">
@@ -977,18 +990,60 @@
       document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
     }
 
-    // Scroll-triggered Entrance Animations (IntersectionObserver)
-    const animObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          animObserver.unobserve(entry.target);
+    // Opening Visual Sequence Animation (Efeito de Abertura)
+    const introScreen = document.getElementById('nexoIntroScreen');
+    const introBar = document.getElementById('nexoIntroBar');
+    if (introScreen && introBar) {
+      setTimeout(() => {
+        introBar.style.width = '100%';
+      }, 40);
+
+      const dismissIntro = () => {
+        introScreen.style.opacity = '0';
+        introScreen.style.transform = 'translateY(-100%)';
+        setTimeout(() => {
+          introScreen.style.display = 'none';
+        }, 700);
+      };
+
+      setTimeout(dismissIntro, 700);
+      introScreen.addEventListener('click', dismissIntro);
+    }
+
+    // Scroll-triggered Entrance Animations
+    if (window.innerWidth <= 768) {
+      // Mobile: Immediately show all elements, 0 layout shifts, 0 scroll lag
+      document.querySelectorAll('.anim, .anim-scale').forEach(el => {
+        el.classList.add('visible');
+      });
+    } else {
+      // Desktop: Smooth reveal on scroll
+      const animObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            animObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+      document.querySelectorAll('.anim, .anim-scale').forEach(el => {
+        animObserver.observe(el);
+      });
+    }
+
+    // Smooth Anchor Scroll (Preserves native high-speed touch scrolling on mobile)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href && href !== '#' && href.length > 1) {
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
         }
       });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-    document.querySelectorAll('.anim, .anim-scale').forEach(el => {
-      animObserver.observe(el);
     });
 
     // High-performance Scroll Progress Line & Trace Node highlight
