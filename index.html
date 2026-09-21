@@ -95,6 +95,46 @@
       border-color: #10B981 !important;
       box-shadow: 0 0 12px rgba(5, 150, 105, 0.6);
     }
+
+    /* MOBILE OPTIMIZATIONS */
+    html, body {
+      overflow-x: hidden;
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      transform: translateX(100%);
+      transition: transform 0.3s cubic-bezier(0.22,1,0.36,1);
+    }
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+
+    /* Better tap targets on mobile */
+    @media (max-width: 640px) {
+      .faq-answer { font-size: 13px; line-height: 1.6; }
+      button, a { -webkit-tap-highlight-color: transparent; }
+    }
+
+    /* Entrance Animations */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+    .anim { opacity: 0; }
+    .anim.visible { animation: fadeInUp 0.6s cubic-bezier(0.22,1,0.36,1) forwards; }
+    .anim-scale { opacity: 0; }
+    .anim-scale.visible { animation: scaleIn 0.6s cubic-bezier(0.22,1,0.36,1) forwards; }
+    .anim-delay-1 { animation-delay: 0.1s !important; }
+    .anim-delay-2 { animation-delay: 0.2s !important; }
+    .anim-delay-3 { animation-delay: 0.3s !important; }
+    .anim-delay-4 { animation-delay: 0.4s !important; }
+    .anim-delay-5 { animation-delay: 0.5s !important; }
+    .anim-delay-6 { animation-delay: 0.6s !important; }
   </style>
 </head>
 <body class="bg-ink-0 text-paper-1 font-sans antialiased min-h-screen bg-grid-pattern relative selection:bg-paper-0 selection:text-white">
@@ -124,11 +164,31 @@
         <a href="#faq" class="hover:text-paper-0 transition-colors">06. FAQ</a>
       </nav>
 
+      <!-- HAMBURGER BUTTON (mobile only) -->
+      <button id="menuBtn" onclick="toggleMobileMenu()" class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5">
+        <span class="block w-5 h-0.5 bg-paper-0 transition-all" id="bar1"></span>
+        <span class="block w-5 h-0.5 bg-paper-0 transition-all" id="bar2"></span>
+        <span class="block w-5 h-0.5 bg-paper-0 transition-all" id="bar3"></span>
+      </button>
+
     </div>
   </header>
 
+  <!-- MOBILE MENU OVERLAY -->
+  <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 w-3/4 max-w-xs h-full bg-white z-[60] shadow-2xl border-l border-hairline p-6 pt-20 flex flex-col gap-6">
+    <button onclick="toggleMobileMenu()" class="absolute top-5 right-5 text-paper-0 font-mono text-lg">✕</button>
+    <a href="#veja-na-pratica" onclick="toggleMobileMenu()" class="font-mono text-sm text-paper-1 hover:text-paper-0 py-2 border-b border-hairline">01. VEJA NA PRÁTICA</a>
+    <a href="#recursos" onclick="toggleMobileMenu()" class="font-mono text-sm text-paper-1 hover:text-paper-0 py-2 border-b border-hairline">02. O QUE RECEBE</a>
+    <a href="#depoimentos" onclick="toggleMobileMenu()" class="font-mono text-sm text-paper-1 hover:text-paper-0 py-2 border-b border-hairline">03. PROVA</a>
+    <a href="#valores" onclick="toggleMobileMenu()" class="font-mono text-sm text-paper-1 hover:text-paper-0 py-2 border-b border-hairline">04. VALORES</a>
+    <a href="#beneficios" onclick="toggleMobileMenu()" class="font-mono text-sm text-paper-1 hover:text-paper-0 py-2 border-b border-hairline">05. BENEFÍCIOS</a>
+    <a href="#faq" onclick="toggleMobileMenu()" class="font-mono text-sm text-paper-1 hover:text-paper-0 py-2 border-b border-hairline">06. FAQ</a>
+    <button onclick="openModal(); toggleMobileMenu();" class="mt-4 w-full py-3 rounded bg-paper-0 text-white font-bold text-xs uppercase tracking-wider">Quero controlar minha expedição</button>
+  </div>
+  <div id="mobileMenuOverlay" class="fixed inset-0 bg-black/30 z-[55] hidden" onclick="toggleMobileMenu()"></div>
+
   <!-- MAIN CONTAINER WITH LEFT TRACE LINE -->
-  <div class="relative max-w-[1440px] mx-auto px-6 md:px-10">
+  <div class="relative max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10">
 
     <!-- VERTICAL TRACE LINE -->
     <div class="hidden lg:block absolute left-10 top-0 bottom-0 w-px bg-hairline z-10">
@@ -140,29 +200,29 @@
       <!-- ==========================================
            1. HERO SECTION (COPY FOCUSED)
            ========================================== -->
-      <section id="hero" class="relative py-16 md:py-24 border-b border-hairline">
+      <section id="hero" class="relative py-10 sm:py-16 md:py-24 border-b border-hairline">
         <!-- Trace Node -->
         <span class="hidden lg:block absolute -left-[41px] top-24 w-2.5 h-2.5 rounded-full border border-hairline-strong bg-white trace-node transition-all duration-300"></span>
         
-        <div class="max-w-4xl mx-auto text-center space-y-8">
+        <div class="max-w-4xl mx-auto text-center space-y-6 sm:space-y-8">
 
-          <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold text-paper-0 tracking-tight leading-[1.12] max-w-3xl mx-auto">
+          <h1 class="anim text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-paper-0 tracking-tight leading-[1.15] max-w-3xl mx-auto">
             Sua contagem não bate e você não sabe se está <span class="chrome-text">perdendo dinheiro</span> — ou sendo passado pra trás
           </h1>
 
-          <p class="text-base sm:text-lg md:text-xl text-paper-1 leading-relaxed max-w-3xl mx-auto font-normal">
+          <p class="anim anim-delay-1 text-sm sm:text-base md:text-lg lg:text-xl text-paper-1 leading-relaxed max-w-3xl mx-auto font-normal px-2 sm:px-0">
             A Nexo Sistema cria um sistema sob medida pra sua empresa: um controle de expedição que registra cada pedido, com foto obrigatória em cada movimentação — pra você nunca mais depender só da palavra do funcionário.
           </p>
 
-          <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button onclick="openModal()" class="w-full sm:w-auto px-10 py-5 rounded-lg bg-paper-0 text-white font-bold text-sm uppercase tracking-wider hover:bg-slate-800 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl flex items-center justify-center gap-3 group">
+          <div class="anim anim-delay-2 pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <button onclick="openModal()" class="w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 rounded-lg bg-paper-0 text-white font-bold text-sm uppercase tracking-wider hover:bg-slate-800 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl flex items-center justify-center gap-3 group">
               <span>Quero controlar minha expedição</span>
               <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
             </button>
           </div>
 
           <!-- TRUST STATS -->
-          <div class="pt-8 border-t border-hairline grid grid-cols-2 gap-6 font-mono text-xs max-w-sm mx-auto">
+          <div class="anim anim-delay-3 pt-6 sm:pt-8 border-t border-hairline grid grid-cols-2 gap-4 sm:gap-6 font-mono text-xs max-w-sm mx-auto">
             <div>
               <div class="text-paper-0 font-bold text-xl md:text-2xl">100%</div>
               <div class="text-paper-2 mt-0.5">Rastreável</div>
@@ -179,21 +239,21 @@
       <!-- ==========================================
            VEJA NA PRÁTICA (ESPAÇO PARA VSL)
            ========================================== -->
-      <section id="veja-na-pratica" class="relative py-20 border-b border-hairline bg-ink-1/40">
+      <section id="veja-na-pratica" class="relative py-12 sm:py-20 border-b border-hairline bg-ink-1/40">
         <!-- Trace Node -->
         <span class="hidden lg:block absolute -left-[41px] top-24 w-2.5 h-2.5 rounded-full border border-hairline-strong bg-white trace-node transition-all duration-300"></span>
         
-        <div class="max-w-4xl mx-auto space-y-8">
+        <div class="max-w-4xl mx-auto space-y-6 sm:space-y-8">
           
-          <div class="text-center space-y-3">
-            <h2 class="text-2xl sm:text-4xl font-extrabold text-paper-0 tracking-tight">VEJA NA PRÁTICA</h2>
-            <p class="text-sm md:text-base text-paper-2 max-w-xl mx-auto">
+          <div class="anim text-center space-y-3">
+            <h2 class="text-xl sm:text-2xl md:text-4xl font-extrabold text-paper-0 tracking-tight">VEJA NA PRÁTICA</h2>
+            <p class="text-xs sm:text-sm md:text-base text-paper-2 max-w-xl mx-auto px-2 sm:px-0">
               Assista ao vídeo abaixo e entenda como o painel da Nexo Sistemas elimina desvios e erros de expedição no dia a dia do seu depósito.
             </p>
           </div>
 
           <!-- VSL VIDEO CONTAINER -->
-          <div class="rounded-2xl border border-hairline-strong bg-paper-0 p-2 sm:p-4 shadow-2xl glow-box relative overflow-hidden">
+          <div class="anim-scale anim-delay-2 rounded-xl sm:rounded-2xl border border-hairline-strong bg-paper-0 p-1.5 sm:p-2 md:p-4 shadow-2xl glow-box relative overflow-hidden">
             
             <!-- Video Title Bar -->
             <div class="flex items-center justify-between px-3 py-2 border-b border-slate-800 text-white font-mono text-xs mb-3">
@@ -233,17 +293,17 @@
       <!-- ==========================================
            2. O QUE VOCÊ VAI RECEBER
            ========================================== -->
-      <section id="recursos" class="relative py-20 border-b border-hairline">
+      <section id="recursos" class="relative py-12 sm:py-20 border-b border-hairline">
         <span class="hidden lg:block absolute -left-[41px] top-24 w-2.5 h-2.5 rounded-full border border-hairline-strong bg-white trace-node transition-all duration-300"></span>
         
-        <div class="mb-12">
-          <h2 class="text-2xl md:text-4xl font-bold text-paper-0 tracking-tight">O QUE VOCÊ VAI RECEBER</h2>
+        <div class="anim mb-8 sm:mb-12">
+          <h2 class="text-xl sm:text-2xl md:text-4xl font-bold text-paper-0 tracking-tight">O QUE VOCÊ VAI RECEBER</h2>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           
-          <div class="p-5 rounded border border-hairline bg-white hover:border-hairline-strong transition-all shadow-sm flex items-start gap-4">
-            <div class="p-2.5 rounded bg-ink-1 text-paper-0 border border-hairline shrink-0">
+          <div class="anim anim-delay-1 p-4 sm:p-5 rounded border border-hairline bg-white hover:border-hairline-strong transition-all shadow-sm flex items-start gap-3 sm:gap-4">
+            <div class="p-2 sm:p-2.5 rounded bg-ink-1 text-paper-0 border border-hairline shrink-0">
               <i data-lucide="smartphone" class="w-5 h-5"></i>
             </div>
             <div>
@@ -252,8 +312,8 @@
             </div>
           </div>
 
-          <div class="p-5 rounded border border-hairline bg-white hover:border-hairline-strong transition-all shadow-sm flex items-start gap-4">
-            <div class="p-2.5 rounded bg-ink-1 text-paper-0 border border-hairline shrink-0">
+          <div class="anim anim-delay-2 p-4 sm:p-5 rounded border border-hairline bg-white hover:border-hairline-strong transition-all shadow-sm flex items-start gap-3 sm:gap-4">
+            <div class="p-2 sm:p-2.5 rounded bg-ink-1 text-paper-0 border border-hairline shrink-0">
               <i data-lucide="package-minus" class="w-5 h-5"></i>
             </div>
             <div>
@@ -262,8 +322,8 @@
             </div>
           </div>
 
-          <div class="p-5 rounded border border-hairline bg-white hover:border-hairline-strong transition-all shadow-sm flex items-start gap-4">
-            <div class="p-2.5 rounded bg-ink-1 text-paper-0 border border-hairline shrink-0">
+          <div class="anim anim-delay-3 p-4 sm:p-5 rounded border border-hairline bg-white hover:border-hairline-strong transition-all shadow-sm flex items-start gap-3 sm:gap-4">
+            <div class="p-2 sm:p-2.5 rounded bg-ink-1 text-paper-0 border border-hairline shrink-0">
               <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
             </div>
             <div>
@@ -272,8 +332,8 @@
             </div>
           </div>
 
-          <div class="p-5 rounded border border-hairline bg-white hover:border-hairline-strong transition-all shadow-sm flex items-start gap-4">
-            <div class="p-2.5 rounded bg-ink-1 text-paper-0 border border-hairline shrink-0">
+          <div class="anim anim-delay-4 p-4 sm:p-5 rounded border border-hairline bg-white hover:border-hairline-strong transition-all shadow-sm flex items-start gap-3 sm:gap-4">
+            <div class="p-2 sm:p-2.5 rounded bg-ink-1 text-paper-0 border border-hairline shrink-0">
               <i data-lucide="camera" class="w-5 h-5"></i>
             </div>
             <div>
@@ -282,8 +342,8 @@
             </div>
           </div>
 
-          <div class="p-5 rounded border border-hairline bg-white hover:border-hairline-strong transition-all shadow-sm flex items-start gap-4">
-            <div class="p-2.5 rounded bg-ink-1 text-paper-0 border border-hairline shrink-0">
+          <div class="anim anim-delay-5 p-4 sm:p-5 rounded border border-hairline bg-white hover:border-hairline-strong transition-all shadow-sm flex items-start gap-3 sm:gap-4">
+            <div class="p-2 sm:p-2.5 rounded bg-ink-1 text-paper-0 border border-hairline shrink-0">
               <i data-lucide="route" class="w-5 h-5"></i>
             </div>
             <div>
@@ -292,8 +352,8 @@
             </div>
           </div>
 
-          <div class="p-5 rounded border border-hairline bg-white hover:border-hairline-strong transition-all shadow-sm flex items-start gap-4 border-l-4 border-l-accent-amber">
-            <div class="p-2.5 rounded bg-amber-50 text-accent-amber border border-amber-200 shrink-0">
+          <div class="anim anim-delay-6 p-4 sm:p-5 rounded border border-hairline bg-white hover:border-hairline-strong transition-all shadow-sm flex items-start gap-3 sm:gap-4 border-l-4 border-l-accent-amber">
+            <div class="p-2 sm:p-2.5 rounded bg-amber-50 text-accent-amber border border-amber-200 shrink-0">
               <i data-lucide="calculator" class="w-5 h-5"></i>
             </div>
             <div>
@@ -310,22 +370,22 @@
       <!-- ==========================================
            4. QUEM JÁ COMPROU APROVA (DEPOIMENTOS)
            ========================================== -->
-      <section id="depoimentos" class="relative py-20 border-b border-hairline">
+      <section id="depoimentos" class="relative py-12 sm:py-20 border-b border-hairline">
         <span class="hidden lg:block absolute -left-[41px] top-24 w-2.5 h-2.5 rounded-full border border-hairline-strong bg-white trace-node transition-all duration-300"></span>
         
-        <div class="mb-8">
-          <h2 class="text-2xl md:text-4xl font-bold text-paper-0 tracking-tight">QUEM JÁ COMPROU APROVA</h2>
+        <div class="anim mb-6 sm:mb-8">
+          <h2 class="text-xl sm:text-2xl md:text-4xl font-bold text-paper-0 tracking-tight">QUEM JÁ COMPROU APROVA</h2>
         </div>
 
         <!-- PLACEHOLDER WARNING BADGE REQUIRED BY COPY -->
-        <div class="mb-8 p-3 rounded border border-amber-200 bg-amber-50 text-accent-amber font-mono text-xs flex items-center gap-2 font-medium">
+        <div class="anim anim-delay-1 mb-6 sm:mb-8 p-3 rounded border border-amber-200 bg-amber-50 text-accent-amber font-mono text-xs flex items-center gap-2 font-medium">
           <i data-lucide="alert-triangle" class="w-4 h-4 shrink-0"></i>
           <span>⚠️ Depoimentos abaixo são modelo/placeholder — trocar pelos reais assim que tiver os primeiros clientes usando.</span>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-6">
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
           
-          <div class="p-6 rounded-lg border border-hairline bg-white flex flex-col justify-between space-y-4 shadow-sm">
+          <div class="anim anim-delay-2 p-5 sm:p-6 rounded-lg border border-hairline bg-white flex flex-col justify-between space-y-4 shadow-sm">
             <p class="text-sm text-paper-0 italic leading-relaxed">
               "Antes eu não tinha como provar se o produto realmente saiu como o funcionário disse. Agora toda movimentação tem foto."
             </p>
@@ -335,7 +395,7 @@
             </div>
           </div>
 
-          <div class="p-6 rounded-lg border border-hairline bg-white flex flex-col justify-between space-y-4 shadow-sm">
+          <div class="anim anim-delay-3 p-5 sm:p-6 rounded-lg border border-hairline bg-white flex flex-col justify-between space-y-4 shadow-sm">
             <p class="text-sm text-paper-0 italic leading-relaxed">
               "Minha contagem parou de bater diferente com o sistema. Cada etapa fica registrada."
             </p>
@@ -345,7 +405,7 @@
             </div>
           </div>
 
-          <div class="p-6 rounded-lg border border-hairline bg-white flex flex-col justify-between space-y-4 shadow-sm">
+          <div class="anim anim-delay-4 p-5 sm:p-6 rounded-lg border border-hairline bg-white flex flex-col justify-between space-y-4 shadow-sm">
             <p class="text-sm text-paper-0 italic leading-relaxed">
               "Eu desconfiava que estava perdendo dinheiro na expedição e não sabia onde. Hoje eu vejo exatamente onde."
             </p>
@@ -361,14 +421,14 @@
       <!-- ==========================================
            5. PRICING CARD
            ========================================== -->
-      <section id="valores" class="relative py-20 border-b border-hairline">
+      <section id="valores" class="relative py-12 sm:py-20 border-b border-hairline">
         <span class="hidden lg:block absolute -left-[41px] top-24 w-2.5 h-2.5 rounded-full border border-hairline-strong bg-white trace-node transition-all duration-300"></span>
         
-        <div class="max-w-2xl mx-auto text-center space-y-4 mb-12">
-          <p class="text-sm text-paper-2">Controle total da sua expedição por um valor fixo mensal que se paga na primeira sacaria economizada.</p>
+        <div class="anim max-w-2xl mx-auto text-center space-y-4 mb-8 sm:mb-12">
+          <p class="text-xs sm:text-sm text-paper-2 px-2 sm:px-0">Controle total da sua expedição por um valor fixo mensal que se paga na primeira sacaria economizada.</p>
         </div>
 
-        <div class="max-w-md mx-auto rounded-2xl border border-hairline-strong bg-white p-8 glow-box-emerald relative overflow-hidden shadow-xl">
+        <div class="anim-scale anim-delay-2 max-w-md mx-auto rounded-xl sm:rounded-2xl border border-hairline-strong bg-white p-5 sm:p-8 glow-box-emerald relative overflow-hidden shadow-xl">
           <div class="absolute top-0 right-0 bg-accent-emerald text-white font-mono text-[10px] font-bold px-4 py-1 rounded-bl uppercase tracking-wider">
             PLANO COMPLETO
           </div>
@@ -432,52 +492,52 @@
       <!-- ==========================================
            6. BENEFÍCIOS
            ========================================== -->
-      <section id="beneficios" class="relative py-20 border-b border-hairline">
+      <section id="beneficios" class="relative py-12 sm:py-20 border-b border-hairline">
         <span class="hidden lg:block absolute -left-[41px] top-24 w-2.5 h-2.5 rounded-full border border-hairline-strong bg-white trace-node transition-all duration-300"></span>
         
-        <div class="mb-12">
-          <h2 class="text-2xl md:text-4xl font-bold text-paper-0 tracking-tight">BENEFÍCIOS REAIS</h2>
+        <div class="anim mb-8 sm:mb-12">
+          <h2 class="text-xl sm:text-2xl md:text-4xl font-bold text-paper-0 tracking-tight">BENEFÍCIOS REAIS</h2>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           
-          <div class="p-6 rounded-lg border border-hairline bg-white space-y-3 hover:border-hairline-strong transition-all shadow-sm">
+          <div class="anim anim-delay-1 p-5 sm:p-6 rounded-lg border border-hairline bg-white space-y-3 hover:border-hairline-strong transition-all shadow-sm">
             <div class="w-10 h-10 rounded bg-red-50 border border-red-200 flex items-center justify-center text-accent-crimson">
               <i data-lucide="calculator" class="w-5 h-5"></i>
             </div>
-            <h3 class="font-bold text-paper-0 text-base">Contagem sempre batendo</h3>
+            <h3 class="font-bold text-paper-0 text-sm sm:text-base">Contagem sempre batendo</h3>
             <p class="text-xs text-paper-2 leading-relaxed">Cada movimentação é registrada e comprovada com foto, sem depender de conferência manual.</p>
           </div>
 
-          <div class="p-6 rounded-lg border border-hairline bg-white space-y-3 hover:border-hairline-strong transition-all shadow-sm">
+          <div class="anim anim-delay-2 p-5 sm:p-6 rounded-lg border border-hairline bg-white space-y-3 hover:border-hairline-strong transition-all shadow-sm">
             <div class="w-10 h-10 rounded bg-sky-50 border border-sky-200 flex items-center justify-center text-accent-cyan">
               <i data-lucide="trending-down" class="w-5 h-5"></i>
             </div>
-            <h3 class="font-bold text-paper-0 text-base">Saiba se sua empresa está perdendo dinheiro</h3>
+            <h3 class="font-bold text-paper-0 text-sm sm:text-base">Saiba se sua empresa está perdendo dinheiro</h3>
             <p class="text-xs text-paper-2 leading-relaxed">Visão completa do estoque e das movimentações em tempo real.</p>
           </div>
 
-          <div class="p-6 rounded-lg border border-hairline bg-white space-y-3 hover:border-hairline-strong transition-all shadow-sm">
+          <div class="anim anim-delay-3 p-5 sm:p-6 rounded-lg border border-hairline bg-white space-y-3 hover:border-hairline-strong transition-all shadow-sm">
             <div class="w-10 h-10 rounded bg-amber-50 border border-amber-200 flex items-center justify-center text-accent-amber">
               <i data-lucide="eye" class="w-5 h-5"></i>
             </div>
-            <h3 class="font-bold text-paper-0 text-base">Fim da dúvida sobre seus funcionários</h3>
+            <h3 class="font-bold text-paper-0 text-sm sm:text-base">Fim da dúvida sobre seus funcionários</h3>
             <p class="text-xs text-paper-2 leading-relaxed">Toda saída de produto fica registrada e comprovada com foto.</p>
           </div>
 
-          <div class="p-6 rounded-lg border border-hairline bg-white space-y-3 hover:border-hairline-strong transition-all shadow-sm">
+          <div class="anim anim-delay-4 p-5 sm:p-6 rounded-lg border border-hairline bg-white space-y-3 hover:border-hairline-strong transition-all shadow-sm">
             <div class="w-10 h-10 rounded bg-emerald-50 border border-emerald-200 flex items-center justify-center text-accent-emerald">
               <i data-lucide="zap" class="w-5 h-5"></i>
             </div>
-            <h3 class="font-bold text-paper-0 text-base">Decisão rápida</h3>
+            <h3 class="font-bold text-paper-0 text-sm sm:text-base">Decisão rápida</h3>
             <p class="text-xs text-paper-2 leading-relaxed">Você vê o problema no mesmo dia, não no fechamento do mês.</p>
           </div>
 
-          <div class="p-6 rounded-lg border border-hairline bg-white space-y-3 hover:border-hairline-strong transition-all shadow-sm md:col-span-2 lg:col-span-2">
+          <div class="anim anim-delay-5 p-5 sm:p-6 rounded-lg border border-hairline bg-white space-y-3 hover:border-hairline-strong transition-all shadow-sm sm:col-span-2 lg:col-span-2">
             <div class="w-10 h-10 rounded bg-ink-1 border border-hairline flex items-center justify-center text-paper-0">
               <i data-lucide="refresh-cw" class="w-5 h-5"></i>
             </div>
-            <h3 class="font-bold text-paper-0 text-base">Sem trocar seu sistema atual</h3>
+            <h3 class="font-bold text-paper-0 text-sm sm:text-base">Sem trocar seu sistema atual</h3>
             <p class="text-xs text-paper-2 leading-relaxed">O Nexo Sistema funciona em paralelo, só pra controlar a expedição.</p>
           </div>
 
@@ -487,18 +547,18 @@
       <!-- ==========================================
            7. FAQ
            ========================================== -->
-      <section id="faq" class="relative py-20">
+      <section id="faq" class="relative py-12 sm:py-20">
         <span class="hidden lg:block absolute -left-[41px] top-24 w-2.5 h-2.5 rounded-full border border-hairline-strong bg-white trace-node transition-all duration-300"></span>
         
-        <div class="mb-12">
-          <h2 class="text-2xl md:text-4xl font-bold text-paper-0 tracking-tight">PERGUNTAS FREQUENTES</h2>
+        <div class="anim mb-8 sm:mb-12">
+          <h2 class="text-xl sm:text-2xl md:text-4xl font-bold text-paper-0 tracking-tight">PERGUNTAS FREQUENTES</h2>
         </div>
 
-        <div class="max-w-3xl space-y-4">
+        <div class="max-w-3xl space-y-3 sm:space-y-4">
           
           <!-- Q1 -->
-          <div class="rounded border border-hairline bg-white overflow-hidden shadow-sm">
-            <button onclick="toggleFaq(this)" class="w-full p-5 text-left font-bold text-paper-0 text-sm md:text-base flex justify-between items-center gap-4 hover:bg-ink-1 transition-colors">
+          <div class="anim anim-delay-1 rounded border border-hairline bg-white overflow-hidden shadow-sm">
+            <button onclick="toggleFaq(this)" class="w-full p-4 sm:p-5 text-left font-bold text-paper-0 text-sm md:text-base flex justify-between items-center gap-4 hover:bg-ink-1 transition-colors">
               <span>Preciso trocar meu sistema de gestão atual?</span>
               <i data-lucide="chevron-down" class="w-4 h-4 text-paper-2 transition-transform duration-200"></i>
             </button>
@@ -508,8 +568,8 @@
           </div>
 
           <!-- Q2 -->
-          <div class="rounded border border-hairline bg-white overflow-hidden shadow-sm">
-            <button onclick="toggleFaq(this)" class="w-full p-5 text-left font-bold text-paper-0 text-sm md:text-base flex justify-between items-center gap-4 hover:bg-ink-1 transition-colors">
+          <div class="anim anim-delay-2 rounded border border-hairline bg-white overflow-hidden shadow-sm">
+            <button onclick="toggleFaq(this)" class="w-full p-4 sm:p-5 text-left font-bold text-paper-0 text-sm md:text-base flex justify-between items-center gap-4 hover:bg-ink-1 transition-colors">
               <span>Toda movimentação precisa mesmo de foto?</span>
               <i data-lucide="chevron-down" class="w-4 h-4 text-paper-2 transition-transform duration-200"></i>
             </button>
@@ -519,8 +579,8 @@
           </div>
 
           <!-- Q3 -->
-          <div class="rounded border border-hairline bg-white overflow-hidden shadow-sm">
-            <button onclick="toggleFaq(this)" class="w-full p-5 text-left font-bold text-paper-0 text-sm md:text-base flex justify-between items-center gap-4 hover:bg-ink-1 transition-colors">
+          <div class="anim anim-delay-3 rounded border border-hairline bg-white overflow-hidden shadow-sm">
+            <button onclick="toggleFaq(this)" class="w-full p-4 sm:p-5 text-left font-bold text-paper-0 text-sm md:text-base flex justify-between items-center gap-4 hover:bg-ink-1 transition-colors">
               <span>Como funciona quando o cliente retira o pedido no balcão?</span>
               <i data-lucide="chevron-down" class="w-4 h-4 text-paper-2 transition-transform duration-200"></i>
             </button>
@@ -530,45 +590,45 @@
           </div>
 
           <!-- Q4 -->
-          <div class="rounded border border-hairline bg-white overflow-hidden shadow-sm">
-            <button onclick="toggleFaq(this)" class="w-full p-5 text-left font-bold text-paper-0 text-sm md:text-base flex justify-between items-center gap-4 hover:bg-ink-1 transition-colors">
+          <div class="anim anim-delay-4 rounded border border-hairline bg-white overflow-hidden shadow-sm">
+            <button onclick="toggleFaq(this)" class="w-full p-4 sm:p-5 text-left font-bold text-paper-0 text-sm md:text-base flex justify-between items-center gap-4 hover:bg-ink-1 transition-colors">
               <span>Meus funcionários vão conseguir usar sem dificuldade?</span>
               <i data-lucide="chevron-down" class="w-4 h-4 text-paper-2 transition-transform duration-200"></i>
             </button>
-            <div class="faq-answer hidden p-5 pt-0 text-xs text-paper-2 border-t border-hairline leading-relaxed">
+            <div class="faq-answer hidden p-4 sm:p-5 pt-0 text-xs text-paper-2 border-t border-hairline leading-relaxed">
               Sim. A tela é simples: o funcionário só seleciona o pedido, a etapa e anexa a foto. Não precisa de treinamento técnico.
             </div>
           </div>
 
           <!-- Q5 -->
-          <div class="rounded border border-hairline bg-white overflow-hidden shadow-sm">
-            <button onclick="toggleFaq(this)" class="w-full p-5 text-left font-bold text-paper-0 text-sm md:text-base flex justify-between items-center gap-4 hover:bg-ink-1 transition-colors">
+          <div class="anim anim-delay-5 rounded border border-hairline bg-white overflow-hidden shadow-sm">
+            <button onclick="toggleFaq(this)" class="w-full p-4 sm:p-5 text-left font-bold text-paper-0 text-sm md:text-base flex justify-between items-center gap-4 hover:bg-ink-1 transition-colors">
               <span>Funciona no celular?</span>
               <i data-lucide="chevron-down" class="w-4 h-4 text-paper-2 transition-transform duration-200"></i>
             </button>
-            <div class="faq-answer hidden p-5 pt-0 text-xs text-paper-2 border-t border-hairline leading-relaxed">
+            <div class="faq-answer hidden p-4 sm:p-5 pt-0 text-xs text-paper-2 border-t border-hairline leading-relaxed">
               Sim, tanto no celular quanto no computador.
             </div>
           </div>
 
           <!-- Q6 -->
-          <div class="rounded border border-hairline bg-white overflow-hidden shadow-sm">
-            <button onclick="toggleFaq(this)" class="w-full p-5 text-left font-bold text-paper-0 text-sm md:text-base flex justify-between items-center gap-4 hover:bg-ink-1 transition-colors">
+          <div class="anim anim-delay-6 rounded border border-hairline bg-white overflow-hidden shadow-sm">
+            <button onclick="toggleFaq(this)" class="w-full p-4 sm:p-5 text-left font-bold text-paper-0 text-sm md:text-base flex justify-between items-center gap-4 hover:bg-ink-1 transition-colors">
               <span>Quanto tempo leva pra colocar pra funcionar?</span>
               <i data-lucide="chevron-down" class="w-4 h-4 text-paper-2 transition-transform duration-200"></i>
             </button>
-            <div class="faq-answer hidden p-5 pt-0 text-xs text-paper-2 border-t border-hairline leading-relaxed">
+            <div class="faq-answer hidden p-4 sm:p-5 pt-0 text-xs text-paper-2 border-t border-hairline leading-relaxed">
               <span id="faqPrazoText">[Preencher com prazo real de implementação]</span>
             </div>
           </div>
 
           <!-- Q7 -->
-          <div class="rounded border border-hairline bg-white overflow-hidden shadow-sm">
-            <button onclick="toggleFaq(this)" class="w-full p-5 text-left font-bold text-paper-0 text-sm md:text-base flex justify-between items-center gap-4 hover:bg-ink-1 transition-colors">
+          <div class="anim rounded border border-hairline bg-white overflow-hidden shadow-sm">
+            <button onclick="toggleFaq(this)" class="w-full p-4 sm:p-5 text-left font-bold text-paper-0 text-sm md:text-base flex justify-between items-center gap-4 hover:bg-ink-1 transition-colors">
               <span>E se eu não tiver internet boa no depósito?</span>
               <i data-lucide="chevron-down" class="w-4 h-4 text-paper-2 transition-transform duration-200"></i>
             </button>
-            <div class="faq-answer hidden p-5 pt-0 text-xs text-paper-2 border-t border-hairline leading-relaxed">
+            <div class="faq-answer hidden p-4 sm:p-5 pt-0 text-xs text-paper-2 border-t border-hairline leading-relaxed">
               <span id="faqOfflineText">[Preencher — depende de como o painel foi construído: online only ou com funcionamento offline]</span>
             </div>
           </div>
@@ -577,7 +637,7 @@
       </section>
 
       <!-- FOOTER -->
-      <footer class="py-12 border-t border-hairline text-xs font-mono text-paper-2 flex flex-col md:flex-row justify-between items-center gap-4">
+      <footer class="py-8 sm:py-12 border-t border-hairline text-[10px] sm:text-xs font-mono text-paper-2 flex flex-col md:flex-row justify-between items-center gap-3 sm:gap-4 text-center">
         <div>
           © 2026 NEXO SISTEMAS — PAINEL DE CONTROLE DE EXPEDIÇÃO. TODOS OS DIREITOS RESERVADOS.
         </div>
@@ -628,6 +688,29 @@
   <script>
     // Initialize Lucide Icons
     lucide.createIcons();
+
+    // Mobile Menu Toggle
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      const overlay = document.getElementById('mobileMenuOverlay');
+      menu.classList.toggle('open');
+      overlay.classList.toggle('hidden');
+      document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+    }
+
+    // Scroll-triggered Entrance Animations (IntersectionObserver)
+    const animObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          animObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.anim, .anim-scale').forEach(el => {
+      animObserver.observe(el);
+    });
 
     // Scroll Progress Line & Trace Node highlight
     window.addEventListener('scroll', () => {
