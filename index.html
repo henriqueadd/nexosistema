@@ -128,6 +128,18 @@
         box-sizing: border-box;
       }
 
+      /* First section (HERO): Exact full mobile screen height */
+      #hero {
+        min-height: calc(100vh - 4rem) !important;
+        min-height: calc(100svh - 4rem) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        padding-top: 1.5rem !important;
+        padding-bottom: 2rem !important;
+        box-sizing: border-box !important;
+      }
+
       /* CRITICAL MOBILE PERFORMANCE FIX: 
          Instantly render all items visible on mobile with ZERO scroll-bound overhead or layer lag */
       .anim, .anim-scale {
@@ -145,6 +157,13 @@
         flex-direction: column;
         justify-content: center;
         box-sizing: border-box;
+      }
+
+      #hero {
+        min-height: calc(100vh - 4rem);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
       }
 
       /* Desktop Entrance Animations */
@@ -371,39 +390,39 @@
       <!-- ==========================================
            1. HERO SECTION (COPY FOCUSED)
            ========================================== -->
-      <section id="hero" class="mobile-full relative py-12 sm:py-16 md:py-24 border-b border-hairline overflow-hidden">
+      <section id="hero" class="mobile-full relative py-6 sm:py-16 md:py-24 border-b border-hairline overflow-hidden">
         <!-- Hero Ambient Glow Effect -->
         <div class="hero-ambient-glow" aria-hidden="true"></div>
 
         <!-- Trace Node -->
         <span class="hidden lg:block absolute -left-[41px] top-24 w-2.5 h-2.5 rounded-full border border-hairline-strong bg-white trace-node transition-all duration-300"></span>
         
-        <div class="relative z-10 max-w-4xl mx-auto text-center space-y-6 sm:space-y-8">
+        <div class="relative z-10 max-w-4xl mx-auto text-center space-y-4 sm:space-y-6 md:space-y-8">
 
-          <h1 class="anim text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-paper-0 tracking-tight leading-[1.08] max-w-4xl mx-auto">
+          <h1 class="anim text-[26px] xs:text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-paper-0 tracking-tight leading-[1.14] sm:leading-[1.08] max-w-4xl mx-auto">
             Sua contagem não bate e você não sabe se está <span class="chrome-text">perdendo dinheiro</span> — ou sendo passado pra trás
           </h1>
 
-          <p class="anim anim-delay-1 text-base sm:text-lg md:text-xl text-paper-1 leading-relaxed max-w-2xl mx-auto font-normal px-1 sm:px-0">
+          <p class="anim anim-delay-1 text-sm sm:text-lg md:text-xl text-paper-1 leading-relaxed max-w-2xl mx-auto font-normal px-1 sm:px-0">
             A Nexo Sistema cria um sistema sob medida pra sua empresa: um controle de expedição que registra cada pedido, com foto obrigatória em cada movimentação — pra você nunca mais depender só da palavra do funcionário.
           </p>
 
-          <div class="anim anim-delay-2 pt-8 sm:pt-12 flex items-center justify-center">
-            <button onclick="openModal()" class="cta-shimmer w-auto px-7 sm:px-9 py-4 rounded-xl bg-paper-0 text-white font-bold text-sm sm:text-base uppercase tracking-wider hover:bg-slate-800 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg flex items-center justify-center gap-3 group">
+          <div class="anim anim-delay-2 pt-3 sm:pt-8 flex items-center justify-center">
+            <button onclick="openModal()" class="cta-shimmer w-full sm:w-auto px-6 sm:px-9 py-3.5 sm:py-4 rounded-xl bg-paper-0 text-white font-bold text-sm sm:text-base uppercase tracking-wider hover:bg-slate-800 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg flex items-center justify-center gap-2.5 sm:gap-3 group">
               <span>Quero controlar minha expedição</span>
               <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
             </button>
           </div>
 
           <!-- TRUST STATS -->
-          <div class="anim anim-delay-3 pt-6 sm:pt-8 border-t border-hairline grid grid-cols-2 gap-6 sm:gap-8 font-mono text-sm sm:text-xs max-w-xs sm:max-w-sm mx-auto">
+          <div class="anim anim-delay-3 pt-3 sm:pt-6 border-t border-hairline grid grid-cols-2 gap-4 sm:gap-8 font-mono text-xs sm:text-sm max-w-xs sm:max-w-sm mx-auto">
             <div>
-              <div class="text-paper-0 font-bold text-2xl">100%</div>
-              <div class="text-paper-2 mt-1">Rastreável</div>
+              <div class="text-paper-0 font-bold text-xl sm:text-2xl">100%</div>
+              <div class="text-paper-2 mt-0.5 sm:mt-1 text-[11px] sm:text-xs">Rastreável</div>
             </div>
             <div>
-              <div class="text-paper-0 font-bold text-2xl">Tempo Real</div>
-              <div class="text-paper-2 mt-1">Visão Gestão</div>
+              <div class="text-paper-0 font-bold text-xl sm:text-2xl">Tempo Real</div>
+              <div class="text-paper-2 mt-0.5 sm:mt-1 text-[11px] sm:text-xs">Visão Gestão</div>
             </div>
           </div>
 
