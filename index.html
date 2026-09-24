@@ -134,22 +134,13 @@
         box-sizing: border-box;
       }
 
-      /* First section (HERO): Exact full mobile screen height */
+      /* First section (HERO): Fluxo natural no mobile, oferta clara e CTA visivel */
       #hero {
-        min-height: calc(100vh - 4rem) !important;
-        min-height: calc(100svh - 4rem) !important;
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: center !important;
-        padding-top: 1.5rem !important;
-        padding-bottom: 2rem !important;
+        min-height: auto !important;
+        display: block !important;
+        padding-top: 1.75rem !important;
+        padding-bottom: 2.25rem !important;
         box-sizing: border-box !important;
-      }
-
-      /* Elevar apenas a headline no mobile mantendo o restante no lugar */
-      .hero-headline-elevated {
-        margin-top: -3.5rem !important;
-        margin-bottom: 3.5rem !important;
       }
 
       /* CRITICAL MOBILE PERFORMANCE FIX: 
@@ -390,7 +381,7 @@
   <div id="mobileMenuOverlay" class="fixed inset-0 bg-black/30 z-[55] hidden" onclick="toggleMobileMenu()"></div>
 
   <!-- MAIN CONTAINER WITH LEFT TRACE LINE -->
-  <div class="relative max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10">
+  <div class="relative max-w-[1440px] mx-auto px-6 md:px-10">
 
     <!-- VERTICAL TRACE LINE -->
     <div class="hidden lg:block absolute left-10 top-0 bottom-0 w-px bg-hairline z-10">
@@ -409,18 +400,21 @@
         <!-- Trace Node -->
         <span class="hidden lg:block absolute -left-[41px] top-24 w-2.5 h-2.5 rounded-full border border-hairline-strong bg-white trace-node transition-all duration-300"></span>
         
-        <div class="relative z-10 max-w-4xl mx-auto text-center space-y-6 sm:space-y-7 md:space-y-8">
+        <div class="relative z-10 max-w-4xl mx-auto text-center space-y-5 sm:space-y-7 md:space-y-8">
 
-          <h1 class="hero-headline-elevated anim text-[26px] xs:text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-paper-0 tracking-tight leading-[1.14] sm:leading-[1.08] max-w-4xl mx-auto">
+          <!-- Headline: 34-42px com linhas curtas e fáceis de ler -->
+          <h1 class="anim text-[34px] xs:text-[38px] sm:text-5xl md:text-6xl lg:text-7xl font-black text-paper-0 tracking-tight leading-[1.12] sm:leading-[1.08] max-w-[340px] xs:max-w-md sm:max-w-4xl mx-auto">
             Sua contagem não bate e você não sabe se está <span class="chrome-text">perdendo dinheiro</span> — ou sendo passado pra trás
           </h1>
 
-          <p class="anim anim-delay-1 text-sm sm:text-lg md:text-xl text-paper-1 leading-relaxed max-w-2xl mx-auto font-normal px-1 sm:px-0">
+          <!-- Texto de apoio: 16-18px -->
+          <p class="anim anim-delay-1 text-[16px] xs:text-[17px] sm:text-lg md:text-xl text-paper-1 leading-[1.6] max-w-xl sm:max-w-2xl mx-auto font-normal px-0.5 sm:px-0">
             A Nexo Sistema cria um sistema sob medida pra sua empresa: um controle de expedição que registra cada pedido, com foto obrigatória em cada movimentação — pra você nunca mais depender só da palavra do funcionário.
           </p>
 
-          <div class="anim anim-delay-2 pt-12 sm:pt-8 flex items-center justify-center">
-            <button onclick="openModal()" class="cta-shimmer w-full sm:w-auto px-6 sm:px-9 py-3.5 sm:py-4 rounded-xl bg-paper-0 text-white font-bold text-sm sm:text-base uppercase tracking-wider hover:bg-slate-800 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg flex items-center justify-center gap-2.5 sm:gap-3 group">
+          <!-- Botão CTA: 52-58px de altura (54px), 100% de largura no mobile -->
+          <div class="anim anim-delay-2 pt-2 sm:pt-4 flex items-center justify-center">
+            <button onclick="openModal()" class="cta-shimmer w-full sm:w-auto h-[54px] min-h-[54px] px-6 sm:px-9 rounded-xl bg-paper-0 text-white font-bold text-[15px] sm:text-base uppercase tracking-wider hover:bg-slate-800 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg flex items-center justify-center gap-2.5 sm:gap-3 group">
               <span>Quero controlar minha expedição</span>
               <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
             </button>
