@@ -127,20 +127,100 @@
       .faq-answer { font-size: 15px; line-height: 1.6; }
       button, a { -webkit-tap-highlight-color: transparent; }
 
-      /* ABSOLUTE FLUID MOBILE SCROLL: No layout shifts, no dynamic dvh recalculation */
-      .mobile-full {
-        min-height: auto !important;
-        display: block !important;
-        box-sizing: border-box;
+      /* ========================================================
+         DIMENSÕES MOBILE (CELULAR) CONFORME ESPECIFICAÇÃO
+         ======================================================== */
+
+      /* 1. Primeira seção (HERO): 650–850 px */
+      #hero {
+        min-height: clamp(650px, 85svh, 850px) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        padding-top: 1.5rem !important;
+        padding-bottom: 2rem !important;
+        box-sizing: border-box !important;
       }
 
-      /* First section (HERO): Fluxo natural no mobile, oferta clara e CTA visivel */
-      #hero {
-        min-height: auto !important;
-        display: block !important;
+      /* 2. Vídeo de demonstração: 420–600 px */
+      #veja-na-pratica {
+        min-height: 440px !important;
+        max-height: 600px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
         padding-top: 1.75rem !important;
-        padding-bottom: 2.25rem !important;
+        padding-bottom: 1.75rem !important;
         box-sizing: border-box !important;
+      }
+
+      /* 3. “O que você vai receber”: 1.200–1.700 px */
+      #recursos {
+        min-height: 1200px !important;
+        padding-top: 2.5rem !important;
+        padding-bottom: 3rem !important;
+        box-sizing: border-box !important;
+      }
+
+      /* 4. Depoimentos: 650–900 px */
+      #depoimentos {
+        min-height: 650px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        padding-top: 2.25rem !important;
+        padding-bottom: 2.5rem !important;
+        box-sizing: border-box !important;
+      }
+
+      /* 5. Prazo de implementação: 650–850 px */
+      #prazo {
+        min-height: 650px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        padding-top: 2.25rem !important;
+        padding-bottom: 2.5rem !important;
+        box-sizing: border-box !important;
+      }
+
+      /* 6. Valores e plano: 700–950 px */
+      #valores {
+        min-height: 700px !important;
+        padding-top: 2.5rem !important;
+        padding-bottom: 2.5rem !important;
+        box-sizing: border-box !important;
+      }
+
+      /* 7. Garantia: 600–800 px */
+      #garantia {
+        min-height: 600px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+        box-sizing: border-box !important;
+      }
+
+      /* 8. Benefícios: 850–1.200 px */
+      #beneficios {
+        min-height: 850px !important;
+        padding-top: 2.5rem !important;
+        padding-bottom: 2.5rem !important;
+        box-sizing: border-box !important;
+      }
+
+      /* 9. Perguntas frequentes e rodapé: 900–1.300 px */
+      #faq {
+        min-height: 750px !important;
+        padding-top: 2.5rem !important;
+        padding-bottom: 2rem !important;
+        box-sizing: border-box !important;
+      }
+
+      .mobile-full {
+        box-sizing: border-box;
       }
 
       /* CRITICAL MOBILE PERFORMANCE FIX: 
@@ -153,20 +233,108 @@
       }
     }
 
+    /* ========================================================
+       DIMENSÕES DESKTOP CONFORME ESPECIFICAÇÃO
+       ======================================================== */
     @media (min-width: 769px) {
-      .mobile-full {
-        min-height: 80vh;
+      /* 1. Primeira seção (HERO): 620–760 px */
+      #hero {
+        min-height: 660px;
+        max-height: 760px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         box-sizing: border-box;
       }
 
-      #hero {
-        min-height: calc(100vh - 4rem);
+      /* 2. Vídeo de demonstração: 650–850 px */
+      #veja-na-pratica {
+        min-height: 700px;
+        max-height: 850px;
         display: flex;
         flex-direction: column;
         justify-content: center;
+        padding-top: 3.5rem;
+        padding-bottom: 3.5rem;
+        box-sizing: border-box;
+      }
+
+      /* 3. “O que você vai receber”: 750–1.000 px */
+      #recursos {
+        min-height: 780px;
+        max-height: 1000px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+        box-sizing: border-box;
+      }
+
+      /* 4. Depoimentos: 400–550 px */
+      #depoimentos {
+        min-height: 440px;
+        max-height: 550px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+        box-sizing: border-box;
+      }
+
+      /* 5. Prazo de implementação: 400–550 px */
+      #prazo {
+        min-height: 440px;
+        max-height: 550px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+        box-sizing: border-box;
+      }
+
+      /* 6. Valores e plano: 550–700 px */
+      #valores {
+        min-height: 580px;
+        max-height: 700px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 3.5rem;
+        padding-bottom: 3.5rem;
+        box-sizing: border-box;
+      }
+
+      /* 7. Garantia: 450–600 px */
+      #garantia {
+        min-height: 470px;
+        max-height: 600px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+        box-sizing: border-box;
+      }
+
+      /* 8. Benefícios: 500–700 px */
+      #beneficios {
+        min-height: 540px;
+        max-height: 700px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 3.5rem;
+        padding-bottom: 3.5rem;
+        box-sizing: border-box;
+      }
+
+      /* 9. Perguntas frequentes e rodapé: 650–900 px */
+      #faq {
+        min-height: 650px;
+        box-sizing: border-box;
       }
 
       /* Desktop Entrance Animations */
@@ -335,7 +503,7 @@
 
   <!-- HEADER -->
   <header class="sticky top-0 z-50 border-b border-hairline bg-white/95 md:bg-white/90 md:backdrop-blur-md">
-    <div class="max-w-[1440px] mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-10 h-[60px] md:h-[70px] flex items-center justify-between">
       <a href="#" class="flex items-center gap-3 group">
         <img src="nexo_logo.jpg" alt="Nexo Sistemas Logo" class="w-8 h-8 rounded object-cover border border-hairline-strong shadow-sm group-hover:opacity-90 transition-opacity">
         <span class="font-bold text-paper-0 text-sm tracking-tight flex items-center gap-1.5">
@@ -563,7 +731,7 @@
 
         </div>
 
-        </div>
+      </section>
 
 
       <!-- ==========================================
