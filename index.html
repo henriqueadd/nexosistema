@@ -146,6 +146,12 @@
         box-sizing: border-box !important;
       }
 
+      /* Elevar apenas a headline no mobile mantendo o restante no lugar */
+      .hero-headline-elevated {
+        margin-top: -3.5rem !important;
+        margin-bottom: 3.5rem !important;
+      }
+
       /* CRITICAL MOBILE PERFORMANCE FIX: 
          Instantly render all items visible on mobile with ZERO scroll-bound overhead or layer lag */
       .anim, .anim-scale {
@@ -405,7 +411,7 @@
         
         <div class="relative z-10 max-w-4xl mx-auto text-center space-y-6 sm:space-y-7 md:space-y-8">
 
-          <h1 class="anim -mt-6 sm:mt-0 mb-7 sm:mb-6 text-[26px] xs:text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-paper-0 tracking-tight leading-[1.14] sm:leading-[1.08] max-w-4xl mx-auto">
+          <h1 class="hero-headline-elevated anim text-[26px] xs:text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-paper-0 tracking-tight leading-[1.14] sm:leading-[1.08] max-w-4xl mx-auto">
             Sua contagem não bate e você não sabe se está <span class="chrome-text">perdendo dinheiro</span> — ou sendo passado pra trás
           </h1>
 
