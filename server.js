@@ -6,6 +6,19 @@ const PORT = 8989;
 const PUBLIC_DIR = __dirname;
 
 const server = http.createServer((req, res) => {
+  if (req.url.startsWith('/favicon.ico')) {
+    fs.readFile(path.join(PUBLIC_DIR, 'favicon.ico'), (err, data) => {
+      if (err) {
+        res.writeHead(204);
+        res.end();
+      } else {
+        res.writeHead(200, { 'Content-Type': 'image/x-icon' });
+        res.end(data);
+      }
+    });
+    return;
+  }
+
   let filePath = path.join(PUBLIC_DIR, req.url === '/' ? 'index.html' : req.url);
   let extname = path.extname(filePath);
   let contentType = 'text/html';
@@ -24,7 +37,8 @@ const server = http.createServer((req, res) => {
       contentType = 'image/png';
       break;
     case '.jpg':
-      contentType = 'image/jpg';
+    case '.jpeg':
+      contentType = 'image/jpeg';
       break;
     case '.mp4':
       contentType = 'video/mp4';
@@ -46,8 +60,9 @@ const server = http.createServer((req, res) => {
         res.end('Server error: ' + error.code);
       }
     } else {
-      res.writeHead(200, { 'Content-Type': `${contentType}; charset=utf-8` });
-      res.end(content, 'utf-8');
+      const isText = contentType.startsWith('text/') || contentType === 'application/json';
+      res.writeHead(200, { 'Content-Type': isText ? `${contentType}; charset=utf-8` : contentType });
+      res.end(content);
     }
   });
 });
