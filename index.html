@@ -1154,51 +1154,30 @@
               Pronto para ter controle total da sua expedição?
             </h2>
             <p class="text-sm sm:text-base md:text-lg text-paper-1 max-w-2xl mx-auto leading-relaxed">
-              Preencha o formulário abaixo para solicitar a implementação imediata na sua empresa. Nosso time entrará em contato em minutos via WhatsApp.
+              Clique no botão abaixo para solicitar a implementação imediata na sua empresa. Nosso time entrará em contato em minutos via WhatsApp.
             </p>
           </div>
 
-          <div class="anim-scale max-w-xl mx-auto bg-white border border-hairline-strong rounded-2xl p-6 sm:p-9 shadow-xl glow-box relative">
-            
-            <form onsubmit="handleFormSubmit(event)" class="space-y-4 font-sans text-sm">
-              <div>
-                <label class="block text-paper-2 font-mono text-xs mb-1.5 uppercase font-medium">Seu Nome Completo</label>
-                <input type="text" required placeholder="Ex: Roberto Silva" class="w-full bg-ink-1 border border-hairline rounded-lg p-3.5 text-sm text-paper-0 focus:outline-none focus:border-paper-0 focus:bg-white transition-all">
-              </div>
+          <div class="anim text-center space-y-6 max-w-xl mx-auto">
+            <button onclick="openModal()" class="cta-shimmer w-full sm:w-auto px-10 h-[56px] rounded-xl bg-paper-0 text-white font-bold text-sm uppercase tracking-wider hover:bg-slate-800 transition-all shadow-xl flex items-center justify-center gap-3 mx-auto">
+              <span>QUERO IMPLEMENTAR NA MINHA EMPRESA</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
 
-              <div>
-                <label class="block text-paper-2 font-mono text-xs mb-1.5 uppercase font-medium">Nome da sua Empresa</label>
-                <input type="text" required placeholder="Ex: Distribuidora Silva & Cia" class="w-full bg-ink-1 border border-hairline rounded-lg p-3.5 text-sm text-paper-0 focus:outline-none focus:border-paper-0 focus:bg-white transition-all">
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 text-xs text-paper-2 font-mono pt-2">
+              <div class="flex items-center gap-1.5">
+                <i data-lucide="shield-check" class="w-4 h-4 text-accent-emerald shrink-0"></i>
+                <span>Garantia de 30 dias inclusa</span>
               </div>
-
-              <div>
-                <label class="block text-paper-2 font-mono text-xs mb-1.5 uppercase font-medium">WhatsApp com DDD</label>
-                <input type="tel" required placeholder="(11) 99999-9999" class="w-full bg-ink-1 border border-hairline rounded-lg p-3.5 text-sm text-paper-0 focus:outline-none focus:border-paper-0 focus:bg-white transition-all">
+              <div class="flex items-center gap-1.5">
+                <i data-lucide="zap" class="w-4 h-4 text-amber-500 shrink-0"></i>
+                <span>No ar em até 3 dias</span>
               </div>
-
-              <div class="pt-2">
-                <button type="submit" class="cta-shimmer w-full h-[54px] rounded-xl bg-paper-0 text-white font-bold text-sm uppercase tracking-wider hover:bg-slate-800 transition-all shadow-md flex items-center justify-center gap-2">
-                  <span>QUERO IMPLEMENTAR NA MINHA EMPRESA</span>
-                  <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                </button>
+              <div class="flex items-center gap-1.5">
+                <i data-lucide="lock" class="w-4 h-4 text-paper-2 shrink-0"></i>
+                <span>Dados 100% seguros</span>
               </div>
-
-              <div class="pt-2 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-paper-2 border-t border-hairline font-mono">
-                <div class="flex items-center gap-1.5">
-                  <i data-lucide="shield-check" class="w-4 h-4 text-accent-emerald shrink-0"></i>
-                  <span>Garantia de 30 dias inclusa</span>
-                </div>
-                <div class="flex items-center gap-1.5">
-                  <i data-lucide="zap" class="w-4 h-4 text-amber-500 shrink-0"></i>
-                  <span>No ar em até 3 dias</span>
-                </div>
-                <div class="flex items-center gap-1.5">
-                  <i data-lucide="lock" class="w-4 h-4 text-paper-2 shrink-0"></i>
-                  <span>Dados 100% seguros</span>
-                </div>
-              </div>
-            </form>
-
+            </div>
           </div>
 
         </div>
