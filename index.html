@@ -467,50 +467,9 @@
       }
     }
 
-    /* 5. Intro Splash Animations */
-    .intro-pulse {
-      animation: introPulseEffect 1.5s ease-in-out infinite;
-    }
-    @keyframes introPulseEffect {
-      0%, 100% { opacity: 0.35; transform: scale(0.96); }
-      50% { opacity: 0.8; transform: scale(1.05); }
-    }
   </style>
 </head>
 <body class="bg-ink-0 text-paper-1 font-sans antialiased min-h-screen bg-grid-pattern relative selection:bg-paper-0 selection:text-white">
-
-  <!-- NEXO SYSTEM INTRO SPLASH OVERLAY (EFEITO VISUAL DE ABERTURA) -->
-  <div id="nexoIntroScreen" class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#070B14] text-white select-none transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer" title="Toque para entrar">
-    <!-- Ambient Radial Glow in Intro -->
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(5,150,105,0.22)_0%,rgba(7,11,20,0.85)_65%,#070B14_100%)] pointer-events-none"></div>
-
-    <div class="relative z-10 flex flex-col items-center text-center px-6 max-w-sm">
-      <!-- Pulsing Brand Box -->
-      <div class="relative mb-6">
-        <div class="absolute -inset-3 rounded-2xl bg-emerald-500/25 blur-xl intro-pulse"></div>
-        <div class="relative w-20 h-20 rounded-2xl bg-slate-900 border border-emerald-500/50 flex items-center justify-center p-3 shadow-[0_0_35px_rgba(5,150,105,0.35)]">
-          <img src="nexo_logo.jpg" alt="Nexo Logo" class="w-full h-full object-cover rounded-xl shadow-sm">
-        </div>
-      </div>
-
-      <!-- Typography -->
-      <div class="space-y-1.5">
-        <div class="font-extrabold text-white text-xl sm:text-2xl tracking-tight flex items-center justify-center gap-2">
-          <span>NEXO SISTEMAS</span>
-        </div>
-        <p class="font-mono text-xs text-accent-emerald tracking-widest uppercase font-semibold flex items-center justify-center gap-2">
-          <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-          EXPEDIÇÃO & LOGÍSTICA
-        </p>
-      </div>
-
-      <!-- Fast Futuristic Progress Bar -->
-      <div class="w-56 h-1.5 bg-slate-800/80 rounded-full mt-7 overflow-hidden p-0.5 border border-slate-700/60 shadow-inner">
-        <div id="nexoIntroBar" class="h-full bg-gradient-to-r from-emerald-500 via-teal-300 to-emerald-400 rounded-full w-0 transition-all duration-500 ease-out"></div>
-      </div>
-      <p class="font-mono text-[10px] text-slate-400 mt-3 tracking-wider">INICIALIZANDO PLATAFORMA...</p>
-    </div>
-  </div>
 
   <!-- TOP OPENING LASER SCANNER -->
   <div class="page-open-beam" aria-hidden="true"></div>
@@ -1245,25 +1204,6 @@
       document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
     }
 
-    // Opening Visual Sequence Animation (Efeito de Abertura)
-    const introScreen = document.getElementById('nexoIntroScreen');
-    const introBar = document.getElementById('nexoIntroBar');
-    if (introScreen && introBar) {
-      setTimeout(() => {
-        introBar.style.width = '100%';
-      }, 40);
-
-      const dismissIntro = () => {
-        introScreen.style.opacity = '0';
-        introScreen.style.transform = 'translateY(-100%)';
-        setTimeout(() => {
-          introScreen.style.display = 'none';
-        }, 700);
-      };
-
-      setTimeout(dismissIntro, 700);
-      introScreen.addEventListener('click', dismissIntro);
-    }
 
     // Scroll-triggered Entrance Animations
     if (window.innerWidth <= 768) {
