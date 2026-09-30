@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR" class="light">
 <head>
   <meta charset="UTF-8">
@@ -230,15 +230,6 @@
       .mobile-full {
         box-sizing: border-box;
       }
-
-      /* CRITICAL MOBILE PERFORMANCE FIX: 
-         Instantly render all items visible on mobile with ZERO scroll-bound overhead or layer lag */
-      .anim, .anim-scale {
-        opacity: 1 !important;
-        transform: none !important;
-        animation: none !important;
-        will-change: auto !important;
-      }
     }
 
     /* ========================================================
@@ -356,25 +347,66 @@
         box-sizing: border-box;
       }
 
-      /* Desktop Entrance Animations */
-      @keyframes fadeInUp {
-        from { opacity: 0; transform: translateY(22px); }
-        to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ========================================================
+       SCROLL REVEAL (FADE-IN + SUBIDA LEVE)
+       ======================================================== */
+    .anim {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .anim.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .anim-scale {
+      opacity: 0;
+      transform: translateY(24px) scale(0.97);
+      transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .anim-scale.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    /* Stagger delays para entrada em cascata suave */
+    .anim-delay-1 { transition-delay: 0.08s; }
+    .anim-delay-2 { transition-delay: 0.16s; }
+    .anim-delay-3 { transition-delay: 0.24s; }
+    .anim-delay-4 { transition-delay: 0.32s; }
+    .anim-delay-5 { transition-delay: 0.40s; }
+    .anim-delay-6 { transition-delay: 0.48s; }
+
+    /* Ajuste suave no mobile */
+    @media (max-width: 768px) {
+      .anim {
+        transform: translateY(18px);
+        transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
       }
-      @keyframes scaleIn {
-        from { opacity: 0; transform: scale(0.96); }
-        to   { opacity: 1; transform: scale(1); }
+      .anim-scale {
+        transform: translateY(18px) scale(0.98);
+        transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
       }
-      .anim { opacity: 0; }
-      .anim.visible { animation: fadeInUp 0.5s cubic-bezier(0.22,1,0.36,1) forwards; }
-      .anim-scale { opacity: 0; }
-      .anim-scale.visible { animation: scaleIn 0.5s cubic-bezier(0.22,1,0.36,1) forwards; }
-      .anim-delay-1 { animation-delay: 0.08s !important; }
-      .anim-delay-2 { animation-delay: 0.16s !important; }
-      .anim-delay-3 { animation-delay: 0.24s !important; }
-      .anim-delay-4 { animation-delay: 0.32s !important; }
-      .anim-delay-5 { animation-delay: 0.40s !important; }
-      .anim-delay-6 { animation-delay: 0.48s !important; }
+      .anim-delay-1 { transition-delay: 0.05s; }
+      .anim-delay-2 { transition-delay: 0.10s; }
+      .anim-delay-3 { transition-delay: 0.15s; }
+      .anim-delay-4 { transition-delay: 0.20s; }
+      .anim-delay-5 { transition-delay: 0.25s; }
+      .anim-delay-6 { transition-delay: 0.30s; }
+    }
+
+    /* Acessibilidade: respeita preferências de movimento reduzido */
+    @media (prefers-reduced-motion: reduce) {
+      .anim, .anim-scale {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
     }
 
     /* VISUAL OPENING EFFECTS */
@@ -1205,14 +1237,9 @@
     }
 
 
-    // Scroll-triggered Entrance Animations
-    if (window.innerWidth <= 768) {
-      // Mobile: Immediately show all elements, 0 layout shifts, 0 scroll lag
-      document.querySelectorAll('.anim, .anim-scale').forEach(el => {
-        el.classList.add('visible');
-      });
-    } else {
-      // Desktop: Smooth reveal on scroll
+    // Scroll reveal (fade-in + subida leve)
+    const animElements = document.querySelectorAll('.anim, .anim-scale');
+    if ('IntersectionObserver' in window) {
       const animObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -1220,11 +1247,15 @@
             animObserver.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-      document.querySelectorAll('.anim, .anim-scale').forEach(el => {
-        animObserver.observe(el);
+      }, { 
+        threshold: 0.08, 
+        rootMargin: '0px 0px -30px 0px' 
       });
+
+      animElements.forEach(el => animObserver.observe(el));
+    } else {
+      // Fallback para navegadores muito antigos
+      animElements.forEach(el => el.classList.add('visible'));
     }
 
     // Smooth Anchor Scroll (Preserves native high-speed touch scrolling on mobile)
