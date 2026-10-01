@@ -180,14 +180,76 @@
       box-shadow: 0 6px 20px rgba(241, 136, 132, 0.45);
     }
 
-    /* Hero Section com Bordas Arredondadas da Identidade Visual Oficial */
-    .hero-section {
-      background: linear-gradient(180deg, #FFFFFF 0%, var(--bg-warm) 100%);
-      padding: 70px 24px 80px;
-      text-align: center;
+    /* Bloco Contínuo Integrando Seção 1 (Hero) e Seção 2 (Formatos) Sem Espaço */
+    .brand-flow-block {
       position: relative;
       overflow: hidden;
+      background: linear-gradient(180deg, #FFFFFF 0%, #FAF5EE 50%, var(--bg-cream) 100%);
       border-bottom: 1px solid var(--border-light);
+    }
+
+    /* Borda Orgânica Laranja Contínua Direita (Conectando Seção 1 e 2 sem espaço) */
+    .brand-edge-flow-orange {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 145px;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.95;
+    }
+
+    .brand-edge-flow-orange svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* Borda Orgânica Marrom Conectando a Transição entre Seção 1 e 2 */
+    .brand-edge-flow-brown-connect {
+      position: absolute;
+      top: 42%;
+      transform: translateY(-50%);
+      left: 0;
+      width: 210px;
+      height: 380px;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.95;
+    }
+
+    .brand-edge-flow-brown-connect svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* Borda Orgânica Marrom no Canto Inferior Esquerdo da Seção 2 */
+    .brand-edge-flow-brown-bottom {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 190px;
+      height: 170px;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.95;
+    }
+
+    .brand-edge-flow-brown-bottom svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* Hero Section (Seção 1) */
+    .hero-section {
+      background: transparent;
+      padding: 70px 24px 20px;
+      text-align: center;
+      position: relative;
+      border-bottom: none;
     }
 
     /* Bordas Orgânicas Arredondadas da Identidade Visual Gelavitte (Por todo o site) */
@@ -351,14 +413,13 @@
       flex-shrink: 0;
     }
 
-    /* Formatos / "Qual a forma da sua vontade?" */
+    /* Formatos / "Qual a forma da sua vontade?" (Seção 2) */
     .formats-section {
-      padding: 80px 24px;
+      padding: 20px 24px 75px;
       width: 100%;
       position: relative;
-      overflow: hidden;
-      background: var(--bg-cream);
-      border-bottom: 1px solid var(--border-light);
+      background: transparent;
+      border-bottom: none;
     }
 
     .formats-container {
@@ -1726,6 +1787,20 @@
         height: 280px;
         opacity: 0.85;
       }
+      .brand-edge-flow-orange {
+        width: 65px;
+        opacity: 0.88;
+      }
+      .brand-edge-flow-brown-connect {
+        width: 110px;
+        height: 250px;
+        opacity: 0.88;
+      }
+      .brand-edge-flow-brown-bottom {
+        width: 100px;
+        height: 90px;
+        opacity: 0.88;
+      }
       .brand-edge-brown,
       .brand-edge-brown-left,
       .brand-edge-brown-right,
@@ -1800,63 +1875,58 @@
     </div>
   </header>
 
-  <!-- Hero Section com Bordas Arredondadas da Identidade Visual Gelavitte -->
-  <section class="hero-section">
-    <!-- Borda Orgânica Arredondada Direita (Laranja Oficial #FA8748) -->
-    <div class="brand-edge-orange" aria-hidden="true">
-      <svg viewBox="0 0 160 560" fill="none" preserveAspectRatio="none">
-        <path d="M160 0 C110 20, 60 70, 50 130 C42 180, 2 240, 2 280 C2 330, 45 370, 75 410 C100 450, 115 500, 160 560 L160 0 Z" fill="#FA8748"/>
+  <!-- Bloco Contínuo Integrando Seção 1 (Hero) e Seção 2 (Formatos) Sem Nenhum Espaço nas Bordas -->
+  <div class="brand-flow-block">
+    <!-- Borda Orgânica Laranja Contínua Direita (Cobre da Seção 1 até a Seção 2 sem interrupção) -->
+    <div class="brand-edge-flow-orange" aria-hidden="true">
+      <svg viewBox="0 0 160 1000" fill="none" preserveAspectRatio="none">
+        <path d="M160 0 C100 60, 40 140, 45 230 C50 320, 120 400, 110 490 C100 580, 35 660, 40 750 C45 840, 110 920, 160 1000 L160 0 Z" fill="#FA8748"/>
       </svg>
     </div>
 
-    <!-- Borda Orgânica Arredondada Esquerda/Inferior (Marrom Oficial #66381E) -->
-    <div class="brand-edge-brown" aria-hidden="true">
+    <!-- Borda Orgânica Marrom na Transição entre Seção 1 e Seção 2 no Lado Esquerdo -->
+    <div class="brand-edge-flow-brown-connect" aria-hidden="true">
+      <svg viewBox="0 0 210 380" fill="none" preserveAspectRatio="none">
+        <path d="M0 0 C60 30, 140 80, 170 150 C200 220, 160 290, 110 335 C65 375, 20 380, 0 380 L0 0 Z" fill="#66381E"/>
+      </svg>
+    </div>
+
+    <!-- Borda Orgânica Marrom no Canto Inferior Esquerdo da Seção 2 -->
+    <div class="brand-edge-flow-brown-bottom" aria-hidden="true">
       <svg viewBox="0 0 260 220" fill="none" preserveAspectRatio="none">
         <path d="M0 0 C40 10, 75 40, 95 85 C112 120, 140 145, 195 165 C235 180, 255 200, 260 220 L0 220 Z" fill="#66381E"/>
       </svg>
     </div>
 
-    <div class="hero-container">
-      <span class="hero-tagline">Maestria Italiana Artesanal</span>
-      <h1 class="hero-title">Porque qualquer ingrediente faz um sorvete, mas só a paixão faz um <em>Gelavitte</em>.</h1>
-      <p class="hero-description">
-        Criado com receitas centenárias, batido diariamente com ar reduzido para a máxima densidade e cremosidade. Descubra os nossos sabores exclusivos.
-      </p>
+    <!-- Seção 1: Hero Section -->
+    <section class="hero-section">
+      <div class="hero-container">
+        <span class="hero-tagline">Maestria Italiana Artesanal</span>
+        <h1 class="hero-title">Porque qualquer ingrediente faz um sorvete, mas só a paixão faz um <em>Gelavitte</em>.</h1>
+        <p class="hero-description">
+          Criado com receitas centenárias, batido diariamente com ar reduzido para a máxima densidade e cremosidade. Descubra os nossos sabores exclusivos.
+        </p>
 
-      <div class="hero-badges">
-        <div class="hero-badge-item">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-          Creme de leite e leite fresco
-        </div>
-        <div class="hero-badge-item">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-          Ingredientes 100% Puros
-        </div>
-        <div class="hero-badge-item">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-          Zero Gordura Hidrogenada
+        <div class="hero-badges">
+          <div class="hero-badge-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Creme de leite e leite fresco
+          </div>
+          <div class="hero-badge-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Ingredientes 100% Puros
+          </div>
+          <div class="hero-badge-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Zero Gordura Hidrogenada
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Formatos: "Qual a forma da sua vontade?" -->
-  <section class="formats-section" id="formatos">
-    <!-- Borda Orgânica Arredondada Superior Esquerda (Marrom Oficial #66381E) -->
-    <div class="brand-edge brand-edge-brown-top-left" aria-hidden="true">
-      <svg viewBox="0 0 260 220" fill="none" preserveAspectRatio="none">
-        <path d="M0 0 C40 10, 75 40, 95 85 C112 120, 140 145, 195 165 C235 180, 255 200, 260 220 L0 220 Z" fill="#66381E"/>
-      </svg>
-    </div>
-
-    <!-- Borda Orgânica Arredondada Direita (Laranja Oficial #FA8748) -->
-    <div class="brand-edge brand-edge-orange-right" aria-hidden="true">
-      <svg viewBox="0 0 160 560" fill="none" preserveAspectRatio="none">
-        <path d="M160 0 C110 20, 60 70, 50 130 C42 180, 2 240, 2 280 C2 330, 45 370, 75 410 C100 450, 115 500, 160 560 L160 0 Z" fill="#FA8748"/>
-      </svg>
-    </div>
-
-    <div class="formats-container">
+    <!-- Seção 2: Formatos: "Qual a forma da sua vontade?" -->
+    <section class="formats-section" id="formatos">
+      <div class="formats-container">
       <div class="section-header">
         <div class="section-subtitle">Como Servimos</div>
         <h2 class="section-title">Qual a forma da sua vontade?</h2>
@@ -1906,6 +1976,7 @@
       </div>
     </div>
   </section>
+  </div>
 
   <!-- Flavors Catalog Section -->
   <section class="catalog-section" id="sabores">
