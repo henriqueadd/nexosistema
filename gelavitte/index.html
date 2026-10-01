@@ -190,7 +190,85 @@
       border-bottom: 1px solid var(--border-light);
     }
 
-    /* Bordas Orgânicas Arredondadas da Identidade Visual Gelavitte */
+    /* Bordas Orgânicas Arredondadas da Identidade Visual Gelavitte (Por todo o site) */
+    .brand-edge {
+      position: absolute;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.95;
+    }
+
+    .brand-edge svg,
+    .brand-edge-orange svg,
+    .brand-edge-brown svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* Variações de Posicionamento e Orientação das Curvas */
+    .brand-edge-orange-right {
+      top: 50%;
+      transform: translateY(-50%);
+      right: 0;
+      width: 140px;
+      height: 480px;
+    }
+
+    .brand-edge-orange-top-right {
+      top: -10px;
+      right: 0;
+      width: 140px;
+      height: 105%;
+      max-height: 520px;
+    }
+
+    .brand-edge-orange-left {
+      top: 50%;
+      transform: translateY(-50%) scaleX(-1);
+      left: 0;
+      width: 140px;
+      height: 480px;
+    }
+
+    .brand-edge-orange-bottom-right {
+      bottom: -10px;
+      right: 0;
+      width: 140px;
+      height: 460px;
+    }
+
+    .brand-edge-brown-left {
+      bottom: 0;
+      left: 0;
+      width: 190px;
+      height: 170px;
+    }
+
+    .brand-edge-brown-right {
+      bottom: 0;
+      right: 0;
+      transform: scaleX(-1);
+      width: 190px;
+      height: 170px;
+    }
+
+    .brand-edge-brown-top-left {
+      top: 0;
+      left: 0;
+      transform: scaleY(-1);
+      width: 190px;
+      height: 170px;
+    }
+
+    .brand-edge-brown-top-right {
+      top: 0;
+      right: 0;
+      transform: scale(-1);
+      width: 190px;
+      height: 170px;
+    }
+
     .brand-edge-orange {
       position: absolute;
       top: -10px;
@@ -203,12 +281,6 @@
       opacity: 0.95;
     }
 
-    .brand-edge-orange svg {
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-
     .brand-edge-brown {
       position: absolute;
       bottom: 0;
@@ -218,12 +290,6 @@
       pointer-events: none;
       z-index: 1;
       opacity: 0.95;
-    }
-
-    .brand-edge-brown svg {
-      width: 100%;
-      height: 100%;
-      display: block;
     }
 
     .hero-container {
@@ -287,9 +353,19 @@
 
     /* Formatos / "Qual a forma da sua vontade?" */
     .formats-section {
-      padding: 60px 24px;
+      padding: 80px 24px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      background: var(--bg-cream);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .formats-container {
       max-width: 1040px;
       margin: 0 auto;
+      position: relative;
+      z-index: 2;
     }
 
     .section-header {
@@ -449,11 +525,20 @@
       border: 1px solid var(--border-light);
     }
 
-    /* Filters Section */
+    /* Catálogo de Sabores Artesanais */
     .catalog-section {
-      padding: 30px 24px 80px;
+      padding: 70px 24px 90px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      background: var(--bg-white);
+    }
+
+    .catalog-container {
       max-width: 1240px;
       margin: 0 auto;
+      position: relative;
+      z-index: 2;
     }
 
     .filter-tabs {
@@ -849,14 +934,18 @@
     /* Founders Section */
     .founders-section {
       background-color: var(--bg-white);
-      padding: 80px 24px;
+      padding: 90px 24px;
       border-top: 1px solid var(--border-light);
       border-bottom: 1px solid var(--border-light);
+      position: relative;
+      overflow: hidden;
     }
 
     .founders-container {
       max-width: 1240px;
       margin: 0 auto;
+      position: relative;
+      z-index: 2;
     }
 
     .founders-grid {
@@ -992,13 +1081,17 @@
     /* Location Section */
     .location-section {
       background-color: var(--bg-warm);
-      padding: 80px 24px;
+      padding: 90px 24px;
       border-bottom: 1px solid var(--border-light);
+      position: relative;
+      overflow: hidden;
     }
 
     .location-container {
       max-width: 1240px;
       margin: 0 auto;
+      position: relative;
+      z-index: 2;
     }
 
     .location-grid {
@@ -1105,9 +1198,9 @@
     }
 
     .btn-maps:hover {
-      background: #151110;
+      background: var(--color-accent);
       transform: translateY(-2px);
-      box-shadow: 0 6px 18px rgba(44, 38, 35, 0.25);
+      box-shadow: 0 6px 20px rgba(250, 135, 72, 0.35);
     }
 
     .btn-delivery-store {
@@ -1179,6 +1272,8 @@
       padding: 70px 24px 30px;
       border-top: 1px solid #332B27;
       font-size: 14px;
+      position: relative;
+      overflow: hidden;
     }
 
     .footer-container {
@@ -1188,6 +1283,8 @@
       grid-template-columns: 2fr 1fr 1fr 1fr;
       gap: 40px;
       margin-bottom: 50px;
+      position: relative;
+      z-index: 2;
     }
 
     .footer-brand .footer-logo-box {
@@ -1308,15 +1405,23 @@
       .hero-title {
         font-size: 34px;
       }
-      .brand-edge-orange {
-        width: 75px;
-        max-height: 340px;
-        opacity: 0.88;
+      .brand-edge-orange,
+      .brand-edge-orange-right,
+      .brand-edge-orange-top-right,
+      .brand-edge-orange-left,
+      .brand-edge-orange-bottom-right {
+        width: 65px;
+        height: 280px;
+        opacity: 0.85;
       }
-      .brand-edge-brown {
-        width: 120px;
-        height: 110px;
-        opacity: 0.88;
+      .brand-edge-brown,
+      .brand-edge-brown-left,
+      .brand-edge-brown-right,
+      .brand-edge-brown-top-left,
+      .brand-edge-brown-top-right {
+        width: 100px;
+        height: 90px;
+        opacity: 0.85;
       }
       .products-grid {
         grid-template-columns: 1fr;
@@ -1425,49 +1530,65 @@
 
   <!-- Formatos: "Qual a forma da sua vontade?" -->
   <section class="formats-section" id="formatos">
-    <div class="section-header">
-      <div class="section-subtitle">Como Servimos</div>
-      <h2 class="section-title">Qual a forma da sua vontade?</h2>
-      <p class="section-lead">A experiência Gelavitte do seu jeito: liberdade para escolher no peso ou a praticidade do nosso copinho.</p>
+    <!-- Borda Orgânica Arredondada Superior Esquerda (Marrom Oficial #66381E) -->
+    <div class="brand-edge brand-edge-brown-top-left" aria-hidden="true">
+      <svg viewBox="0 0 260 220" fill="none" preserveAspectRatio="none">
+        <path d="M0 0 C40 10, 75 40, 95 85 C112 120, 140 145, 195 165 C235 180, 255 200, 260 220 L0 220 Z" fill="#66381E"/>
+      </svg>
     </div>
 
-    <div class="formats-grid">
-      <!-- Card 1: Gelato no Peso -->
-      <div class="format-card">
-        <div class="format-img-wrapper">
-          <img src="assets/images/peso.jpg" alt="Gelato no peso - 100 gramas por 12,90 na Gelavitte" class="format-img format-img-peso">
-          <span class="format-badge-price">R$ 12,90 / 100g</span>
-        </div>
-        <div class="format-card-body">
-          <div class="format-tag">Liberdade &amp; Variedade</div>
-          <h3 class="format-name">Gelato no Peso</h3>
-          <p class="format-desc">
-            Aqui na Gelavitte o nosso gelato é <strong>servido no peso</strong>. Por apenas <strong>R$ 12,90 a cada 100 gramas</strong>, você tem total liberdade para montar a sua combinação ideal, experimentar quantos sabores quiser e pagar exatamente o que colocar na balança!
-          </p>
-          <div class="format-features">
-            <span class="format-pill">⚖️ Pesado na hora com transparência</span>
-            <span class="format-pill">🍨 Combine quantos sabores quiser</span>
-            <span class="format-pill">🏷️ R$ 12,90 a cada 100g</span>
-          </div>
-        </div>
+    <!-- Borda Orgânica Arredondada Direita (Laranja Oficial #FA8748) -->
+    <div class="brand-edge brand-edge-orange-right" aria-hidden="true">
+      <svg viewBox="0 0 160 560" fill="none" preserveAspectRatio="none">
+        <path d="M160 0 C110 20, 60 70, 50 130 C42 180, 2 240, 2 280 C2 330, 45 370, 75 410 C100 450, 115 500, 160 560 L160 0 Z" fill="#FA8748"/>
+      </svg>
+    </div>
+
+    <div class="formats-container">
+      <div class="section-header">
+        <div class="section-subtitle">Como Servimos</div>
+        <h2 class="section-title">Qual a forma da sua vontade?</h2>
+        <p class="section-lead">A experiência Gelavitte do seu jeito: liberdade para escolher no peso ou a praticidade do nosso copinho.</p>
       </div>
 
-      <!-- Card 2: Temos Copinho -->
-      <div class="format-card">
-        <div class="format-img-wrapper">
-          <img src="assets/images/copinho.jpg" alt="Gelato no copinho artesanal Gelavitte" class="format-img format-img-copinho">
-          <span class="format-badge-custom">Copinho Gelavitte</span>
+      <div class="formats-grid">
+        <!-- Card 1: Gelato no Peso -->
+        <div class="format-card">
+          <div class="format-img-wrapper">
+            <img src="assets/images/peso.jpg" alt="Gelato no peso - 100 gramas por 12,90 na Gelavitte" class="format-img format-img-peso">
+            <span class="format-badge-price">R$ 12,90 / 100g</span>
+          </div>
+          <div class="format-card-body">
+            <div class="format-tag">Liberdade &amp; Variedade</div>
+            <h3 class="format-name">Gelato no Peso</h3>
+            <p class="format-desc">
+              Aqui na Gelavitte o nosso gelato é <strong>servido no peso</strong>. Por apenas <strong>R$ 12,90 a cada 100 gramas</strong>, você tem total liberdade para montar a sua combinação ideal, experimentar quantos sabores quiser e pagar exatamente o que colocar na balança!
+            </p>
+            <div class="format-features">
+              <span class="format-pill">⚖️ Pesado na hora com transparência</span>
+              <span class="format-pill">🍨 Combine quantos sabores quiser</span>
+              <span class="format-pill">🏷️ R$ 12,90 a cada 100g</span>
+            </div>
+          </div>
         </div>
-        <div class="format-card-body">
-          <div class="format-tag">Prático &amp; Artesanal</div>
-          <h3 class="format-name">Temos Copinho</h3>
-          <p class="format-desc">
-            Para quem ama saborear o clássico com muito conforto e estilo, <strong>temos o nosso copinho personalizado</strong> Gelavitte! Perfeito para desfrutar da cremosidade única do verdadeiro gelato artesanal italiano com pazinha e praticidade.
-          </p>
-          <div class="format-features">
-            <span class="format-pill">🥤 Copinho oficial da Gelavitte</span>
-            <span class="format-pill">🥄 Pazinha tradicional</span>
-            <span class="format-pill">✨ Textura aveludada e fresca</span>
+
+        <!-- Card 2: Temos Copinho -->
+        <div class="format-card">
+          <div class="format-img-wrapper">
+            <img src="assets/images/copinho.jpg" alt="Gelato no copinho artesanal Gelavitte" class="format-img format-img-copinho">
+            <span class="format-badge-custom">Copinho Gelavitte</span>
+          </div>
+          <div class="format-card-body">
+            <div class="format-tag">Prático &amp; Artesanal</div>
+            <h3 class="format-name">Temos Copinho</h3>
+            <p class="format-desc">
+              Para quem ama saborear o clássico com muito conforto e estilo, <strong>temos o nosso copinho personalizado</strong> Gelavitte! Perfeito para desfrutar da cremosidade única do verdadeiro gelato artesanal italiano com pazinha e praticidade.
+            </p>
+            <div class="format-features">
+              <span class="format-pill">🥤 Copinho oficial da Gelavitte</span>
+              <span class="format-pill">🥄 Pazinha tradicional</span>
+              <span class="format-pill">✨ Textura aveludada e fresca</span>
+            </div>
           </div>
         </div>
       </div>
@@ -1476,7 +1597,22 @@
 
   <!-- Flavors Catalog Section -->
   <section class="catalog-section" id="sabores">
-    <div class="section-header">
+    <!-- Borda Orgânica Arredondada Esquerda (Laranja Oficial #FA8748) -->
+    <div class="brand-edge brand-edge-orange-left" aria-hidden="true">
+      <svg viewBox="0 0 160 560" fill="none" preserveAspectRatio="none">
+        <path d="M160 0 C110 20, 60 70, 50 130 C42 180, 2 240, 2 280 C2 330, 45 370, 75 410 C100 450, 115 500, 160 560 L160 0 Z" fill="#FA8748"/>
+      </svg>
+    </div>
+
+    <!-- Borda Orgânica Arredondada Inferior Direita (Marrom Oficial #66381E) -->
+    <div class="brand-edge brand-edge-brown-right" aria-hidden="true">
+      <svg viewBox="0 0 260 220" fill="none" preserveAspectRatio="none">
+        <path d="M0 0 C40 10, 75 40, 95 85 C112 120, 140 145, 195 165 C235 180, 255 200, 260 220 L0 220 Z" fill="#66381E"/>
+      </svg>
+    </div>
+
+    <div class="catalog-container">
+      <div class="section-header">
       <div class="section-subtitle">Seleção Gelavitte</div>
       <h2 class="section-title">Nossos Sabores Artesanais</h2>
     </div>
@@ -1699,11 +1835,26 @@
         </div>
       </div>
 
-    </div>
+    </div><!-- .products-grid -->
+    </div><!-- .catalog-container -->
   </section>
 
   <!-- Seção Fundadores & Nossa História -->
   <section class="founders-section" id="sobre">
+    <!-- Borda Orgânica Arredondada Direita (Laranja Oficial #FA8748) -->
+    <div class="brand-edge brand-edge-orange-right" aria-hidden="true">
+      <svg viewBox="0 0 160 560" fill="none" preserveAspectRatio="none">
+        <path d="M160 0 C110 20, 60 70, 50 130 C42 180, 2 240, 2 280 C2 330, 45 370, 75 410 C100 450, 115 500, 160 560 L160 0 Z" fill="#FA8748"/>
+      </svg>
+    </div>
+
+    <!-- Borda Orgânica Arredondada Inferior Esquerda (Marrom Oficial #66381E) -->
+    <div class="brand-edge brand-edge-brown-left" aria-hidden="true">
+      <svg viewBox="0 0 260 220" fill="none" preserveAspectRatio="none">
+        <path d="M0 0 C40 10, 75 40, 95 85 C112 120, 140 145, 195 165 C235 180, 255 200, 260 220 L0 220 Z" fill="#66381E"/>
+      </svg>
+    </div>
+
     <div class="founders-container">
       <div class="founders-grid">
         <!-- Foto dos Fundadores -->
@@ -1753,6 +1904,20 @@
 
   <!-- Seção Onde Estamos / Nossa Gelateria -->
   <section class="location-section" id="lojas">
+    <!-- Borda Orgânica Arredondada Esquerda (Laranja Oficial #FA8748) -->
+    <div class="brand-edge brand-edge-orange-left" aria-hidden="true">
+      <svg viewBox="0 0 160 560" fill="none" preserveAspectRatio="none">
+        <path d="M160 0 C110 20, 60 70, 50 130 C42 180, 2 240, 2 280 C2 330, 45 370, 75 410 C100 450, 115 500, 160 560 L160 0 Z" fill="#FA8748"/>
+      </svg>
+    </div>
+
+    <!-- Borda Orgânica Arredondada Superior Direita (Marrom Oficial #66381E) -->
+    <div class="brand-edge brand-edge-brown-top-right" aria-hidden="true">
+      <svg viewBox="0 0 260 220" fill="none" preserveAspectRatio="none">
+        <path d="M0 0 C40 10, 75 40, 95 85 C112 120, 140 145, 195 165 C235 180, 255 200, 260 220 L0 220 Z" fill="#66381E"/>
+      </svg>
+    </div>
+
     <div class="location-container">
       <div class="location-grid">
         <!-- Informações e Endereço -->
@@ -1852,6 +2017,20 @@
 
   <!-- Footer -->
   <footer>
+    <!-- Borda Orgânica Arredondada Esquerda (Laranja Oficial #FA8748) -->
+    <div class="brand-edge brand-edge-orange-left" aria-hidden="true" style="opacity: 0.22;">
+      <svg viewBox="0 0 160 560" fill="none" preserveAspectRatio="none">
+        <path d="M160 0 C110 20, 60 70, 50 130 C42 180, 2 240, 2 280 C2 330, 45 370, 75 410 C100 450, 115 500, 160 560 L160 0 Z" fill="#FA8748"/>
+      </svg>
+    </div>
+
+    <!-- Borda Orgânica Arredondada Inferior Direita (Laranja Oficial #FA8748) -->
+    <div class="brand-edge brand-edge-brown-right" aria-hidden="true" style="opacity: 0.28;">
+      <svg viewBox="0 0 260 220" fill="none" preserveAspectRatio="none">
+        <path d="M0 0 C40 10, 75 40, 95 85 C112 120, 140 145, 195 165 C235 180, 255 200, 260 220 L0 220 Z" fill="#FA8748"/>
+      </svg>
+    </div>
+
     <div class="footer-container">
       <div class="footer-brand">
         <div class="footer-logo-box">
