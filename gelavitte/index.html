@@ -981,20 +981,27 @@
 
     .founders-badge-float {
       position: absolute;
-      bottom: 20px;
-      left: 20px;
-      background: rgba(44, 38, 35, 0.88);
-      backdrop-filter: blur(8px);
+      bottom: 22px;
+      left: 22px;
+      background: rgba(102, 56, 30, 0.92);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(250, 135, 72, 0.35);
       color: #FFFFFF;
       padding: 10px 18px;
       border-radius: var(--radius-full);
       font-size: 13px;
-      font-weight: 600;
+      font-weight: 700;
       letter-spacing: 0.5px;
       display: flex;
       align-items: center;
       gap: 8px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+      animation: floatBadge 4s ease-in-out infinite;
+    }
+
+    @keyframes floatBadge {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
     }
 
     .founders-content {
@@ -1002,39 +1009,344 @@
       flex-direction: column;
     }
 
-    .founders-subtitle {
-      font-size: 12px;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      color: var(--color-gold);
+    .founders-pill-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #FDF1EA;
+      color: var(--color-primary);
+      border: 1px solid #F5D7C4;
+      font-size: 11px;
       font-weight: 700;
-      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      margin-bottom: 12px;
+      width: fit-content;
+      box-shadow: 0 2px 8px rgba(250, 135, 72, 0.1);
     }
 
     .founders-title {
-      font-size: 38px;
+      font-size: 40px;
       line-height: 1.2;
       color: var(--color-primary);
-      margin-bottom: 22px;
+      margin-bottom: 20px;
+    }
+
+    .founders-title .highlight-orange {
+      color: var(--color-accent);
+      position: relative;
+      display: inline-block;
+    }
+
+    .founders-title .highlight-orange::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: rgba(250, 135, 72, 0.35);
+      border-radius: 2px;
+    }
+
+    .founders-lead-text {
+      font-size: 19px;
+      line-height: 1.6;
+      color: var(--color-primary);
+      font-weight: 500;
+      margin-bottom: 24px;
+      padding: 16px 20px;
+      background: linear-gradient(135deg, #FFF9F5 0%, #FFFFFF 100%);
+      border-left: 4px solid var(--color-accent);
+      border-radius: 0 16px 16px 0;
+      box-shadow: 0 4px 15px rgba(250, 135, 72, 0.06);
+    }
+
+    .brand-name-hl {
+      color: var(--color-accent);
+      font-weight: 800;
+    }
+
+    .hl-accent {
+      color: var(--color-accent);
+      font-weight: 700;
+    }
+
+    .founders-story-card {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      background: #FFFFFF;
+      border: 1.5px solid var(--border-light);
+      border-radius: 20px;
+      padding: 20px 22px;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 16px rgba(102, 56, 30, 0.04);
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .founders-story-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--color-accent);
+      box-shadow: 0 10px 24px rgba(102, 56, 30, 0.08);
+    }
+
+    .story-card-icon {
+      font-size: 24px;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--bg-warm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 2px 8px rgba(102, 56, 30, 0.06);
+      transition: transform 0.35s ease;
+    }
+
+    .founders-story-card:hover .story-card-icon {
+      transform: scale(1.15) rotate(8deg);
+      background: #FDF1EA;
+    }
+
+    .story-card-content {
+      flex: 1;
     }
 
     .founders-text {
-      font-size: 16px;
+      font-size: 15.5px;
       color: var(--color-secondary);
       line-height: 1.7;
-      margin-bottom: 18px;
     }
 
-    .founders-slogan {
-      margin-top: 14px;
-      padding: 16px 20px;
-      background: var(--bg-warm);
-      border-left: 4px solid var(--color-accent);
-      border-radius: var(--radius-sm);
+    .founders-bridge-text {
       font-size: 16px;
+      font-style: italic;
+      color: var(--color-primary);
+      font-weight: 600;
+      margin: 16px 0 18px;
+      padding-left: 12px;
+      border-left: 3px solid var(--color-gold);
+    }
+
+    /* Caixa da Origem do Nome Gelavitte */
+    .founders-name-box {
+      background: linear-gradient(135deg, #FFFFFF 0%, #FDF8F3 100%);
+      border: 1.5px solid #F5DDD0;
+      border-radius: 22px;
+      padding: 22px 24px;
+      margin: 20px 0;
+      box-shadow: 0 6px 20px rgba(250, 135, 72, 0.06);
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .founders-name-box:hover {
+      border-color: var(--color-accent);
+      box-shadow: 0 8px 26px rgba(250, 135, 72, 0.12);
+    }
+
+    .name-breakdown-grid {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px dashed #EED2C2;
+    }
+
+    .name-pill {
+      background: #FFFFFF;
+      border: 1.5px solid #EED2C2;
+      border-radius: 14px;
+      padding: 8px 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 66px;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      cursor: default;
+      box-shadow: 0 2px 8px rgba(102, 56, 30, 0.04);
+    }
+
+    .name-pill:hover {
+      transform: translateY(-5px) scale(1.06);
+      border-color: var(--color-accent);
+      box-shadow: 0 8px 18px rgba(250, 135, 72, 0.22);
+    }
+
+    .name-pill-letter {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--color-accent);
+      font-family: var(--font-title);
+    }
+
+    .name-pill-meaning {
+      font-size: 11px;
       font-weight: 600;
       color: var(--color-primary);
-      font-style: italic;
+      margin-top: 2px;
+    }
+
+    .name-pill-result {
+      background: linear-gradient(135deg, var(--color-primary) 0%, #442211 100%);
+      border-color: var(--color-primary);
+    }
+
+    .name-pill-result .name-pill-letter {
+      color: #FFFFFF;
+    }
+
+    .name-pill-result .name-pill-meaning {
+      color: var(--color-accent);
+      font-weight: 700;
+    }
+
+    .name-plus, .name-equal {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--color-accent);
+    }
+
+    /* Caixa do Significado das Cores */
+    .founders-colors-box {
+      background: #FFFFFF;
+      border: 1.5px solid var(--border-light);
+      border-radius: 22px;
+      padding: 22px 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 16px rgba(102, 56, 30, 0.04);
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .founders-colors-box:hover {
+      border-color: var(--color-accent);
+      box-shadow: 0 8px 24px rgba(102, 56, 30, 0.08);
+    }
+
+    .color-chips-row {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px dashed var(--border-light);
+    }
+
+    .color-chip-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13.5px;
+      color: var(--color-secondary);
+      padding: 8px 14px;
+      border-radius: 12px;
+      background: var(--bg-warm);
+      transition: transform 0.25s ease, background 0.25s ease;
+    }
+
+    .color-chip-item:hover {
+      transform: translateX(5px);
+      background: #FDF4EC;
+    }
+
+    .color-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    .dot-white {
+      background: #FFFFFF;
+      border: 2px solid #E0D6CC;
+    }
+
+    .dot-orange {
+      background: #FA8748;
+      box-shadow: 0 2px 8px rgba(250, 135, 72, 0.4);
+    }
+
+    .dot-brown {
+      background: #66381E;
+      box-shadow: 0 2px 8px rgba(102, 56, 30, 0.3);
+    }
+
+    /* Caixa de Experiência e Propósito */
+    .founders-experience-box {
+      background: linear-gradient(135deg, var(--bg-warm) 0%, #FFFFFF 100%);
+      border: 1.5px solid #F0E4D8;
+      border-radius: 20px;
+      padding: 20px 24px;
+      margin-bottom: 22px;
+    }
+
+    .founders-text-highlight {
+      font-size: 16px;
+      margin-bottom: 12px;
+      color: var(--color-primary);
+    }
+
+    .founders-text-closing {
+      font-size: 15.5px;
+      color: var(--color-secondary);
+    }
+
+    /* Cartão do Slogan com Animação */
+    .founders-slogan-card {
+      background: linear-gradient(135deg, var(--color-primary) 0%, #442211 100%);
+      color: #FFFFFF;
+      border-radius: 20px;
+      padding: 20px 26px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 10px 25px rgba(102, 56, 30, 0.22);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(250, 135, 72, 0.3);
+    }
+
+    .founders-slogan-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 100%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(250, 135, 72, 0.22) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .founders-slogan-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 32px rgba(102, 56, 30, 0.3);
+    }
+
+    .slogan-icon {
+      font-size: 26px;
+      flex-shrink: 0;
+      animation: pulseHeart 2s infinite ease-in-out;
+    }
+
+    @keyframes pulseHeart {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.18); }
+    }
+
+    .slogan-text {
+      font-size: 16.5px;
+      font-weight: 700;
+      line-height: 1.4;
+      color: #FFFFFF;
+      letter-spacing: 0.3px;
     }
 
     .founders-highlights {
@@ -1868,34 +2180,110 @@
 
         <!-- Conteúdo Textual -->
         <div class="founders-content">
-          <div class="founders-subtitle">Quem Somos</div>
-          <h2 class="founders-title">Nossa história</h2>
-          <p class="founders-text">
-            A <strong>Gelavitte</strong> nasceu de uma mudança, de um sonho e, principalmente, de uma paixão compartilhada.
+          <div class="founders-pill-tag">✨ Conheça a nossa essência</div>
+          <h2 class="founders-title">Nossa <span class="highlight-orange">história</span></h2>
+          
+          <p class="founders-lead-text">
+            A <strong class="brand-name-hl">Gelavitte</strong> nasceu de uma <strong>mudança</strong>, de um <strong>sonho</strong> e, principalmente, de uma <strong class="hl-accent">paixão compartilhada</strong>.
           </p>
-          <p class="founders-text">
-            Somos <strong>Jessica e Vinícius</strong>, um casal que deixou São Paulo para começar uma nova história no Rio Grande do Norte. Viemos em busca de novos caminhos, novas experiências e da oportunidade de construir algo que tivesse a nossa essência.
+
+          <!-- Card 1: Casal & Mudança -->
+          <div class="founders-story-card">
+            <div class="story-card-icon">✈️</div>
+            <div class="story-card-content">
+              <p class="founders-text">
+                Somos <strong>Jessica e Vinícius</strong>, um casal que deixou <strong>São Paulo</strong> para começar uma nova história no <strong>Rio Grande do Norte</strong>. Viemos em busca de <strong>novos caminhos</strong>, <strong>novas experiências</strong> e da oportunidade de construir algo que tivesse a <strong>nossa essência</strong>.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 2: Paixão pelo Gelato & Parnamirim -->
+          <div class="founders-story-card">
+            <div class="story-card-icon">🍨</div>
+            <div class="story-card-content">
+              <p class="founders-text">
+                O gelato sempre fez parte dos nossos momentos juntos. Gostamos de conhecer gelaterias, experimentar novos sabores e perceber cada detalhe: a <strong>cremosidade</strong>, as <strong>texturas</strong>, as <strong>combinações</strong> e a <strong>experiência</strong> que existe por trás de um bom gelato. Foi dessa paixão que surgiu a vontade de criar algo nosso e compartilhar essa experiência com <strong>Parnamirim</strong>, uma cidade de clima quente e perfeita para transformar uma pausa para o gelato em um <strong>momento especial</strong>.
+              </p>
+            </div>
+          </div>
+
+          <!-- Ponte da história -->
+          <p class="founders-bridge-text">
+            E cada detalhe da <em class="brand-name-hl">Gelavitte</em> carrega um pouco dessa história.
           </p>
-          <p class="founders-text">
-            O gelato sempre fez parte dos nossos momentos juntos. Gostamos de conhecer gelaterias, experimentar novos sabores e perceber cada detalhe: a cremosidade, as texturas, as combinações e a experiência que existe por trás de um bom gelato. Foi dessa paixão que surgiu a vontade de criar algo nosso e compartilhar essa experiência com Parnamirim, uma cidade de clima quente e perfeita para transformar uma pausa para o gelato em um momento especial.
-          </p>
-          <p class="founders-text">
-            E cada detalhe da <em>Gelavitte</em> carrega um pouco dessa história.
-          </p>
-          <p class="founders-text">
-            O próprio nome foi criado para representar quem somos e o que fazemos. Na identidade da marca, a perna da letra <em>G</em> traz de forma sutil um <em>J</em>, de Jessica; o <em>“vi”</em> representa Vinícius; <em>“gela”</em> faz referência ao gelato; e o final <em>“tte”</em> nasceu da palavra sorvete. Assim surgiu <strong>Gelavitte</strong>: um nome único, construído a partir da nossa história.
-          </p>
-          <p class="founders-text">
-            As cores também foram escolhidas com propósito. O branco transmite a leveza e o conceito clean que buscamos para a marca. O laranja traz alegria, energia e personalidade, enquanto os tons mais aconchegantes remetem à cremosidade do gelato e à sensação de acolhimento que queremos proporcionar.
-          </p>
-          <p class="founders-text">
-            Mais do que servir gelato, queremos criar uma experiência: um lugar para experimentar sabores, compartilhar momentos e construir boas lembranças.
-          </p>
-          <p class="founders-text">
-            Porque foi assim que a Gelavitte começou — de momentos que nós amávamos viver e que agora queremos compartilhar com você.
-          </p>
-          <div class="founders-slogan">
-            Gelavitte — Gelato que conecta, momentos que ficam.
+
+          <!-- Origem do Nome com Fórmula Visual Interativa -->
+          <div class="founders-name-box">
+            <p class="founders-text">
+              O próprio nome foi criado para representar quem somos e o que fazemos. Na identidade da marca, a perna da letra <strong>G</strong> traz de forma sutil um <strong>J</strong>, de <em>Jessica</em>; o <strong>“vi”</strong> representa <em>Vinícius</em>; <strong>“gela”</strong> faz referência ao <em>gelato</em>; e o final <strong>“tte”</strong> nasceu da palavra <em>sorvete</em>. Assim surgiu <strong class="brand-name-hl">Gelavitte</strong>: um nome único, construído a partir da nossa história.
+            </p>
+
+            <div class="name-breakdown-grid" title="Composição do nome Gelavitte">
+              <div class="name-pill">
+                <span class="name-pill-letter">G / J</span>
+                <span class="name-pill-meaning">Jessica</span>
+              </div>
+              <span class="name-plus">+</span>
+              <div class="name-pill">
+                <span class="name-pill-letter">vi</span>
+                <span class="name-pill-meaning">Vinícius</span>
+              </div>
+              <span class="name-plus">+</span>
+              <div class="name-pill">
+                <span class="name-pill-letter">gela</span>
+                <span class="name-pill-meaning">Gelato</span>
+              </div>
+              <span class="name-plus">+</span>
+              <div class="name-pill">
+                <span class="name-pill-letter">tte</span>
+                <span class="name-pill-meaning">Sorvete</span>
+              </div>
+              <span class="name-equal">=</span>
+              <div class="name-pill name-pill-result">
+                <span class="name-pill-letter">Gelavitte</span>
+                <span class="name-pill-meaning">Nossa Essência</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Significado das Cores da Marca -->
+          <div class="founders-colors-box">
+            <p class="founders-text">
+              As cores também foram escolhidas com propósito. O <strong>branco</strong> transmite a leveza e o conceito clean que buscamos para a marca. O <strong>laranja</strong> traz alegria, energia e personalidade, enquanto os <strong>tons mais aconchegantes</strong> remetem à cremosidade do gelato e à sensação de acolhimento que queremos proporcionar.
+            </p>
+
+            <div class="color-chips-row">
+              <div class="color-chip-item">
+                <span class="color-dot dot-white"></span>
+                <span class="color-label"><strong>Branco:</strong> Leveza e o conceito clean que buscamos para a marca</span>
+              </div>
+              <div class="color-chip-item">
+                <span class="color-dot dot-orange"></span>
+                <span class="color-label"><strong>Laranja:</strong> Alegria, energia e personalidade</span>
+              </div>
+              <div class="color-chip-item">
+                <span class="color-dot dot-brown"></span>
+                <span class="color-label"><strong>Tons Aconchegantes:</strong> Cremosidade do gelato e sensação de acolhimento</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Experiência e Propósito -->
+          <div class="founders-experience-box">
+            <p class="founders-text founders-text-highlight">
+              Mais do que servir gelato, queremos <strong>criar uma experiência</strong>: um lugar para <strong>experimentar sabores</strong>, <strong>compartilhar momentos</strong> e <strong>construir boas lembranças</strong>.
+            </p>
+            <p class="founders-text founders-text-closing">
+              Porque foi assim que a Gelavitte começou — de momentos que nós amávamos viver e que agora queremos <strong>compartilhar com você</strong>.
+            </p>
+          </div>
+
+          <!-- Slogan com Animação e Ícone -->
+          <div class="founders-slogan-card">
+            <div class="slogan-icon">❤️</div>
+            <div class="slogan-text">
+              Gelavitte — Gelato que conecta, momentos que ficam.
+            </div>
           </div>
         </div>
       </div>
