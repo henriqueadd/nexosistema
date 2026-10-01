@@ -841,8 +841,8 @@
     }
 
     .size-options {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      display: flex;
+      flex-wrap: wrap;
       gap: 10px;
       margin-bottom: 24px;
     }
@@ -851,7 +851,7 @@
       border: 1px solid var(--border-light);
       background: var(--bg-cream);
       border-radius: var(--radius-sm);
-      padding: 10px 8px;
+      padding: 10px 20px;
       text-align: center;
       cursor: pointer;
       transition: all 0.2s;
@@ -2415,10 +2415,6 @@
           <div class="size-btn active" onclick="selectSize(this)">
             <strong>No Peso</strong>
             <span>R$ 12,90 / 100g</span>
-          </div>
-          <div class="size-btn" onclick="selectSize(this)">
-            <strong>No Copinho</strong>
-            <span>Copinho Gelavitte</span>
           </div>
         </div>
 
