@@ -122,225 +122,76 @@
       button, a { -webkit-tap-highlight-color: transparent; }
 
       /* ========================================================
-         DIMENSÕES MOBILE (CELULAR) CONFORME ESPECIFICAÇÃO
+         FLUXO NATURAL E RESPONSIVO (SEM LIMITES RÍGIDOS)
+         Evita sobreposição de textos, cortes e estouro de conteúdo
          ======================================================== */
-
-      /* 1. Primeira seção (HERO): 650–850 px */
-      #hero {
-        min-height: clamp(650px, 85svh, 850px) !important;
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: center !important;
-        padding-top: 1.5rem !important;
-        padding-bottom: 2rem !important;
-        box-sizing: border-box !important;
-      }
-
-      /* 2. Vídeo de demonstração: 420–600 px */
-      #veja-na-pratica {
-        min-height: 440px !important;
-        max-height: 600px !important;
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: center !important;
-        padding-top: 1.75rem !important;
-        padding-bottom: 1.75rem !important;
-        box-sizing: border-box !important;
-      }
-
-      /* 3. Benefícios: 850–1.200 px */
-      #beneficios {
-        min-height: 850px !important;
-        padding-top: 2.5rem !important;
-        padding-bottom: 2.5rem !important;
-        box-sizing: border-box !important;
-      }
-
-      /* 4. “O que você vai receber”: 1.200–1.700 px */
-      #recursos {
-        min-height: 1200px !important;
-        padding-top: 2.5rem !important;
-        padding-bottom: 3rem !important;
-        box-sizing: border-box !important;
-      }
-
-      /* 5. Prazo de implementação: 650–850 px */
-      #prazo {
-        min-height: 650px !important;
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: center !important;
-        padding-top: 2.25rem !important;
-        padding-bottom: 2.5rem !important;
-        box-sizing: border-box !important;
-      }
-
-      /* 6. Depoimentos: 650–900 px */
-      #depoimentos {
-        min-height: 650px !important;
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: center !important;
-        padding-top: 2.25rem !important;
-        padding-bottom: 2.5rem !important;
-        box-sizing: border-box !important;
-      }
-
-      /* 7. Valores e plano: 700–950 px */
-      #valores {
-        min-height: 700px !important;
-        padding-top: 2.5rem !important;
-        padding-bottom: 2.5rem !important;
-        box-sizing: border-box !important;
-      }
-
-      /* 8. Garantia: 600–800 px */
-      #garantia {
-        min-height: 600px !important;
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: center !important;
-        padding-top: 2rem !important;
-        padding-bottom: 2rem !important;
-        box-sizing: border-box !important;
-      }
-
-      /* 9. Perguntas frequentes: 600–800 px */
-      #faq {
-        min-height: 600px !important;
-        padding-top: 2.5rem !important;
-        padding-bottom: 2rem !important;
-        box-sizing: border-box !important;
-      }
-
-      /* 10. Chamada final e formulário de contato: 650–850 px */
-      #contato {
-        min-height: 650px !important;
-        padding-top: 2.5rem !important;
-        padding-bottom: 2.5rem !important;
-        box-sizing: border-box !important;
-      }
-
       .mobile-full {
-        box-sizing: border-box;
+        min-height: auto !important;
+        max-height: none !important;
+        display: block !important;
+        box-sizing: border-box !important;
+      }
+
+      #hero {
+        min-height: auto !important;
+        max-height: none !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        box-sizing: border-box !important;
+      }
+
+      #veja-na-pratica,
+      #beneficios,
+      #recursos,
+      #prazo,
+      #depoimentos,
+      #valores,
+      #garantia,
+      #faq,
+      #contato {
+        min-height: auto !important;
+        max-height: none !important;
+        display: block !important;
+        box-sizing: border-box !important;
       }
     }
 
     /* ========================================================
-       DIMENSÕES DESKTOP CONFORME ESPECIFICAÇÃO
+       DIMENSÕES DESKTOP: FLUXO NATURAL COM RESPIRO
        ======================================================== */
     @media (min-width: 769px) {
-      /* 1. Primeira seção (HERO): 620–760 px */
+      .mobile-full {
+        min-height: auto;
+        max-height: none;
+        box-sizing: border-box;
+      }
+
+      /* HERO ocupa a tela de abertura com elegância, sem travar conteúdo */
       #hero {
-        min-height: 660px;
-        max-height: 760px;
+        min-height: calc(100vh - 70px);
+        max-height: none;
         display: flex;
         flex-direction: column;
         justify-content: center;
         box-sizing: border-box;
       }
 
-      /* 2. Vídeo de demonstração: 650–850 px */
-      #veja-na-pratica {
-        min-height: 700px;
-        max-height: 850px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding-top: 3.5rem;
-        padding-bottom: 3.5rem;
-        box-sizing: border-box;
-      }
-
-      /* 3. Benefícios: 500–700 px */
-      #beneficios {
-        min-height: 540px;
-        max-height: 700px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding-top: 3.5rem;
-        padding-bottom: 3.5rem;
-        box-sizing: border-box;
-      }
-
-      /* 4. “O que você vai receber”: 750–1.000 px */
-      #recursos {
-        min-height: 780px;
-        max-height: 1000px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding-top: 4rem;
-        padding-bottom: 4rem;
-        box-sizing: border-box;
-      }
-
-      /* 5. Prazo de implementação: 400–550 px */
-      #prazo {
-        min-height: 440px;
-        max-height: 550px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding-top: 3rem;
-        padding-bottom: 3rem;
-        box-sizing: border-box;
-      }
-
-      /* 6. Depoimentos: 400–550 px */
-      #depoimentos {
-        min-height: 440px;
-        max-height: 550px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding-top: 3rem;
-        padding-bottom: 3rem;
-        box-sizing: border-box;
-      }
-
-      /* 7. Valores e plano: 550–700 px */
-      #valores {
-        min-height: 580px;
-        max-height: 700px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding-top: 3.5rem;
-        padding-bottom: 3.5rem;
-        box-sizing: border-box;
-      }
-
-      /* 8. Garantia: 450–600 px */
-      #garantia {
-        min-height: 470px;
-        max-height: 600px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding-top: 3rem;
-        padding-bottom: 3rem;
-        box-sizing: border-box;
-      }
-
-      /* 9. Perguntas frequentes: 550–750 px */
-      #faq {
-        min-height: 550px;
-        box-sizing: border-box;
-      }
-
-      /* 10. Chamada final e formulário de contato: 550–750 px */
+      /* Todas as seções crescem organicamente de acordo com o conteúdo */
+      #veja-na-pratica,
+      #beneficios,
+      #recursos,
+      #prazo,
+      #depoimentos,
+      #valores,
+      #garantia,
+      #faq,
       #contato {
-        min-height: 580px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding-top: 3.5rem;
-        padding-bottom: 3.5rem;
+        min-height: auto;
+        max-height: none;
+        display: block;
         box-sizing: border-box;
       }
-
     }
 
     /* ========================================================
@@ -515,7 +366,7 @@
       </a>
 
       <!-- NAV LINKS -->
-      <nav class="hidden md:flex items-center gap-5 lg:gap-6 font-mono text-xs text-paper-2">
+      <nav class="hidden xl:flex items-center gap-5 lg:gap-6 font-mono text-xs text-paper-2">
         <a href="#veja-na-pratica" class="hover:text-paper-0 transition-colors">01. VEJA NA PRÁTICA</a>
         <a href="#beneficios" class="hover:text-paper-0 transition-colors">02. BENEFÍCIOS</a>
         <a href="#recursos" class="hover:text-paper-0 transition-colors">03. O QUE RECEBE</a>
@@ -527,8 +378,8 @@
         <a href="#contato" class="text-accent-emerald font-bold hover:text-paper-0 transition-colors">09. CONTATO</a>
       </nav>
 
-      <!-- HAMBURGER BUTTON (mobile only) -->
-      <button id="menuBtn" onclick="toggleMobileMenu()" class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5">
+      <!-- HAMBURGER BUTTON (mobile & tablet) -->
+      <button id="menuBtn" onclick="toggleMobileMenu()" class="xl:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5" aria-label="Abrir menu">
         <span class="block w-5 h-0.5 bg-paper-0 transition-all" id="bar1"></span>
         <span class="block w-5 h-0.5 bg-paper-0 transition-all" id="bar2"></span>
         <span class="block w-5 h-0.5 bg-paper-0 transition-all" id="bar3"></span>
@@ -576,12 +427,12 @@
         <div class="relative z-10 max-w-4xl mx-auto text-center space-y-5 sm:space-y-7 md:space-y-8">
 
           <!-- Headline: 34-42px com linhas curtas e fáceis de ler -->
-          <h1 class="anim text-[34px] xs:text-[38px] sm:text-5xl md:text-6xl lg:text-7xl font-black text-paper-0 tracking-tight leading-[1.12] sm:leading-[1.08] max-w-[340px] xs:max-w-md sm:max-w-4xl mx-auto">
+          <h1 class="anim text-[32px] sm:text-5xl md:text-6xl lg:text-7xl font-black text-paper-0 tracking-tight leading-[1.18] sm:leading-[1.12] max-w-[360px] sm:max-w-4xl mx-auto">
             Sua contagem não bate e você não sabe se está <span class="chrome-text">perdendo dinheiro</span> — ou sendo passado pra trás
           </h1>
 
           <!-- Texto de apoio: 16-18px -->
-          <p class="anim anim-delay-1 text-[16px] xs:text-[17px] sm:text-lg md:text-xl text-paper-1 leading-[1.6] max-w-xl sm:max-w-2xl mx-auto font-normal px-0.5 sm:px-0">
+          <p class="anim anim-delay-1 text-[16px] sm:text-lg md:text-xl text-paper-1 leading-[1.6] max-w-xl sm:max-w-2xl mx-auto font-normal px-0.5 sm:px-0">
             A Nexo cria um app sob medida pra sua empresa: um controle de expedição que registra cada pedido, com foto obrigatória em cada movimentação — pra você nunca mais depender só da palavra do funcionário.
           </p>
 
@@ -772,7 +623,7 @@
         <div class="max-w-4xl mx-auto space-y-8">
           
           <div class="anim text-center space-y-4">
-            <h2 class="text-2xl sm:text-3xl md:text-5xl font-extrabold text-paper-0 tracking-tight leading-[1.15] max-w-3xl mx-auto">
+            <h2 class="text-2xl sm:text-3xl md:text-5xl font-extrabold text-paper-0 tracking-tight leading-tight max-w-3xl mx-auto">
               Sua operação funcionando em até 3 dias após a confirmação
             </h2>
             <p class="text-sm sm:text-base md:text-lg text-paper-1 max-w-2xl mx-auto leading-relaxed">
@@ -885,7 +736,7 @@
           </div>
 
           <div class="space-y-6">
-            <div>
+            <div class="pr-24 sm:pr-28">
               <h3 class="font-mono text-xl sm:text-2xl font-bold text-paper-0">Plano Expedição</h3>
               <p class="text-sm text-paper-2 mt-1">Acesso imediato para a sua empresa</p>
             </div>
