@@ -638,7 +638,8 @@
           </div>
         </div>
 
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-6 grid-flow-dense">
+        <!-- 3 CARDS COMPACTOS -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-6 mb-4 sm:mb-6">
           
           <div class="anim anim-delay-2 p-4 sm:p-5 rounded-xl border border-hairline bg-white hover:border-hairline-strong transition-all shadow-sm flex items-start gap-3.5 sm:gap-4">
             <div class="p-2.5 sm:p-2.5 rounded-lg bg-ink-1 text-paper-0 border border-hairline shrink-0 mt-0.5">
@@ -660,8 +661,23 @@
             </div>
           </div>
 
-          <!-- CARD: FOTO OBRIGATÓRIA COM IMAGEM AO LADO (MAIOR E MAIS NÍTIDA) -->
-          <div class="anim anim-delay-4 p-5 sm:p-7 rounded-2xl border border-hairline bg-white hover:border-hairline-strong transition-all shadow-sm flex flex-col md:flex-row items-center justify-between gap-5 sm:gap-8 sm:col-span-2 lg:col-span-2 group">
+          <div class="anim anim-delay-5 p-4 sm:p-5 rounded-xl border border-hairline bg-white hover:border-hairline-strong transition-all shadow-sm flex items-start gap-3.5 sm:gap-4 sm:col-span-2 lg:col-span-1">
+            <div class="p-2.5 sm:p-2.5 rounded-lg bg-ink-1 text-paper-0 border border-hairline shrink-0 mt-0.5">
+              <i data-lucide="route" class="w-5 h-5 sm:w-5 sm:h-5"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-paper-0 text-sm sm:text-sm leading-snug">Rastreio completo</h3>
+              <p class="text-xs sm:text-xs text-paper-2 mt-1 leading-relaxed">Cada pedido, em cada etapa, com o responsável identificado.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- 2 CARDS COM IMAGENS AO LADO (FOTO OBRIGATÓRIA & CONTAGEM EM TEMPO REAL) -->
+        <div class="grid lg:grid-cols-2 gap-4 sm:gap-6">
+          
+          <!-- CARD: FOTO OBRIGATÓRIA COM IMAGEM AO LADO -->
+          <div class="anim anim-delay-4 p-5 sm:p-7 rounded-2xl border border-hairline bg-white hover:border-hairline-strong transition-all shadow-sm flex flex-col md:flex-row items-center justify-between gap-5 sm:gap-6 group">
             <div class="flex items-start gap-3.5 sm:gap-4 flex-1">
               <div class="p-2.5 sm:p-3 rounded-lg bg-ink-1 text-paper-0 border border-hairline shrink-0 mt-0.5">
                 <i data-lucide="camera" class="w-5 h-5 sm:w-6 sm:h-6"></i>
@@ -672,31 +688,31 @@
               </div>
             </div>
 
-            <!-- IMAGEM AO LADO DO CARD (MAIOR E MAIS NÍTIDA) -->
+            <!-- IMAGEM AO LADO DO CARD -->
             <div class="shrink-0 flex justify-center w-full md:w-auto">
-              <div class="relative w-[200px] sm:w-[230px] md:w-[260px] lg:w-[280px] rounded-2xl overflow-hidden border-2 border-hairline-strong shadow-lg bg-white">
+              <div class="relative w-[180px] sm:w-[200px] md:w-[210px] rounded-2xl overflow-hidden border-2 border-hairline-strong shadow-lg bg-white">
                 <img src="tela-registro-foto.png" alt="Tela de registro de movimentação com anexo de foto obrigatório" class="w-full h-auto object-contain block group-hover:scale-[1.02] transition-transform duration-300">
               </div>
             </div>
           </div>
 
-          <div class="anim anim-delay-5 p-4 sm:p-5 rounded-xl border border-hairline bg-white hover:border-hairline-strong transition-all shadow-sm flex items-start gap-3.5 sm:gap-4">
-            <div class="p-2.5 sm:p-2.5 rounded-lg bg-ink-1 text-paper-0 border border-hairline shrink-0 mt-0.5">
-              <i data-lucide="route" class="w-5 h-5 sm:w-5 sm:h-5"></i>
+          <!-- CARD: CONTAGEM EM TEMPO REAL COM IMAGEM AO LADO -->
+          <div class="anim anim-delay-6 p-5 sm:p-7 rounded-2xl border border-hairline bg-white hover:border-hairline-strong transition-all shadow-sm flex flex-col md:flex-row items-center justify-between gap-5 sm:gap-6 border-l-4 border-l-accent-amber group">
+            <div class="flex items-start gap-3.5 sm:gap-4 flex-1">
+              <div class="p-2.5 sm:p-3 rounded-lg bg-amber-50 text-accent-amber border border-amber-200 shrink-0 mt-0.5">
+                <i data-lucide="calculator" class="w-5 h-5 sm:w-6 sm:h-6"></i>
+              </div>
+              <div class="space-y-1.5">
+                <h3 class="font-bold text-paper-0 text-base sm:text-xl leading-snug">Contagem em tempo real</h3>
+                <p class="text-xs sm:text-sm text-paper-2 leading-relaxed">Contagem de estoque em tempo real, sem depender de conferência manual. Saiba na hora a quantidade exata de cada item no depósito e evite furos de estoque.</p>
+              </div>
             </div>
-            <div>
-              <h3 class="font-bold text-paper-0 text-sm sm:text-sm leading-snug">Rastreio completo</h3>
-              <p class="text-xs sm:text-xs text-paper-2 mt-1 leading-relaxed">Cada pedido, em cada etapa, com o responsável identificado.</p>
-            </div>
-          </div>
 
-          <div class="anim anim-delay-6 p-4 sm:p-5 rounded-xl border border-hairline bg-white hover:border-hairline-strong transition-all shadow-sm flex items-start gap-3.5 sm:gap-4 border-l-4 border-l-accent-amber sm:col-span-1 lg:col-span-1">
-            <div class="p-2.5 sm:p-2.5 rounded-lg bg-amber-50 text-accent-amber border border-amber-200 shrink-0 mt-0.5">
-              <i data-lucide="calculator" class="w-5 h-5 sm:w-5 sm:h-5"></i>
-            </div>
-            <div>
-              <h3 class="font-bold text-paper-0 text-sm sm:text-sm leading-snug">Contagem em tempo real</h3>
-              <p class="text-xs sm:text-xs text-paper-2 mt-1 leading-relaxed">Contagem de estoque em tempo real, sem depender de conferência manual.</p>
+            <!-- IMAGEM AO LADO DO CARD -->
+            <div class="shrink-0 flex justify-center w-full md:w-auto">
+              <div class="relative w-[180px] sm:w-[200px] md:w-[210px] rounded-2xl overflow-hidden border-2 border-hairline-strong shadow-lg bg-white">
+                <img src="tela-estoque-contagem.png" alt="Tela de contagem e estoque em tempo real" class="w-full h-auto object-contain block group-hover:scale-[1.02] transition-transform duration-300">
+              </div>
             </div>
           </div>
 
