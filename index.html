@@ -644,10 +644,50 @@
           </div>
         </div>
 
-        <!-- 3 CARDS COMPACTOS -->
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-6 mb-4 sm:mb-6">
+        <!-- 02. PAINEL DO ADMINISTRADOR COM IMAGEM AO LADO -->
+        <div class="anim anim-delay-2 mb-6 sm:mb-8 p-5 sm:p-8 rounded-2xl border border-hairline bg-white hover:border-hairline-strong transition-all shadow-sm group">
+          <div class="flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-10">
+            <div class="flex items-start gap-4 sm:gap-5 flex-1">
+              <div class="p-3 sm:p-3.5 rounded-xl bg-ink-1 text-paper-0 border border-hairline shrink-0 mt-0.5">
+                <i data-lucide="layout-dashboard" class="w-6 h-6 sm:w-7 sm:h-7"></i>
+              </div>
+              <div class="space-y-2.5">
+                <span class="inline-block font-mono text-[10px] sm:text-xs font-bold text-paper-0 bg-ink-1 px-2.5 sm:px-3 py-1 rounded border border-hairline uppercase tracking-wider">
+                  VISÃO DA GESTÃO
+                </span>
+                <h3 class="font-bold text-paper-0 text-lg sm:text-2xl md:text-3xl leading-snug">
+                  Painel do administrador completo
+                </h3>
+                <p class="text-xs sm:text-base text-paper-2 leading-relaxed">
+                  Painel do administrador com Produtos, Estoque, Funcionários, Retira e Visão Geral. Acesso centralizado para cadastrar pedidos, gerenciar permissões da equipe, conferir entradas e emitir relatórios de movimentação em tempo real.
+                </p>
+                <div class="pt-2 flex flex-wrap gap-2 text-[11px] sm:text-xs font-mono text-paper-2">
+                  <span class="px-2.5 py-1 rounded-md bg-ink-1 border border-hairline flex items-center gap-1.5">
+                    <i data-lucide="check" class="w-3.5 h-3.5 text-accent-emerald"></i> Gestão de Pedidos
+                  </span>
+                  <span class="px-2.5 py-1 rounded-md bg-ink-1 border border-hairline flex items-center gap-1.5">
+                    <i data-lucide="check" class="w-3.5 h-3.5 text-accent-emerald"></i> Controle de Entradas
+                  </span>
+                  <span class="px-2.5 py-1 rounded-md bg-ink-1 border border-hairline flex items-center gap-1.5">
+                    <i data-lucide="check" class="w-3.5 h-3.5 text-accent-emerald"></i> Relatórios em Tempo Real
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- IMAGEM AO LADO DO CARD -->
+            <div class="shrink-0 flex justify-center w-full md:w-auto">
+              <div class="relative w-[230px] sm:w-[270px] md:w-[290px] lg:w-[310px] rounded-2xl overflow-hidden border-2 border-hairline-strong shadow-xl bg-white">
+                <img src="tela-admin-painel.png" alt="Painel do administrador completo com fluxo e menu de gestão" class="w-full h-auto object-contain block group-hover:scale-[1.02] transition-transform duration-300">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2 CARDS COMPACTOS (RETIRA & RASTREIO) -->
+        <div class="grid sm:grid-cols-2 gap-3.5 sm:gap-6 mb-4 sm:mb-6">
           
-          <div class="anim anim-delay-2 p-4 sm:p-5 rounded-xl border border-hairline bg-white hover:border-hairline-strong transition-all shadow-sm flex items-start gap-3.5 sm:gap-4">
+          <div class="anim anim-delay-3 p-4 sm:p-5 rounded-xl border border-hairline bg-white hover:border-hairline-strong transition-all shadow-sm flex items-start gap-3.5 sm:gap-4">
             <div class="p-2.5 sm:p-2.5 rounded-lg bg-ink-1 text-paper-0 border border-hairline shrink-0 mt-0.5">
               <i data-lucide="package-minus" class="w-5 h-5 sm:w-5 sm:h-5"></i>
             </div>
@@ -657,17 +697,7 @@
             </div>
           </div>
 
-          <div class="anim anim-delay-3 p-4 sm:p-5 rounded-xl border border-hairline bg-white hover:border-hairline-strong transition-all shadow-sm flex items-start gap-3.5 sm:gap-4">
-            <div class="p-2.5 sm:p-2.5 rounded-lg bg-ink-1 text-paper-0 border border-hairline shrink-0 mt-0.5">
-              <i data-lucide="layout-dashboard" class="w-5 h-5 sm:w-5 sm:h-5"></i>
-            </div>
-            <div>
-              <h3 class="font-bold text-paper-0 text-sm sm:text-sm leading-snug">Painel do administrador completo</h3>
-              <p class="text-xs sm:text-xs text-paper-2 mt-1 leading-relaxed">Painel do administrador com Produtos, Estoque, Funcionários, Retira e Visão Geral.</p>
-            </div>
-          </div>
-
-          <div class="anim anim-delay-5 p-4 sm:p-5 rounded-xl border border-hairline bg-white hover:border-hairline-strong transition-all shadow-sm flex items-start gap-3.5 sm:gap-4 sm:col-span-2 lg:col-span-1">
+          <div class="anim anim-delay-4 p-4 sm:p-5 rounded-xl border border-hairline bg-white hover:border-hairline-strong transition-all shadow-sm flex items-start gap-3.5 sm:gap-4">
             <div class="p-2.5 sm:p-2.5 rounded-lg bg-ink-1 text-paper-0 border border-hairline shrink-0 mt-0.5">
               <i data-lucide="route" class="w-5 h-5 sm:w-5 sm:h-5"></i>
             </div>
