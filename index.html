@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#FFFFFF">
   <title>Nexo | Painel de Controle de Expedição</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="apple-touch-icon" href="logo.png">
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -374,7 +376,8 @@
   <!-- HEADER -->
   <header class="sticky top-0 z-50 border-b border-hairline bg-white/95 md:bg-white/90 md:backdrop-blur-md">
     <div class="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 h-[60px] md:h-[70px] flex items-center justify-between">
-      <a href="#" class="flex items-center gap-2 group">
+      <a href="#" class="flex items-center gap-2.5 group">
+        <img src="logo.png" alt="Logo Nexo" class="w-8 h-8 md:w-9 md:h-9 rounded-lg object-contain shadow-sm border border-black/10 group-hover:scale-105 transition-transform shrink-0">
         <span class="font-black text-paper-0 text-lg tracking-tight flex items-center gap-1.5">
           NEXO <span class="font-mono text-xs text-paper-2 font-normal">/ EXPEDIÇÃO</span>
         </span>
@@ -406,9 +409,12 @@
   <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 w-[85vw] max-w-xs h-full bg-white z-[60] shadow-2xl border-l border-hairline p-5 flex flex-col justify-between overflow-y-auto">
     <div>
       <div class="flex items-center justify-between pb-4 border-b border-hairline">
-        <span class="font-black text-paper-0 text-base tracking-tight flex items-center gap-1.5">
-          NEXO <span class="font-mono text-[10px] text-paper-2 font-normal">/ EXPEDIÇÃO</span>
-        </span>
+        <div class="flex items-center gap-2">
+          <img src="logo.png" alt="Logo Nexo" class="w-7 h-7 rounded-lg object-contain shadow-sm border border-black/10 shrink-0">
+          <span class="font-black text-paper-0 text-base tracking-tight flex items-center gap-1.5">
+            NEXO <span class="font-mono text-[10px] text-paper-2 font-normal">/ EXPEDIÇÃO</span>
+          </span>
+        </div>
         <button onclick="toggleMobileMenu()" class="w-9 h-9 flex items-center justify-center rounded-lg text-paper-1 hover:text-paper-0 hover:bg-ink-1 font-mono text-base" aria-label="Fechar menu">✕</button>
       </div>
 
@@ -1051,8 +1057,9 @@
 
       <!-- FOOTER -->
       <footer class="py-6 sm:py-10 pb-20 sm:pb-10 border-t border-hairline text-[10px] sm:text-xs font-mono text-paper-2 flex flex-col md:flex-row justify-between items-center gap-2.5 sm:gap-4 text-center">
-        <div>
-          © 2026 NEXO — PAINEL DE CONTROLE DE EXPEDIÇÃO. TODOS OS DIREITOS RESERVADOS.
+        <div class="flex items-center gap-2">
+          <img src="logo.png" alt="Logo Nexo" class="w-5 h-5 rounded object-contain shrink-0">
+          <span>© 2026 NEXO — PAINEL DE CONTROLE DE EXPEDIÇÃO. TODOS OS DIREITOS RESERVADOS.</span>
         </div>
         <div>
           <a href="#hero" class="hover:text-paper-0 transition-colors">VOLTAR AO TOPO ↑</a>
