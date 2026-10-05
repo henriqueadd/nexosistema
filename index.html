@@ -616,18 +616,37 @@
           <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-paper-0 tracking-tight">O QUE VOCÊ VAI RECEBER</h2>
         </div>
 
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-6">
-          
-          <div class="anim anim-delay-1 p-4 sm:p-5 rounded-xl border border-hairline bg-white hover:border-hairline-strong transition-all shadow-sm flex items-start gap-3.5 sm:gap-4">
-            <div class="p-2.5 sm:p-2.5 rounded-lg bg-ink-1 text-paper-0 border border-hairline shrink-0 mt-0.5">
-              <i data-lucide="smartphone" class="w-5 h-5 sm:w-5 sm:h-5"></i>
+        <!-- 01. PRIMEIRO CARD COM IMAGEM AO LADO -->
+        <div class="anim anim-delay-1 mb-4 sm:mb-6 p-5 sm:p-7 rounded-2xl border border-hairline bg-white hover:border-hairline-strong transition-all shadow-sm">
+          <div class="flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8">
+            <div class="flex items-start gap-3.5 sm:gap-4 flex-1">
+              <div class="p-2.5 sm:p-3 rounded-xl bg-ink-1 text-paper-0 border border-hairline shrink-0 mt-0.5">
+                <i data-lucide="smartphone" class="w-5 h-5 sm:w-6 sm:h-6"></i>
+              </div>
+              <div class="space-y-2">
+                <span class="inline-block font-mono text-[10px] sm:text-xs font-bold text-accent-emerald bg-emerald-50 px-2 sm:px-2.5 py-0.5 rounded border border-emerald-200 uppercase tracking-wider">
+                  01. INTERFACE DO OPERADOR
+                </span>
+                <h3 class="font-bold text-paper-0 text-base sm:text-xl md:text-2xl leading-snug">
+                  Painel do funcionário com as etapas Expedição, Separação e Entrega
+                </h3>
+                <p class="text-xs sm:text-base text-paper-2 leading-relaxed">
+                  Tela do funcionário lançando o pedido na etapa Expedição. O operador tem acesso simples às etapas de expedição, separação e baixa de entregas diretamente pelo celular ou terminal do depósito.
+                </p>
+              </div>
             </div>
-            <div>
-              <h3 class="font-bold text-paper-0 text-sm sm:text-sm leading-snug">Painel do funcionário com as etapas Expedição, Separação e Entrega</h3>
-              <p class="text-xs sm:text-xs text-paper-2 mt-1 leading-relaxed">Tela do funcionário lançando o pedido na etapa Expedição.</p>
+
+            <!-- IMAGEM AO LADO DO PRIMEIRO CARD -->
+            <div class="shrink-0 flex justify-center w-full md:w-auto">
+              <div class="relative w-[190px] sm:w-[210px] md:w-[220px] rounded-2xl overflow-hidden border border-hairline-strong shadow-lg bg-white">
+                <img src="tela-funcionario.png" alt="Tela do funcionário lançando o pedido na etapa Expedição" class="w-full h-auto object-contain block hover:scale-105 transition-transform duration-300">
+              </div>
             </div>
           </div>
+        </div>
 
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-6">
+          
           <div class="anim anim-delay-2 p-4 sm:p-5 rounded-xl border border-hairline bg-white hover:border-hairline-strong transition-all shadow-sm flex items-start gap-3.5 sm:gap-4">
             <div class="p-2.5 sm:p-2.5 rounded-lg bg-ink-1 text-paper-0 border border-hairline shrink-0 mt-0.5">
               <i data-lucide="package-minus" class="w-5 h-5 sm:w-5 sm:h-5"></i>
@@ -668,7 +687,7 @@
             </div>
           </div>
 
-          <div class="anim anim-delay-6 p-4 sm:p-5 rounded-xl border border-hairline bg-white hover:border-hairline-strong transition-all shadow-sm flex items-start gap-3.5 sm:gap-4 border-l-4 border-l-accent-amber">
+          <div class="anim anim-delay-6 p-4 sm:p-5 rounded-xl border border-hairline bg-white hover:border-hairline-strong transition-all shadow-sm flex items-start gap-3.5 sm:gap-4 border-l-4 border-l-accent-amber sm:col-span-2 lg:col-span-2">
             <div class="p-2.5 sm:p-2.5 rounded-lg bg-amber-50 text-accent-amber border border-amber-200 shrink-0 mt-0.5">
               <i data-lucide="calculator" class="w-5 h-5 sm:w-5 sm:h-5"></i>
             </div>
