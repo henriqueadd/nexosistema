@@ -1595,6 +1595,183 @@
       border: 1px solid rgba(255,255,255,0.5);
     }
 
+    /* Seção Entre em Contato Conosco */
+    .contact-section {
+      background-color: var(--bg-white);
+      padding: 95px 24px 90px;
+      margin-top: -1px;
+      border-top: none;
+      border-bottom: none;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .contact-container {
+      max-width: 860px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .contact-subtitle {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #FDF1EA;
+      color: var(--color-primary);
+      border: 1px solid #F5D7C4;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      margin-bottom: 16px;
+      box-shadow: 0 2px 8px rgba(250, 135, 72, 0.1);
+    }
+
+    .contact-title {
+      font-size: 40px;
+      line-height: 1.2;
+      color: var(--color-primary);
+      margin-bottom: 18px;
+    }
+
+    .contact-title em {
+      font-style: italic;
+      color: var(--color-accent);
+    }
+
+    .contact-desc {
+      font-size: 16px;
+      color: var(--color-secondary);
+      line-height: 1.7;
+      max-width: 620px;
+      margin: 0 auto 36px;
+    }
+
+    .contact-card {
+      background: linear-gradient(180deg, #FFFFFF 0%, #FCFAF7 100%);
+      border: 1.5px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 44px 32px;
+      box-shadow: 0 12px 36px rgba(102, 56, 30, 0.07);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-3px);
+      border-color: #F3C7B0;
+      box-shadow: 0 18px 45px rgba(102, 56, 30, 0.12);
+    }
+
+    .contact-badge-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #E8F8EE;
+      color: #128C7E;
+      font-size: 12.5px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      padding: 7px 16px;
+      border-radius: var(--radius-full);
+      margin-bottom: 22px;
+    }
+
+    .contact-status-dot {
+      width: 8px;
+      height: 8px;
+      background: #25D366;
+      border-radius: 50%;
+      box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+      animation: pulseGreen 2s infinite;
+    }
+
+    @keyframes pulseGreen {
+      0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+      }
+      70% {
+        box-shadow: 0 0 0 8px rgba(37, 211, 102, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+      }
+    }
+
+    .contact-phone-display {
+      font-family: 'Playfair Display', serif;
+      font-size: 34px;
+      font-weight: 700;
+      color: var(--color-primary);
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+
+    .contact-phone-sub {
+      font-size: 13.5px;
+      color: var(--color-muted);
+      margin-bottom: 28px;
+    }
+
+    .btn-whatsapp-cta {
+      background: #25D366;
+      color: #FFFFFF;
+      padding: 16px 36px;
+      border-radius: var(--radius-full);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    .btn-whatsapp-cta:hover {
+      background: #20BD5A;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(37, 211, 102, 0.45);
+      color: #FFFFFF;
+    }
+
+    .btn-whatsapp-cta svg {
+      flex-shrink: 0;
+    }
+
+    .contact-features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 32px;
+      width: 100%;
+      border-top: 1px solid var(--border-light);
+      padding-top: 26px;
+    }
+
+    .contact-feature-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--color-secondary);
+      font-weight: 600;
+    }
+
+    .contact-feature-icon {
+      color: var(--color-accent);
+      flex-shrink: 0;
+    }
+
     /* Footer */
     footer {
       background-color: #1F1A18;
@@ -1801,6 +1978,19 @@
       .footer-container {
         grid-template-columns: 1fr;
       }
+      .contact-title {
+        font-size: 28px;
+      }
+      .contact-card {
+        padding: 32px 20px;
+      }
+      .contact-phone-display {
+        font-size: 26px;
+      }
+      .contact-features-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
     }
   </style>
 </head>
@@ -1818,6 +2008,7 @@
         <li><a href="#formatos">Como Servimos</a></li>
         <li><a href="#sobre">Nossa História</a></li>
         <li><a href="#lojas">Onde Estamos</a></li>
+        <li><a href="#contato">Contato</a></li>
       </ul>
     </div>
   </header>
@@ -2385,6 +2576,10 @@
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>
               Traçar Rota no Google Maps
             </a>
+            <a href="https://wa.me/558494211033" target="_blank" rel="noopener noreferrer" class="btn-delivery-store">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 2C6.511 2 2.016 6.484 2.016 11.988c0 1.76.46 3.481 1.332 4.992L2 22l5.176-1.328a9.98 9.98 0 0 0 4.855 1.316h.004c5.517 0 10.012-4.484 10.012-9.992C22.047 6.484 17.552 2 12.031 2zm0 18.258c-1.503 0-2.977-.404-4.263-1.168l-.306-.182-3.167.813.847-3.045-.198-.319a8.214 8.214 0 0 1-1.258-4.368c0-4.57 3.73-8.287 8.347-8.287 2.228 0 4.322.868 5.897 2.443a8.232 8.232 0 0 1 2.444 5.897c0 4.57-3.73 8.287-8.343 8.287zm4.566-6.195c-.25-.125-1.478-.73-1.707-.813-.23-.083-.397-.125-.564.125-.167.25-.648.813-.794.98-.146.167-.292.188-.542.063-.25-.125-1.056-.39-2.012-1.242-.744-.663-1.246-1.482-1.392-1.732-.146-.25-.016-.385.109-.51.113-.112.25-.292.375-.438.125-.146.167-.25.25-.417.083-.167.042-.313-.021-.438-.063-.125-.564-1.36-.772-1.862-.203-.489-.41-.422-.564-.43-.146-.008-.313-.01-.48-.01-.167 0-.438.063-.667.313-.23.25-.875.855-.875 2.085 0 1.23.896 2.418 1.021 2.585.125.167 1.763 2.692 4.27 3.776.597.258 1.063.412 1.427.527.6.191 1.146.164 1.578.1.481-.072 1.478-.604 1.687-1.188.209-.584.209-1.084.146-1.188-.063-.104-.23-.167-.48-.292z"/></svg>
+              Falar no WhatsApp
+            </a>
           </div>
         </div>
 
@@ -2394,6 +2589,66 @@
           <div class="location-badge-float">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
             Aberta Hoje
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção Entre em Contato Conosco -->
+  <section class="contact-section" id="contato">
+    <!-- Borda Orgânica Laranja Direita -->
+    <div class="brand-edge brand-edge-orange-right" aria-hidden="true">
+      <svg viewBox="0 0 160 560" fill="none" preserveAspectRatio="none">
+        <path d="M160 0 C110 20, 60 70, 50 130 C42 180, 2 240, 2 280 C2 330, 45 370, 75 410 C100 450, 115 500, 160 560 L160 0 Z" fill="#FA8748"/>
+      </svg>
+    </div>
+
+    <!-- Borda Orgânica Marrom Esquerda -->
+    <div class="brand-edge brand-edge-brown-bottom-left" aria-hidden="true">
+      <svg viewBox="0 0 260 220" fill="none" preserveAspectRatio="none">
+        <path d="M0 0 C40 10, 75 40, 95 85 C112 120, 140 145, 195 165 C235 180, 255 200, 260 220 L0 220 Z" fill="#66381E"/>
+      </svg>
+    </div>
+
+    <div class="contact-container">
+      <div class="contact-subtitle">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+        Fale Conosco
+      </div>
+      <h2 class="contact-title">Entre em <em>Contato</em> Conosco</h2>
+      <p class="contact-desc">
+        Tem alguma dúvida, deseja conferir a disponibilidade dos sabores do dia ou fazer uma encomenda especial? Fale diretamente com a equipe Gelavitte pelo WhatsApp!
+      </p>
+
+      <div class="contact-card">
+        <div class="contact-badge-status">
+          <span class="contact-status-dot"></span>
+          Atendimento Oficial no WhatsApp
+        </div>
+
+        <div class="contact-phone-display">(84) 9421-1033</div>
+        <div class="contact-phone-sub">+55 84 9421-1033 • Parnamirim / RN</div>
+
+        <a href="https://wa.me/558494211033" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-cta">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12.031 2C6.511 2 2.016 6.484 2.016 11.988c0 1.76.46 3.481 1.332 4.992L2 22l5.176-1.328a9.98 9.98 0 0 0 4.855 1.316h.004c5.517 0 10.012-4.484 10.012-9.992C22.047 6.484 17.552 2 12.031 2zm0 18.258c-1.503 0-2.977-.404-4.263-1.168l-.306-.182-3.167.813.847-3.045-.198-.319a8.214 8.214 0 0 1-1.258-4.368c0-4.57 3.73-8.287 8.347-8.287 2.228 0 4.322.868 5.897 2.443a8.232 8.232 0 0 1 2.444 5.897c0 4.57-3.73 8.287-8.343 8.287zm4.566-6.195c-.25-.125-1.478-.73-1.707-.813-.23-.083-.397-.125-.564.125-.167.25-.648.813-.794.98-.146.167-.292.188-.542.063-.25-.125-1.056-.39-2.012-1.242-.744-.663-1.246-1.482-1.392-1.732-.146-.25-.016-.385.109-.51.113-.112.25-.292.375-.438.125-.146.167-.25.25-.417.083-.167.042-.313-.021-.438-.063-.125-.564-1.36-.772-1.862-.203-.489-.41-.422-.564-.43-.146-.008-.313-.01-.48-.01-.167 0-.438.063-.667.313-.23.25-.875.855-.875 2.085 0 1.23.896 2.418 1.021 2.585.125.167 1.763 2.692 4.27 3.776.597.258 1.063.412 1.427.527.6.191 1.146.164 1.578.1.481-.072 1.478-.604 1.687-1.188.209-.584.209-1.084.146-1.188-.063-.104-.23-.167-.48-.292z"/>
+          </svg>
+          Chamar no WhatsApp
+        </a>
+
+        <div class="contact-features-grid">
+          <div class="contact-feature-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" class="contact-feature-icon"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            <span>Resposta rápida</span>
+          </div>
+          <div class="contact-feature-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" class="contact-feature-icon"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            <span>Atendimento acolhedor</span>
+          </div>
+          <div class="contact-feature-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" class="contact-feature-icon"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+            <span>Sabores & Encomendas</span>
           </div>
         </div>
       </div>
@@ -2475,7 +2730,8 @@
       <div class="footer-col">
         <h4>Atendimento</h4>
         <ul>
-          <li><a href="#">Fale Conosco</a></li>
+          <li><a href="https://wa.me/558494211033" target="_blank" rel="noopener noreferrer">WhatsApp: (84) 9421-1033</a></li>
+          <li><a href="#contato">Entre em Contato</a></li>
           <li><a href="#">Política de Privacidade</a></li>
         </ul>
       </div>
